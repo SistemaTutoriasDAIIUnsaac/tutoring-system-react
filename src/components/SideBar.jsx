@@ -79,7 +79,7 @@ export default function SideBar() {
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              Hugo Mamani Leon
+              Zonia Acurio
             </a>
           </div>
         </div>
