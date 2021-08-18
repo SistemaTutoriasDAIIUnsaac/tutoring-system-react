@@ -5,15 +5,16 @@ import Content from './components/Content';
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 import Prueba from './pages/Prueba';
+import Teacher from './pages/Teacher';
 
 function App() {
   return (
     <Router>
       <Header/>
       <SideBar/>
-      <Content/>
       <Switch>
         <Route exact path="/prueba" component={Prueba}/>
+        <Route exact path="/teacher" component={Teacher}/>
       </Switch>
     </Router>
   );
