@@ -4,8 +4,8 @@ import Content from './components/Content';
 // Import components
 import Header from './components/Header'
 import SideBar from './components/SideBar'
-//import Prueba from './pages/Prueba';
-import Prueba from './pages/Student';
+import Prueba from './pages/Prueba';
+import Teacher from './pages/Teacher';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
       <SideBar/>      
       <Switch>
         <Route exact path="/prueba" component={Prueba}/>
+        <Route exact path="/teacher" component={Teacher}/>
       </Switch>
     </Router>
   );
