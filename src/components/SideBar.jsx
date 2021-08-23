@@ -9,6 +9,11 @@ export default function SideBar() {
       _state: false,
       SubItems: [
         {
+          name: "Últimas novedades",
+          icon: "fas fa-newspaper",
+          _state: false,
+        },
+        {
           name: "Lista de Docentes",
           icon: "fas fa-list nav-icon",
           _state: false,
