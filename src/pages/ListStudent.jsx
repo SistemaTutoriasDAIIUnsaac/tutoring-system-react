@@ -1,10 +1,51 @@
 import React, { Fragment, useState } from "react";
+import { link } from "react-router-dom"
 import axios from "axios";
+
 const Prueba = () => {
-  const [datos, setDatos] = useState({
-    cod_student: "",
-    name: "",
-  });
+  const[datos,setDatos]=useState({
+    cod_student:'',
+    name: '',
+    f_lastname: '',
+    m_lastname: '',
+    phone:'',
+    email:'',
+    cod_faculty:'',
+    cod_career:'',
+    adress:''
+  })  
+  const Data1 ={
+    nro_orden: '1',
+    cod_student:'161234',
+    name: 'Miguel',
+    f_lastname: 'Shaw',
+    m_lastname: 'Trauco',
+    nro_citas:'3',    
+  }
+  const Data2 ={
+    nro_orden: '2',
+    cod_student:'165678',
+    name: 'Paolo',
+    f_lastname: 'Kane',
+    m_lastname: 'Guerrero',
+    nro_citas:'2',    
+  }  
+  const Data3 ={
+    nro_orden: '3',
+    cod_student:'171234',
+    name: 'Cristian',
+    f_lastname: 'Palenca',
+    m_lastname: 'Cueva',
+    nro_citas:'0',
+  }
+  const Data4 ={
+    nro_orden: '4',
+    cod_student:'175678',
+    name: 'André',
+    f_lastname: 'Sterling',
+    m_lastname: 'Carrillo',
+    nro_citas:'4',    
+  }    
   const onSubmit = (e) => {
     //e.preventDefault();
     //postData();
@@ -17,16 +58,16 @@ const Prueba = () => {
   const CambiarEntrada = (event) => {
     //console.log(event.target.value)
     setDatos({
-      ...datos,
-      [event.target.name]: event.target.value,
-    });
-    console.log(datos);
-  };
+        ...datos,            
+        [event.target.name]:event.target.value
+    })
+    console.log(datos)
+}
 
-  const EnviarDatos = (event) => {
+const EnviarDatos = (event) =>{
     event.preventDefault();
-    console.log(datos.nombre + " " + datos.apellido);
-  };
+    console.log(datos.nombre+' '+datos.apellido)
+}  
   return (
     <Fragment>
       <div className="content-wrapper">
@@ -74,10 +115,21 @@ const Prueba = () => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>1.</td>
-                        <td>161111</td>
-                        <td>Miguel Shaw Trauco</td>
-                        <td>7</td>
+                        <td>{Data1.nro_orden+ "."}</td>
+                        <td>{Data1.cod_student}</td>
+                        <td>{Data1.name+" "+Data1.f_lastname+" "+Data1.m_lastname}</td>
+                        <td>{Data1.nro_citas}</td>
+                        <td>
+                        <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
+                          _ Ir _                      
+                        </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>{Data2.nro_orden+ "."}</td>
+                        <td>{Data2.cod_student}</td>
+                        <td>{Data2.name+" "+Data2.f_lastname+" "+Data2.m_lastname}</td>
+                        <td>{Data2.nro_citas}</td>
                         <td>
                         <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
                             _ Ir _
@@ -85,49 +137,27 @@ const Prueba = () => {
                         </td>
                       </tr>
                       <tr>
-                        <td>2.</td>
-                        <td>162222</td>
-                        <td>Carlos Umtiti Zambrano</td>
-                        <td>3</td>
+                        <td>{Data3.nro_orden+ "."}</td>
+                        <td>{Data3.cod_student}</td>
+                        <td>{Data3.name+" "+Data3.f_lastname+" "+Data3.m_lastname}</td>
+                        <td>{Data3.nro_citas}</td>
                         <td>
-                        <button type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
+                        <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
                             _ Ir _
                         </button>                          
                         </td>
                       </tr>
                       <tr>
-                        <td>3.</td>
-                        <td>171122</td>
-                        <td>Cristian Pique Ramos</td>
-                        <td>5</td>
+                        <td>{Data4.nro_orden+ "."}</td>
+                        <td>{Data4.cod_student}</td>
+                        <td>{Data4.name+" "+Data4.f_lastname+" "+Data4.m_lastname}</td>
+                        <td>{Data4.nro_citas}</td>
                         <td>
-                        <button type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
+                        <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
                             _ Ir _
                         </button>                          
                         </td>
                       </tr>
-                      <tr>
-                        <td>4.</td>
-                        <td>172222</td>
-                        <td>Pedro Navas Gallese</td>
-                        <td>2</td>
-                        <td>
-                        <button type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                            _ Ir _
-                        </button>                          
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>5.</td>
-                        <td>173333</td>
-                        <td>Cristian Palenca Cueva </td>
-                        <td>3</td>
-                        <td>
-                        <button type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                            _ Ir _
-                        </button>                          
-                        </td>
-                      </tr>                                                                  
                     </tbody>
                   </table>
                 </div>
