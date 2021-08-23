@@ -2,9 +2,21 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const InformationStudent = () => {
-  const data = {
-    codigo: "160890",
+
+  // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
+
+  const dataStudent = {
+    cod_student: "160890",
+    name: "Marko",
+    f_lastname: "Castro",
+    m_lastname: "Cordova",
+    phone: "983048685",
+    email: "160890@unsaac.edu.pe",
+    cod_faculty: "#IEEMI",
+    cod_career: "#IIS",
+    adress: "Calle Domingo Guevara"
   };
+
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
@@ -26,7 +38,7 @@ const InformationStudent = () => {
           </div>
         </div>
         <div className="card-header text-muted border-bottom-0">
-          Marko Castro Cordova
+          {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}          
         </div>
         {/* /.container-fluid */}
       </section>
@@ -41,16 +53,16 @@ const InformationStudent = () => {
                 </h5>
                 <div className="card-header text-muted border-bottom-0">
                   <p className="text-muted text-sm mb-0">
-                    <b>Codigo: </b> {data.codigo}
+                    <b>Codigo: </b> {dataStudent.cod_student}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Email: </b> 160890@unsaac.edu.pe
+                    <b>Email: </b> {dataStudent.email}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Codigo de Facultad: </b> #IEEEMI
+                    <b>Codigo de Facultad: </b> {dataStudent.cod_faculty}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Codigo de Carrera: </b> #IIS
+                    <b>Codigo de Carrera: </b> {dataStudent.cod_career}
                   </p>
                 </div>
                 <div className="card-body pt-0">
