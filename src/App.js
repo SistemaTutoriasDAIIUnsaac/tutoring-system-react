@@ -7,7 +7,7 @@ import SideBar from './components/SideBar'
 import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
-
+import InformationStudent from './pages/InformationStudent';
 function App() {
   return (
     <Router>
@@ -17,6 +17,7 @@ function App() {
         <Route exact path="/prueba" component={Prueba}/>
         <Route exact path="/teacher" component={Teacher}/>
         <Route exact path="/student" component={Student}/>
+        <Route exact path="/Informationstudent" component={InformationStudent}/>
       </Switch>
     </Router>
   );
