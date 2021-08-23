@@ -8,7 +8,9 @@ import News_List from './components/News_List'
 import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
+import ListStudent from './pages/ListStudent';
 
+import InformationStudent from './pages/InformationStudent';
 function App() {
   return (
     <Router>
@@ -20,6 +22,8 @@ function App() {
         <Route exact path="/student" component={Student}/>
         <News_List>
         </News_List>
+        <Route exact path="/list_student" component={ListStudent}/>
+        <Route exact path="/Informationstudent" component={InformationStudent}/>
       </Switch>
       
     </Router>
