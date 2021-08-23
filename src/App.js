@@ -9,6 +9,7 @@ import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import ListStudent from './pages/ListStudent';
 
+import InformationStudent from './pages/InformationStudent';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/teacher" component={Teacher}/>
         <Route exact path="/student" component={Student}/>
         <Route exact path="/list_student" component={ListStudent}/>
+        <Route exact path="/Informationstudent" component={InformationStudent}/>
       </Switch>
     </Router>
   );
