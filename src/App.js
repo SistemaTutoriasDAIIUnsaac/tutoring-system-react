@@ -9,6 +9,7 @@ import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import ListStudent from './pages/ListStudent';
+import Tutorados from './pages/Tutorados';
 
 import InformationStudent from './pages/InformationStudent';
 function App() {
@@ -20,9 +21,10 @@ function App() {
         <Route exact path="/prueba" component={Prueba}/>
         <Route exact path="/teacher" component={Teacher}/>
         <Route exact path="/student" component={Student}/>
-        <NewsList/>        
         <Route exact path="/list_student" component={ListStudent}/>
-        <Route exact path="/Informationstudent" component={InformationStudent}/>
+        <Route exact path="/Tutorados" component={Tutorados}/>
+        <NewsList/>                
+        <Route exact path="/Informationstudent" component={InformationStudent}/>        
       </Switch>
       
     </Router>

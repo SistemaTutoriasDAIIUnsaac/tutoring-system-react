@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-
 import axios from "axios";
 
 const Prueba = () => {
@@ -20,7 +19,7 @@ const Prueba = () => {
     name: 'Miguel',
     f_lastname: 'Shaw',
     m_lastname: 'Trauco',
-    nro_citas:'3',    
+    estado:'Completado',
   }
   const Data2 ={
     nro_orden: '2',
@@ -28,7 +27,8 @@ const Prueba = () => {
     name: 'Paolo',
     f_lastname: 'Kane',
     m_lastname: 'Guerrero',
-    nro_citas:'2',    
+    nro_citas:'2',
+    estado:'Completado',
   }  
   const Data3 ={
     nro_orden: '3',
@@ -36,7 +36,7 @@ const Prueba = () => {
     name: 'Cristian',
     f_lastname: 'Palenca',
     m_lastname: 'Cueva',
-    nro_citas:'0',
+    estado:'Indispuesto',
   }
   const Data4 ={
     nro_orden: '4',
@@ -44,7 +44,7 @@ const Prueba = () => {
     name: 'André',
     f_lastname: 'Sterling',
     m_lastname: 'Carrillo',
-    nro_citas:'4',    
+    estado:'Completado',
   }    
   const onSubmit = (e) => {
     //e.preventDefault();
@@ -76,11 +76,10 @@ const EnviarDatos = (event) =>{
           <div className="container-fluid">
             <div className="row mb-2">
               <div className="col-sm-6">
-                <h1>Citas</h1>
+                <h1>Lista de Tutorados</h1>
               </div>
               <div className="col-sm-6">
-                <ol className="breadcrumb float-sm-right">
-                  <li className="breadcrumb-item active">Nueva Cita</li>
+                <ol className="breadcrumb float-sm-right">                  
                   <li className="breadcrumb-item">
                     {/* <a href="#">Home</a> */}
                     {/* <Link to="Detalle_Servicio"> Detalle Servicio</Link> */}
@@ -109,8 +108,8 @@ const EnviarDatos = (event) =>{
                         <th style={{ width: 10 }}>#</th>
                         <th style={{ width: 100 }}>Código</th> 
                         <th>Nombres y Apellidos</th>
-                        <th style={{ width: 80 }}>Número de Citas</th>
-                        <th style={{ width: 40 }}>Acciones</th>                        
+                        <th style={{ width: 80 }}>Estado</th>
+                        <th style={{ width: 40 }}>Información</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -118,10 +117,10 @@ const EnviarDatos = (event) =>{
                         <td>{Data1.nro_orden+ "."}</td>
                         <td>{Data1.cod_student}</td>
                         <td>{Data1.name+" "+Data1.f_lastname+" "+Data1.m_lastname}</td>
-                        <td>{Data1.nro_citas}</td>
+                        <td>{Data1.estado}</td>
                         <td>
                         <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                          _ Ir _                      
+                          _Ver_                
                         </button>
                         </td>
                       </tr>
@@ -129,10 +128,10 @@ const EnviarDatos = (event) =>{
                         <td>{Data2.nro_orden+ "."}</td>
                         <td>{Data2.cod_student}</td>
                         <td>{Data2.name+" "+Data2.f_lastname+" "+Data2.m_lastname}</td>
-                        <td>{Data2.nro_citas}</td>
+                        <td>{Data2.estado}</td>
                         <td>
                         <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                            _ Ir _
+                            _Ver_
                         </button>                          
                         </td>
                       </tr>
@@ -140,10 +139,10 @@ const EnviarDatos = (event) =>{
                         <td>{Data3.nro_orden+ "."}</td>
                         <td>{Data3.cod_student}</td>
                         <td>{Data3.name+" "+Data3.f_lastname+" "+Data3.m_lastname}</td>
-                        <td>{Data3.nro_citas}</td>
+                        <td>{Data3.estado}</td>
                         <td>
                         <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                            _ Ir _
+                            _Ver_
                         </button>                          
                         </td>
                       </tr>
@@ -151,10 +150,10 @@ const EnviarDatos = (event) =>{
                         <td>{Data4.nro_orden+ "."}</td>
                         <td>{Data4.cod_student}</td>
                         <td>{Data4.name+" "+Data4.f_lastname+" "+Data4.m_lastname}</td>
-                        <td>{Data4.nro_citas}</td>
+                        <td>{Data4.estado}</td>
                         <td>
                         <button size="small" type="submit" className="btn btn-info" onClick={(e) => onSubmit(e)}>
-                            _ Ir _
+                            _Ver_
                         </button>                          
                         </td>
                       </tr>
