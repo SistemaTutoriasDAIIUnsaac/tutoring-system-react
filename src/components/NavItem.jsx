@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import SubNavItem from "./SubNavItem";
 
 function NavItem({data, ChangeState}) {
@@ -9,7 +9,7 @@ function NavItem({data, ChangeState}) {
     <Fragment>
           {
             <li className="nav-item" key={name} onClick={() => ChangeState(name)  }>
-              <a className={_state ? "nav-link active" : "nav-link" } >
+              <a className={_state ? "nav-link active" : "nav-link" } href="!#" >
                 <i className={icon} />
                 <p>
                   {name}

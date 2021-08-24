@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Content from './components/Content';
+// import Content from './components/Content';
 // Import components
 import Header from './components/Header'
 import SideBar from './components/SideBar'
-import News_List from './components/News_List'
+import NewsList from './components/NewsList'
 import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
@@ -20,8 +20,7 @@ function App() {
         <Route exact path="/prueba" component={Prueba}/>
         <Route exact path="/teacher" component={Teacher}/>
         <Route exact path="/student" component={Student}/>
-        <News_List>
-        </News_List>
+        <NewsList/>        
         <Route exact path="/list_student" component={ListStudent}/>
         <Route exact path="/Informationstudent" component={InformationStudent}/>
       </Switch>

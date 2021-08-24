@@ -1,6 +1,25 @@
-import React, { useState, Fragment } from "react";
-import News from './News'
-const News_List = () => {
+import React, { Fragment } from "react";
+import News from "./News";
+
+const News_List = (  ) => {
+  const data = [
+    {
+      date: "dsdddsd",
+      title: "aaaaa",
+      person: "sfsfsf",
+    },
+    {
+      date: "sfsdhfs",
+      title: "bbbbb",
+      person: "sfsfsf",
+    },
+    {
+      date: "sfsdhfs",
+      title: "ccccc",
+      person: "sfsfsf",
+    },
+  ];
+
   return (
     <Fragment>
       <div className="content-wrapper">
@@ -65,15 +84,14 @@ const News_List = () => {
                   <button type="button" className="btn btn-default btn-sm">
                     <i className="fas fa-sync-alt" />
                   </button>
-                    {/* /.btn-group */}
+                  {/* /.btn-group */}
                   {/* /.float-right */}
                 </div>
                 <div className="table-responsive mailbox-messages">
-                  <table className="table table-hover table-striped">
-                    {/* Agregar aquí .................................................................*/}
-                    <News />
-                    <News />
-                    <News />
+                  <table className="table table-hover table-striped">                    
+
+                    {data.map((item, index) => <News data={item} />)}
+
                   </table>
                   {/* /.table */}
                 </div>
@@ -108,5 +126,5 @@ const News_List = () => {
       </div>
     </Fragment>
   );
-}
+};
 export default News_List;
