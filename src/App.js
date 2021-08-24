@@ -19,10 +19,10 @@ function App() {
       <Switch>
         <Route exact path="/prueba" component={Prueba}/>
         <Route exact path="/teacher" component={Teacher}/>
-        <Route exact path="/student" component={Student}/>
-        <NewsList/>        
+        <Route exact path="/student" component={Student}/>     
         <Route exact path="/list_student" component={ListStudent}/>
-        <Route exact path="/Informationstudent" component={InformationStudent}/>
+        <Route exact path="/newslist" component={NewsList}/>
+        <Route exact path="/informationstudent" component={InformationStudent}/>
       </Switch>
       
     </Router>
