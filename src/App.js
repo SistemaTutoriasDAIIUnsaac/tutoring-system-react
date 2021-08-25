@@ -12,6 +12,7 @@ import ListStudent from './pages/ListStudent';
 import ListStudents from './pages/ListStudents';
 import InformationStudent from './pages/InformationStudent';
 import Footer from './components/Footer';
+
 function App() {
   return (
     <Router>
@@ -21,7 +22,6 @@ function App() {
         <Route exact path="/prueba" component={Prueba}/>
         <Route exact path="/teacher" component={Teacher}/>
         <Route exact path="/Nuevo_Estudiante" component={NewStudent}/>
-        {/* <NewsList/>         */}
         <Route exact path="/list_student" component={ListStudent}/>
         <Route exact path="/Lista_de_Estudiantes" component={ListStudents}/>
         <Route exact path="/Informationstudent" component={InformationStudent}/>
