@@ -1,7 +1,27 @@
 import React, { useState } from "react";
 import NavItem from "./NavItem";
+
+
 export default function SideBar() {
   const initialState = [
+    // Estudiantes
+    {
+      name: "Estudiantes",
+      icon: "nav-icon fas fa-boxes",
+      _state: false,
+      SubItems: [
+        {
+          name: "Lista de Estudiantes",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Nuevo Estudiante",
+          icon: "fas fa-box-open nav-icon",
+          _state: false,
+        }        
+      ],
+    },
     // Docentes
     {
       name: "Docentes",
@@ -23,24 +43,6 @@ export default function SideBar() {
           icon: "fas fa-tools nav-icon",
           _state: false,
         }
-      ],
-    },
-    // Estudiantes
-    {
-      name: "Estudiantes",
-      icon: "nav-icon fas fa-boxes",
-      _state: false,
-      SubItems: [
-        {
-          name: "Lista de Estudiantes",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
-        {
-          name: "Agregar Estudiante",
-          icon: "fas fa-box-open nav-icon",
-          _state: false,
-        }        
       ],
     }
   ]
