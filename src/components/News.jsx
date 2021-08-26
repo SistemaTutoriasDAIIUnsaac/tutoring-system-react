@@ -14,14 +14,14 @@ const News = ( {data} ) => {
 
   return (
     <Fragment>
-      <div className="table-responsive mailbox-messages">
+      {/* <div className="table-responsive mailbox-messages">
         <table className="table table-hover table-striped">
           <thead>
             <td style={{width: "10%"}}></td>
             <td style={{width: "30%"}}></td>
             <td style={{width: "30%"}}></td>
             <td style={{width: "30%"}}></td>
-          </thead>
+          </thead> */}
           <tbody>
             <tr>
               <td>
@@ -39,9 +39,9 @@ const News = ( {data} ) => {
               </td>
             </tr>
           </tbody>
-        </table>
+        {/* </table> */}
         {/* /.table */}
-      </div>
+      {/* </div> */}
     </Fragment>
   );
 };

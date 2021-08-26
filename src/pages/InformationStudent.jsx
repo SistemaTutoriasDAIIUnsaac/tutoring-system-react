@@ -4,6 +4,34 @@ import axios from "axios";
 const InformationStudent = () => {
   // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
 
+  const data = {
+    student: {
+      cod_student: "160890",
+      name: "Marko",
+      f_lastname: "Castro",
+      m_lastname: "Cordova",
+      phone: "983048685",
+      email: "160890@unsaac.edu.pe",
+      cod_faculty: "#IEEMI",
+      cod_career: "#IIS",
+      adress: "Calle Domingo Guevara"
+    },
+    tutor: {
+      cod_teacher: "172080",//codigo de docente
+      name: "Rozas",//nombre
+      f_lastname: "Huacho",//apellidos
+      m_lastname: "Huachito",//email
+      phone: "987045671"//phone
+    },
+    workshop: {
+      cod_workshop: "123124",
+      name_workshop: "Base de Datos - I",
+      name: "Marko Leugim"
+    }
+
+  }
+
+
   const dataStudent = {
     cod_student: "160890",
     name: "Marko",

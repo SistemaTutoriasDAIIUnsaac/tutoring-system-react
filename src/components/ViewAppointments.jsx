@@ -1,0 +1,88 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Appointments from "./Appointments";
+const ViewAppointments = () => {
+  // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
+
+  const dataStudent = {
+    cod_student: "160890",
+    name: "Marko",
+    f_lastname: "Castro",
+    m_lastname: "Cordova",
+    phone: "983048685",
+    email: "160890@unsaac.edu.pe",
+    cod_faculty: "#IEEMI",
+    cod_career: "#IIS",
+    adress: "Calle Domingo Guevara",
+  };
+
+  return (
+    <div className="content-wrapper">
+      {/* Content Header (Page header) */}
+      <section className="content-header">
+        <div className="container-fluid">
+          <div className="row mb-2">
+            <div className="col-sm-6">
+              <h1>Citas</h1>
+            </div>
+            <div className="col-sm-6">
+              <ol className="breadcrumb float-sm-right">
+                <li className="breadcrumb-item active">Citas</li>
+                <li className="breadcrumb-item">
+                  {/* <a href="#">Home</a> */}
+                  {/* <Link to="Detalle_Servicio"> Detalle Servicio</Link> */}
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div className="card-header text-muted border-bottom-0">
+          <p className="text-muted text-lm mb-3">
+            <b>Tutorado: </b>
+            {"  "}
+            {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
+          </p>
+          <button type="submit" class="btn btn-primary">
+            Nueva Cita
+          </button>
+        </div>
+        {/* /.container-fluid */}
+      </section>
+      <div className="card card-primary" >
+        <div className="card-header">
+          <h4 className="card-title">Datos citas</h4>
+        </div>
+      </div>
+      <div
+        style={{
+          overflowY: "scroll",
+          height: 285,
+          paddingRight: 30,
+          paddingLeft: 30,
+        }}
+      >
+        <div className="card-header" style={{ padding: 1 }} />
+        <Appointments></Appointments>
+        <Appointments></Appointments>
+        <Appointments></Appointments>
+      </div>
+      <div className="col-12">
+        <Link to="list_student">
+          <button type="button" className="btn btn-success float-right">
+            <i className="" /> Salir
+          </button>
+        </Link>{" "}
+      </div>
+      {/* /.content */}
+    </div>
+  );
+};
+
+export default ViewAppointments;
+{
+  /* <Link to="/">
+<button type="submit" className="btn btn-danger ml-8 mt-3">
+  Volver
+</button>
+</Link> */
+}

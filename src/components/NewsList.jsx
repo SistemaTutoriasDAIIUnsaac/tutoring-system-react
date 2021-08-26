@@ -1,22 +1,22 @@
 import React, { Fragment } from "react";
 import News from "./News";
 
-const News_List = (  ) => {
+const News_List = () => {
   const data = [
     {
-      date: "dsdddsd",
-      title: "aaaaa",
-      person: "sfsfsf",
+      date: "30-08-2021",
+      title: "Reunión con directora de escuela",
+      person: "Nila Zonia Acurio Usca",
     },
     {
-      date: "sfsdhfs",
-      title: "bbbbb",
-      person: "sfsfsf",
+      date: "01-09-2021",
+      title: "Cita con Tutorandos",
+      person: "Coordinador de Tutoria",
     },
     {
-      date: "sfsdhfs",
-      title: "ccccc",
-      person: "sfsfsf",
+      date: "15-09-2021",
+      title: "Reunión Tutores",
+      person: "Coordinador de Tutoria",
     },
   ];
 
@@ -88,10 +88,16 @@ const News_List = (  ) => {
                   {/* /.float-right */}
                 </div>
                 <div className="table-responsive mailbox-messages">
-                  <table className="table table-hover table-striped">                    
-
-                    {data.map((item, index) => <News data={item} />)}
-
+                  <table className="table table-hover table-striped">
+                    <thead>
+                      <td style={{ width: "10%" }}></td>
+                      <td style={{ width: "30%" }}></td>
+                      <td style={{ width: "30%" }}></td>
+                      <td style={{ width: "30%" }}></td>
+                    </thead>
+                    {data.map((item, index) => (
+                      <News data={item} />
+                    ))}
                   </table>
                   {/* /.table */}
                 </div>

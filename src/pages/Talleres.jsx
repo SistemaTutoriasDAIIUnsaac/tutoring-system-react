@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { MuiThemeProvider,createMuiTheme,FormControlLabel,Switch} from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-function ListStudent() {
+function Talleres() {
   //Button of mode and module dark (table)
   const[preferDark,setPreferDark]=useState(()=>{
     const mode=localStorage.getItem("_tableDarkMode")
@@ -25,10 +25,9 @@ function ListStudent() {
     { title: "Nro", field: "no_service" },
 
     { title: "Código", field: "code" },
+    {title: "Taller", field:"taller"},
 
-    { title: "Nombres y Apellidos", field: "full_name" },
-
-    { title: "Número de Citas", field: "nro_citas" },
+    { title: "Estudiante Ayudante", field: "full_name" },
   ];
   const queryAPI = async (method = "get", data = {}) => {
     const url = "https://tsc-rest-api.herokuapp.com/products";
@@ -56,40 +55,11 @@ function ListStudent() {
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
-      <section className="content">
-        <div className="conteiner-fluid">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card mt-4">
-                <div className="card-body">
-                <Link to="/">
-                  <button className="btn btn-primary">
-                    <h4>
-                      Generar Cita <i className="fas fa-plus"></i>
-                    </h4>
-                  </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1>Citas</h1>
-            </div>
-            <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Lista de Estudiantes</li>
-                <li className="breadcrumb-item">
-                  {/* <a href="#">Home</a> */}
-                  <Link to="Nuevo_Estudiante"> Nuevo Estudiante</Link>
-                </li>
-              </ol>
+              <h1>Talleres</h1>
             </div>
           </div>
         </div>
@@ -165,4 +135,4 @@ function ListStudent() {
   );
 }
 
-export default ListStudent;
+export default Talleres;
