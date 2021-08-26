@@ -3,9 +3,7 @@ import axios from "axios";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 
-function Talleres() {
-
-  //Finish Button and module of mode dark (table)  
+function Talleres() {  
   const [DataProducts, setDataProducts] = useState([]);
   const columns = [
     { title: "Nro", field: "no_service" },
@@ -58,7 +56,6 @@ function Talleres() {
             <div className="col-12">
               <div className="card">
                 {/* /.card-header */}
-                {/*Start button of mode dark*/}              
                 <div className="card-body">
                   <MaterialTable
                     title="Lista de Estudiantes"
