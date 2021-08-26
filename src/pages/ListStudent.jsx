@@ -1,25 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import MaterialTable from "material-table";
-import { MuiThemeProvider,createMuiTheme,FormControlLabel,Switch} from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 function ListStudent() {
-  //Button of mode and module dark (table)
-  const[preferDark,setPreferDark]=useState(()=>{
-    const mode=localStorage.getItem("_tableDarkMode")
-    return mode==="true"||false
-  }) 
-  const theme=createMuiTheme({
-    palette:{
-      type:preferDark?"dark":"light"
-    }
-  })
-  const handelDarkModeChange=()=>{
-    setPreferDark(!preferDark)
-    localStorage.setItem("_tableDarkMode",!preferDark)
-  }
-  //Finish Button and module of mode dark (table)  
   const [DataProducts, setDataProducts] = useState([]);
   const columns = [
     { title: "Nro", field: "no_service" },
@@ -101,18 +85,7 @@ function ListStudent() {
           <div className="row">
             <div className="col-12">
               <div className="card">
-                {/* /.card-header */}
-                {/*Start button of mode dark*/}
-                <FormControlLabel
-                  value="top"
-                  control={<Switch color="primary" checked={preferDark}/>}
-                  onChange={handelDarkModeChange}
-                  label="Modo Oscuro"
-                  labelPlacement="right"
-                />
-                {/*Finish button of mode dark*/}                        
-                {/*Start mode dark or light*/}
-                <MuiThemeProvider theme={theme}>
+                {/* /.card-header */}                
                 <div className="card-body">
                   <MaterialTable
                     title="Lista de Estudiantes"
@@ -148,9 +121,7 @@ function ListStudent() {
                     </button>
                   </Link>                  
                 </div>
-                {/* /.card-body */}
-                {/*Finish mode dark or light*/}
-                </MuiThemeProvider>
+                {/* /.card-body */}                
               </div>
               {/* /.card */}
             </div>
