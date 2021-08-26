@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import News from "./News";
+import { Link } from "react-router-dom";
 
 const News_List = () => {
   const data = [
@@ -28,14 +29,14 @@ const News_List = () => {
           <div className="container-fluid">
             <div className="row mb-2">
               <div className="col-sm-6">
-                <h1>NOVEDADES</h1>
+                <h1>Novedades</h1>
               </div>
               <div className="col-sm-6">
                 <ol className="breadcrumb float-sm-right">
-                  <li className="breadcrumb-item active"></li>
+                  <li className="breadcrumb-item active">Novedades</li>
                   <li className="breadcrumb-item">
                     {/* <a href="#">Home</a> */}
-                    {/* <Link to="Detalle_Servicio"> Detalle Servicio</Link> */}
+                    <Link to="Nueva_cita"> Últimas novedades</Link>
                   </li>
                 </ol>
               </div>
@@ -43,93 +44,39 @@ const News_List = () => {
           </div>
           {/* /.container-fluid */}
         </section>
-        {/* Main content */}
-        <section className="content">
-          <div className="container-fluid">
-            <div className="card card-primary card-outline">
+
+        <div className="card">
+          <div className="card-body">
+            <div className="card card-primary">
               <div className="card-header">
-                <h3 className="card-title">Últimas Novedades</h3>
-                <div className="card-tools">
-                  <div className="input-group input-group-sm">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Buscar"
-                    />
-                    <div className="input-group-append">
-                      <div className="btn btn-primary">
-                        <i className="fas fa-search" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* /.card-tools */}
+                <h4 className="card-title">Últimas novedades</h4>
               </div>
-              {/* /.card-header */}
-              <div className="card-body p-0">
-                <div className="mailbox-controls">
-                  {/* Check all button */}
-                  <button
-                    type="button"
-                    className="btn btn-default btn-sm checkbox-toggle"
-                  >
-                    <i className="far fa-square" />
-                  </button>
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-default btn-sm">
-                      <i className="far fa-trash-alt" />
-                    </button>
-                  </div>
-                  {/* /.btn-group */}
-                  <button type="button" className="btn btn-default btn-sm">
-                    <i className="fas fa-sync-alt" />
-                  </button>
-                  {/* /.btn-group */}
-                  {/* /.float-right */}
-                </div>
-                <div className="table-responsive mailbox-messages">
-                  <table className="table table-hover table-striped">
-                    <thead>
-                      <td style={{ width: "10%" }}></td>
-                      <td style={{ width: "30%" }}></td>
-                      <td style={{ width: "30%" }}></td>
-                      <td style={{ width: "30%" }}></td>
-                    </thead>
-                    {data.map((item, index) => (
-                      <News data={item} />
-                    ))}
-                  </table>
-                  {/* /.table */}
-                </div>
-                {/* /.mail-box-messages */}
-              </div>
-              {/* /.card-body */}
-              <div className="card-footer p-0">
-                <div className="mailbox-controls">
-                  {/* Check all button */}
-                  <button
-                    type="button"
-                    className="btn btn-default btn-sm checkbox-toggle"
-                  >
-                    <i className="far fa-square" />
-                  </button>
-                  <div className="btn-group">
-                    <button type="button" className="btn btn-default btn-sm">
-                      <i className="far fa-trash-alt" />
-                    </button>
-                  </div>
-                  {/* /.btn-group */}
-                  <button type="button" className="btn btn-default btn-sm">
-                    <i className="fas fa-sync-alt" />
-                  </button>
-                  {/* /.float-right */}
+
+              <div className="card-body">
+                <div
+                  style={{
+                    overflowY: "scroll",
+                    height: 300,
+                    paddingRight: 30,
+                    paddingLeft: 30,
+                  }}
+                >
+                  <div className="card-header" style={{ padding: 1 }} />
+                  {data.map((item, index) => (
+                    <News data={item} />
+                  ))}
                 </div>
               </div>
             </div>
+            <Link to="list_student">
+              <button type="button" className="btn btn-danger float-right">
+                <i className="" /> Volver
+              </button>
+            </Link>
           </div>
-        </section>
-        {/* /.content */}
+        </div>
       </div>
+      );
     </Fragment>
   );
 };
