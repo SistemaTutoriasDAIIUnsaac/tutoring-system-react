@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './components/Header'
 import SideBar from './components/SideBar'
 import NewsList from './components/NewsList'
+import ViewAppointments from './components/ViewAppointments';
 import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import ListStudent from './pages/ListStudent';
-
 import InformationStudent from './pages/InformationStudent';
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route exact path="/list_student" component={ListStudent}/>
         <Route exact path="/newslist" component={NewsList}/>
         <Route exact path="/informationstudent" component={InformationStudent}/>
+        <Route exact path="/viewappointments" component={ViewAppointments}/>
       </Switch>
       
     </Router>
