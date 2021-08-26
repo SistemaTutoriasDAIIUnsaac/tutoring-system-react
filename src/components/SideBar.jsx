@@ -42,6 +42,11 @@ export default function SideBar() {
           name: "Agregar Docente",
           icon: "fas fa-tools nav-icon",
           _state: false,
+        },
+        {
+          name: "Disponibilidad Horaria",
+          icon: "fas fa-clock nav-icon",
+          _state: false,
         }
       ],
     },

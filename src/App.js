@@ -6,6 +6,7 @@ import Header from './components/Header'
 import SideBar from './components/SideBar'
 import NewsList from './components/NewsList'
 import ViewAppointments from './components/ViewAppointments';
+import TimeAvailability from './components/TimeAvailability';
 import Prueba from './pages/Prueba';
 import Teacher from './pages/Teacher';
 import NewStudent from './pages/NewStudent';
@@ -30,12 +31,13 @@ function App() {
         <Route exact path="/Lista_de_Talleres" component={Talleres}/>
         <Route exact path="/Nuevo_Estudiante" component={NewStudent}/>
         <Route exact path="/Lista_de_estudiantes" component={ListStudent}/>
-        <Route exact path="/newslist" component={NewsList}/>
+        <Route exact path="/Últimas_novedades" component={NewsList}/>
         <Route exact path="/informationstudent" component={InformationStudent}/>
         <Route exact path="/Nueva_cita" component={NewAppointment}/>
         <Route exact path="/Lista_de_citas" component={ViewAppointments}/>
         <Route exact path="/Lista_de_Estudiantes" component={ListStudents}/>
         <Route exact path="/Informationstudent" component={InformationStudent}/>
+        <Route exact path="/Disponibilidad_Horaria" component={TimeAvailability}/>
       </Switch>
       <Footer/>
     </Router>
