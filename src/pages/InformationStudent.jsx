@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const InformationStudent = () => {
-
   // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
 
   const dataStudent = {
@@ -14,7 +13,25 @@ const InformationStudent = () => {
     email: "160890@unsaac.edu.pe",
     cod_faculty: "#IEEMI",
     cod_career: "#IIS",
-    adress: "Calle Domingo Guevara"
+    adress: "Calle Domingo Guevara",
+  };
+
+  const dataTeacher = {
+    cod_teacher: "102030",
+    name: "Pedrito",
+    f_lastname: "Zolano",
+    m_lastname: "Siempre",
+    phone: "951617181",
+    email: "pedritoZolano@solito.com",
+  };
+
+  const dataWorkshop = {
+    cod_workshop: "TA001",
+    workshop_name: "Base de datos",
+    f_lastname: "Perez",
+    m_lastname: "Alzamora",
+    name: "Juan Armando",
+    phone: "978651743",
   };
 
   return (
@@ -37,16 +54,31 @@ const InformationStudent = () => {
             </div>
           </div>
         </div>
-        <div className="card-header text-muted border-bottom-0">
-          {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}          
-        </div>
+
         {/* /.container-fluid */}
       </section>
       {/* Main content */}
-      <section className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-sm-6">
+
+
+      <div className="col-md-11 ml-5 mt-2">
+        {/* Widget: user widget style 1 */}
+        <div className="card card-widget widget-user">
+          {/* Add the bg color to the header using any of the bg-* classes */}
+          <div className="widget-user-header bg-info">
+            <h3 className="widget-user-username">
+              {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}</h3>
+            <h5 className="widget-user-desc">Student</h5>
+          </div>
+          <div className="widget-user-image">
+            <img
+              className="img-circle elevation-2"
+              src="../dist/img/user1-128x128.jpg"
+              alt="User Avatar"
+            />
+          </div>
+          <div className="card-footer">
+            <div className="row">
+              <div className="col-sm-4 border-right">
               <div className="card bg-light">
                 <h5 className="ml-3 mt-2">
                   <b>Informacion general </b> .
@@ -73,13 +105,13 @@ const InformationStudent = () => {
                           <span className="fa-li">
                             <i className="fas fa-lg fa-building" />
                           </span>{" "}
-                          Direccion: Calle Domingo Guevara
+                          Direccion: {dataStudent.adress}
                         </li>
                         <li className="small">
                           <span className="fa-li">
                             <i className="fas fa-lg fa-phone" />
                           </span>{" "}
-                          # de celular: 983048685
+                          # de celular: {dataStudent.phone}
                         </li>
                       </ul>
                       <p className="text-muted text-sm mb-0">
@@ -95,94 +127,86 @@ const InformationStudent = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="col-5 text-center">
-                      <img
-                        src="../../dist/img/user1-128x128.jpg"
-                        alt="user-avatar"
-                        className="img-circle img-fluid"
-                      />
-                    </div>
                   </div>
                 </div>
-                <div className="card-footer"></div>
               </div>
-            </div>
-
-            <div className="col-sm-6">
+            
+                {/* /.description-block */}
+              </div>
+              {/* /.col */}
+              <div className="col-sm-4 border-right">
               <div className="card bg-light">
                 <h5 className="ml-3 mt-2">
                   <b>Informacion tutor </b> .
                 </h5>
                 <div className="card-header text-muted border-bottom-0">
                   <p className="text-muted text-sm mb-0">
-                    <b>Codigo: </b> 908070
+                    <b>Codigo: </b> {dataTeacher.cod_teacher}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Apellidos y nombres: </b> Rogelio Torres Torritos
+                    <b>Apellidos y nombres: </b>
+                    {`${dataTeacher.name} ${dataTeacher.f_lastname} ${dataTeacher.m_lastname}`}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Email: </b>torritosTerrones@rogelio.com
+                    <b>Email: </b>
+                    {dataTeacher.email}
                   </p>
                   <ul className="ml-4 mb-0 fa-ul text-muted">
                     <li className="small">
                       <span className="fa-li">
                         <i className="fas fa-lg fa-phone" />
                       </span>{" "}
-                      # de celular: 99887-1245
+                      {dataTeacher.phone}
                     </li>
                   </ul>
                 </div>
               </div>
+                {/* /.description-block */}
+              </div>
+              {/* /.col */}
+              <div className="col-sm-4">
               <div className="card bg-light">
                 <h5 className="ml-3 mt-2">
                   <b>Informacion talleres </b> .
                 </h5>
                 <div className="card-header text-muted border-bottom-0">
                   <p className="text-muted text-sm mb-0">
-                    <b>Codigo curso: </b> IF425
+                    <b>Codigo curso: </b> {dataWorkshop.cod_workshop}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Nombre: </b> Base de datos
+                    <b>Nombre: </b> {dataWorkshop.workshop_name}
                   </p>
                   <p className="text-muted text-sm mb-0">
-                    <b>Estudiante ayudante a cargo:</b> Carlos Jimenez Alcantara
+                    <b>Estudiante ayudante a cargo:</b>
+                    {`${dataWorkshop.name} ${dataWorkshop.f_lastname} ${dataWorkshop.m_lastname}`}
                   </p>
                   <ul className="ml-4 mb-0 fa-ul text-muted">
                     <li className="small">
                       <span className="fa-li">
                         <i className="fas fa-lg fa-phone" />
                       </span>{" "}
-                      # de celular: 974459590
+                      # de celular: {dataWorkshop.phone}
                     </li>
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="ml-3 mt-2">
-              <h6 className="ml-0 mt-0 ">
-                Desea compartir su informacion privada cuando solicite cambio de
-                tutor?
-              </h6>
-              <div className="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  name="terms"
-                  className="custom-control-input"
-                  id="exampleCheck1"
-                />
-                <label className="custom-control-label" htmlFor="exampleCheck1">
-                  I agree
-                </label>
-                <div class="card-footer ml-0 mt-0">
-                  <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
+            
+                {/* /.description-block */}
               </div>
+              {/* /.col */}
             </div>
+            {/* /.row */}
           </div>
         </div>
-        {/* /.container-fluid */}
-      </section>
+        {/* /.widget-user */}
+      </div>
       {/* /.content */}
+
+      <div className="card-footer ">
+            <button type="submit" className="btn btn-primary ml-5 mt-2">
+              Salir
+            </button>
+          </div>
     </div>
   );
 };
