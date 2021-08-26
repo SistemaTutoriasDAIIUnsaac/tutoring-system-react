@@ -12,14 +12,14 @@ const Appointments = () => {
             <div className="row">
               <div className="col-sm-1">
                 <div className="form-group">
-                  <label>N° Sesión</label>
+                  <label>N° Cita</label>
                   <div className="input-group">
-                    <div className="input-group-prepend"></div>
+                    {/* <div className="input-group-prepend"></div> */}
                     <input type="number" className="form-control" />
                   </div>
                 </div>
               </div>
-              <div className="col-sm-2">
+              <div className="col-sm-3">
                 <div className="form-group">
                   <label>Fecha</label>
                   <input type="date" className="form-control" />
@@ -33,27 +33,7 @@ const Appointments = () => {
                     <input type="text" class="form-control" disabled="true"></input>
                   </div>
                 </div>
-              </div>
-              {/* <div className="col-sm-4">
-                <div className="form-group">
-                  <label>Observaciones</label>
-                  <div className="input-group">
-                    <div className="input-group-prepend"></div>
-                    <textarea
-                      class="form-control"
-                      rows="3"
-                      disabled="true"
-                    ></textarea>
-                  </div>
-                </div>
-              </div> */}
-              {/* <div className="col-sm-2">
-                <div className="form-group">
-                  <button className="btn btn-danger">
-                    <i className="fas fa-trash-alt" />
-                  </button>
-                </div>
-              </div> */}
+              </div>  
             </div>
           </form>
         </div>

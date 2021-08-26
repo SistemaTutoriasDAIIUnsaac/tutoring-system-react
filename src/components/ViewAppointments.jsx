@@ -27,53 +27,63 @@ const ViewAppointments = () => {
             </div>
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Citas</li>
+                <li className="breadcrumb-item active">Lista de Citas</li>
                 <li className="breadcrumb-item">
                   {/* <a href="#">Home</a> */}
-                  {/* <Link to="Detalle_Servicio"> Detalle Servicio</Link> */}
+                  <Link to="Nueva_cita"> Nueva Cita</Link>
                 </li>
               </ol>
             </div>
           </div>
         </div>
-        <div className="card-header text-muted border-bottom-0">
-          <p className="text-muted text-lm mb-3">
-            <b>Tutorado: </b>
-            {"  "}
-            {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
-          </p>
-          <button type="submit" class="btn btn-primary">
-            Nueva Cita
-          </button>
-        </div>
+        <div className="card">
+          <div className="card-body">
+            <div className="row">
+              <h4>
+                Tutorado:{" "}
+                {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
+              </h4>
+            </div>
+            <Link to="Nueva_cita"> 
+              <button type="submit" class="btn btn-primary mt-2">
+                Nueva Cita <i className="fas fa-plus ml-2"></i>
+              </button>
+            </Link>
+          </div>
+        </div>        
         {/* /.container-fluid */}
       </section>
-      <div className="card card-primary" >
-        <div className="card-header">
-          <h4 className="card-title">Datos citas</h4>
+      
+      <div className="card">
+        <div className="card-body">
+          <div className="card card-primary">
+            <div className="card-header">
+              <h4 className="card-title">Lista de Citas</h4>
+            </div>
+
+            <div className="card-body">
+              <div
+                style={{
+                  overflowY: "scroll",
+                  height: 285,
+                  paddingRight: 30,
+                  paddingLeft: 30,
+                }}
+              >
+                <div className="card-header" style={{ padding: 1 }} />
+                <Appointments />
+                <Appointments />
+                <Appointments />
+              </div>
+            </div>
+          </div>
+          <Link to="list_student">
+            <button type="button" className="btn btn-danger float-right">
+              <i className="" /> Volver
+            </button>
+          </Link>
         </div>
       </div>
-      <div
-        style={{
-          overflowY: "scroll",
-          height: 285,
-          paddingRight: 30,
-          paddingLeft: 30,
-        }}
-      >
-        <div className="card-header" style={{ padding: 1 }} />
-        <Appointments></Appointments>
-        <Appointments></Appointments>
-        <Appointments></Appointments>
-      </div>
-      <div className="col-12">
-        <Link to="list_student">
-          <button type="button" className="btn btn-success float-right">
-            <i className="" /> Salir
-          </button>
-        </Link>{" "}
-      </div>
-      {/* /.content */}
     </div>
   );
 };

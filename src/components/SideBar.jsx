@@ -30,7 +30,7 @@ export default function SideBar() {
       SubItems: [
         {
           name: "Últimas novedades",
-          icon: "fas fa-newspaper",
+          icon: "fas fa-newspaper nav-icon",
           _state: false,
         },
         {
@@ -43,6 +43,32 @@ export default function SideBar() {
           icon: "fas fa-tools nav-icon",
           _state: false,
         }
+      ],
+    },
+    // Talleres
+    {
+      name: "Talleres",
+      icon: "nav-icon fas fa-book",
+      _state: false,
+      SubItems: [
+        {
+          name: "Lista de Talleres",
+          icon: "fas fa-newspaper nav-icon",
+          _state: false,
+        }        
+      ],
+    },
+    // Citas
+    {
+      name: "Citas",
+      icon: "nav-icon fas fa-book",
+      _state: false,
+      SubItems: [
+        {
+          name: "Lista de estudiantes",
+          icon: "fas fa-newspaper nav-icon",
+          _state: false,
+        } 
       ],
     }
   ]
