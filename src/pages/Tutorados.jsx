@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { MuiThemeProvider,createMuiTheme,FormControlLabel,Switch} from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-function ListStudent() {
+function Tutorados() {
   //Button of mode and module dark (table)
   const[preferDark,setPreferDark]=useState(()=>{
     const mode=localStorage.getItem("_tableDarkMode")
@@ -19,7 +19,7 @@ function ListStudent() {
     setPreferDark(!preferDark)
     localStorage.setItem("_tableDarkMode",!preferDark)
   }
-  //Finish Button and module of mode dark (table)  
+  //Finish Button and module of mode dark (table)
   const [DataProducts, setDataProducts] = useState([]);
   const columns = [
     { title: "Nro", field: "no_service" },
@@ -28,8 +28,9 @@ function ListStudent() {
 
     { title: "Nombres y Apellidos", field: "full_name" },
 
-    { title: "Número de Citas", field: "nro_citas" },
+    { title: "Estado", field: "nro_citas" },
   ];
+
   const queryAPI = async (method = "get", data = {}) => {
     const url = "https://tsc-rest-api.herokuapp.com/products";
     var ans = [];
@@ -45,49 +46,31 @@ function ListStudent() {
       setDataProducts(DataProducts.filter((item) => item.id != data.id));
     }
   };
+
   const filterOptions = (inputValue, _data) => {
     return _data.filter((i) =>
       i.label.toUpperCase().includes(inputValue.toUpperCase())
     );
   };
+
   useEffect(() => {
     queryAPI("get");
   }, [setDataProducts]);
+
   return (
     <div className="content-wrapper">
-      {/* Content Header (Page header) */}
-      <section className="content">
-        <div className="conteiner-fluid">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="card mt-4">
-                <div className="card-body">
-                <Link to="/">
-                  <button className="btn btn-primary">
-                    <h4>
-                      Generar Cita <i className="fas fa-plus"></i>
-                    </h4>
-                  </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1>Citas</h1>
+              <h1>Lista de Tutorados</h1>
             </div>
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Lista de Estudiantes</li>
+                <li className="breadcrumb-item active">Tutorados</li>
                 <li className="breadcrumb-item">
                   {/* <a href="#">Home</a> */}
-                  <Link to="Nuevo_Estudiante"> Nuevo Estudiante</Link>
+                  <Link to="Nuevo_Estudiante"> Nuevo Tutorado</Link>
                 </li>
               </ol>
             </div>
@@ -100,7 +83,7 @@ function ListStudent() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
-              <div className="card">
+              <div className="card">                
                 {/* /.card-header */}
                 {/*Start button of mode dark*/}
                 <FormControlLabel
@@ -108,45 +91,45 @@ function ListStudent() {
                   control={<Switch color="primary" checked={preferDark}/>}
                   onChange={handelDarkModeChange}
                   label="Modo Oscuro"
-                  labelPlacement="right"
+                  labelPlacement="left"
                 />
-                {/*Finish button of mode dark*/}                        
+                {/*Finish button of mode dark*/}                                        
                 {/*Start mode dark or light*/}
                 <MuiThemeProvider theme={theme}>
                 <div className="card-body">
-                  <MaterialTable
-                    title="Lista de Estudiantes"
-                    data={DataProducts}
-                    columns={columns}
-                    options={{
-                      search: true,
-                      paging: true,
-                      filtering: true,
-                      exportButton: true,
-                      actions: true,
-                      actionsColumnIndex: -1,
-                      pageSize: 10,
-                    }}
-                    actions={[
-                      {
-                        icon: "delete",
-                        tooltip: "Borrar Estudiante",
-                        onClick: (ev, rowData) =>
-                          console.log("Borrar Estudiante")
-                      },
-                      {
-                        icon: "edit",
-                        tooltip: "Editar Estudiante",
-                        onClick: (ev, rowData) =>
-                          console.log("Editar Estudiante")
-                      },
-                    ]}
-                  />
+                    <MaterialTable
+                      title="Tutorados"
+                      data={DataProducts}
+                      columns={columns}
+                      options={{
+                        search: true,
+                        paging: true,
+                        filtering: true,
+                        exportButton: true,
+                        actions: true,
+                        actionsColumnIndex: -1,
+                        pageSize: 10,
+                      }}
+                      actions={[
+                        {
+                          icon: "delete",
+                          tooltip: "Borrar Estudiante",
+                          onClick: (ev, rowData) =>
+                            console.log("Borrar Estudiante"),
+                        },
+                        {
+                          icon: "edit",
+                          tooltip: "Editar Estudiante",
+                          onClick: (ev, rowData) =>
+                            console.log("Editar Estudiante"),
+                        },
+                      ]}
+                    />                  
                   <Link to="/">
                     <button type="submit" className="btn btn-danger ml-8 mt-3">
                       Volver
                     </button>
-                  </Link>                  
+                  </Link>
                 </div>
                 {/* /.card-body */}
                 {/*Finish mode dark or light*/}
@@ -156,7 +139,7 @@ function ListStudent() {
             </div>
             {/* /.col */}
           </div>
-          {/* /.row */}
+          {/* /.row */}      
         </div>
         {/* /.container-fluid */}
       </section>
@@ -165,4 +148,4 @@ function ListStudent() {
   );
 }
 
-export default ListStudent;
+export default Tutorados;

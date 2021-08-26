@@ -1,5 +1,7 @@
 import React,{Fragment,useState} from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 const Prueba = () => {
     const[datos,setDatos]=useState({
         cod_student:'',
@@ -42,15 +44,15 @@ const Prueba = () => {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1>Registro de Estudiantes</h1>
+              <h1>Registrar Nuevo Estudiante</h1>
             </div>
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Nuevo Estudiante</li>
                 <li className="breadcrumb-item">
                   {/* <a href="#">Home</a> */}
-                  {/* <Link to="Detalle_Servicio"> Detalle Servicio</Link> */}
+                  <Link to="Lista_de_Estudiantes"> Lista de Estudiantes</Link>
                 </li>
+                <li className="breadcrumb-item active">Nuevo Estudiante</li>
               </ol>
             </div>
           </div>
