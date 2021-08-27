@@ -16,10 +16,11 @@ import NewAppointment from './pages/NewAppointment';
 import Tutorados from './pages/Tutorados';
 import Talleres from './pages/Talleres';
 import AttendanceByDate from './pages/AttendanceByDate';
+import VerListaPorAlumno from './pages/VerListaPorAlumno';
 
 import ListStudents from './pages/ListStudents';
 import Footer from './components/Footer';
-
+import ViewAssistance from './pages/ViewAssistance';
 function App() {
   return (
     <Router>
@@ -40,6 +41,9 @@ function App() {
         <Route exact path="/Informationstudent" component={InformationStudent}/>
         <Route exact path="/Disponibilidad_Horaria" component={TimeAvailability}/>
         <Route exact path="/AttendanceByDate" component={AttendanceByDate}/>
+        <Route exact path="/ViewAssistance" component={ViewAssistance}/>
+
+        <Route exact path="/Ver_Lista_Por_Alumno" component={VerListaPorAlumno}/>
       </Switch>
       <Footer/>
     </Router>
