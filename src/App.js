@@ -18,7 +18,7 @@ import Talleres from './pages/Talleres';
 
 import ListStudents from './pages/ListStudents';
 import Footer from './components/Footer';
-
+import ViewAssistance from './pages/ViewAssistance';
 function App() {
   return (
     <Router>
@@ -38,6 +38,8 @@ function App() {
         <Route exact path="/Lista_de_Estudiantes" component={ListStudents}/>
         <Route exact path="/Informationstudent" component={InformationStudent}/>
         <Route exact path="/Disponibilidad_Horaria" component={TimeAvailability}/>
+        <Route exact path="/ViewAssistance" component={ViewAssistance}/>
+
       </Switch>
       <Footer/>
     </Router>
