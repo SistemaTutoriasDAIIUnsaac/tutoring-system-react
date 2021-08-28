@@ -46,7 +46,7 @@ function ListStudent() {
             <div className="col-md-12">
               <div className="card mt-4">
                 <div className="card-body">
-                <Link to="/">
+                <Link to="/Nueva_cita/160890">
                   <button className="btn btn-primary">
                     <h4>
                       Generar Cita <i className="fas fa-plus"></i>

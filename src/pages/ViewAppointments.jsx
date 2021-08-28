@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Appointments from "./Appointments";
+import Appointments from "../components/Appointments";
 const ViewAppointments = () => {
   // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
 
@@ -30,7 +30,7 @@ const ViewAppointments = () => {
                 <li className="breadcrumb-item active">Lista de Citas</li>
                 <li className="breadcrumb-item">
                   {/* <a href="#">Home</a> */}
-                  <Link to="Nueva_cita"> Nueva Cita</Link>
+                  <Link to="/Nueva_cita/160890"> Nueva Cita</Link>
                 </li>
               </ol>
             </div>
@@ -44,7 +44,7 @@ const ViewAppointments = () => {
                 {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
               </h4>
             </div>
-            <Link to="Nueva_cita"> 
+            <Link to="/Nueva_cita/160890"> 
               <button type="submit" class="btn btn-primary mt-2">
                 Nueva Cita <i className="fas fa-plus ml-2"></i>
               </button>

@@ -29,25 +29,30 @@ export default function SideBar() {
       _state: false,
       SubItems: [
         {
-          name: "Últimas novedades",
+          name: "Lista de Tutorados",
           icon: "fas fa-newspaper nav-icon",
           _state: false,
         },
         {
-          name: "Lista de Docentes",
+          name: "Lista de Talleres",
           icon: "fas fa-list nav-icon",
           _state: false,
         },
         {
-          name: "Agregar Docente",
+          name: "Asistencias Talleres",
           icon: "fas fa-tools nav-icon",
           _state: false,
         },
         {
-          name: "Disponibilidad Horaria",
+          name: "Lista de citas",
           icon: "fas fa-clock nav-icon",
           _state: false,
-        }
+        },
+        {
+          name: "Lista de estudiantes",
+          icon: "fas fa-clock nav-icon",
+          _state: false,
+        } 
       ],
     },
     // Talleres

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import News from "./News";
+import News from "../components/News";
 import { Link } from "react-router-dom";
 
 const News_List = () => {
