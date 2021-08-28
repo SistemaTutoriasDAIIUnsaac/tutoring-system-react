@@ -1,45 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
+import AppointmentsContext from "../context/Appointments/AppointmentsContext"
 
 function Tutorados() {
-  const [DataProducts, setDataProducts] = useState([]);
-  const columns = [
-    { title: "Nro", field: "no_service" },
 
-    { title: "Código", field: "code" },
+  const { getStudentsList, students_list } = useContext(AppointmentsContext);
 
-    { title: "Nombres y Apellidos", field: "full_name" },
-
-    { title: "Estado", field: "nro_citas" },
-  ];
-
-  const queryAPI = async (method = "get", data = {}) => {
-    const url = "https://tsc-rest-api.herokuapp.com/products";
-    var ans = [];
-    if (method == "get") {
-      ans = await axios.get(url);
-      setDataProducts(ans.data);
-    } else if (method == "delete") {
-      // console.log(data);
-      ans = await axios.delete(
-        "https://tsc-rest-api.herokuapp.com/product/" + data.id
-      );
-      // console.log(ans);
-      setDataProducts(DataProducts.filter((item) => item.id != data.id));
-    }
-  };
-
-  const filterOptions = (inputValue, _data) => {
-    return _data.filter((i) =>
-      i.label.toUpperCase().includes(inputValue.toUpperCase())
-    );
-  };
-
-  useEffect(() => {
-    queryAPI("get");
-  }, [setDataProducts]);
+  useEffect( () => {
+    getStudentsList();
+    console.log(students_list)
+  }, []);
 
   return (
     <div className="content-wrapper">
@@ -70,7 +42,7 @@ function Tutorados() {
               <div className="card">                
                 {/* /.card-header */}
                 <div className="card-body">
-                    <MaterialTable
+                    {/* <MaterialTable
                       title="Tutorados"
                       data={DataProducts}
                       columns={columns}
@@ -97,7 +69,7 @@ function Tutorados() {
                             console.log("Editar Estudiante"),
                         },
                       ]}
-                    />                  
+                    />                   */}
                   <Link to="/">
                     <button type="submit" className="btn btn-danger ml-8 mt-3">
                       Volver

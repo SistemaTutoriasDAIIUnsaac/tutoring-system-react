@@ -22,10 +22,12 @@ const Teacher = () => {
         postData()
     }
     const url = "https://tutoring-system-api.herokuapp.com/teachers"
-    const postData = async() => {
-        const res = await axios.post(url, FormData) 
-        console.log(res.data)
+
+    const postData = async () => {
+        const res = await axios.post(url, FormData)
+        console.log(res.data)        
     }
+
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
@@ -129,8 +131,7 @@ const Teacher = () => {
               {/* /.card-body */}
               <div className="card-footer">
                 <button type="submit" className="btn btn-primary" onClick={(e) => onSubmit(e)}>
-                  Guardar
-                  
+                  Guardar              
                 </button>
               </div>
             </form>
