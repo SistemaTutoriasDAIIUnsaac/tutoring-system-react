@@ -1,5 +1,4 @@
-import { GET_APPOINTMENTS, GET_STUDENTS_LIST } from '../types'
-
+import { GET_APPOINTMENTS_LIST, GET_STUDENTS_LIST } from '../types'
 export default (state, action) => {
 
   const { type, payload } = action;
@@ -9,6 +8,11 @@ export default (state, action) => {
       return {
         ...state,
         studentsList: payload
+      }
+    case GET_APPOINTMENTS_LIST:
+      return{
+        ...state,
+        appointmentList: payload
       }
   }
 
