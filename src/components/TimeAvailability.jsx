@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import SchedulesAvailable from "./SchedulesAvailable";
 import { Link } from "react-router-dom";
 
-const Time_Availability = () => {
+
+function TimeAvailability() {
   return (
     <Fragment>
       <div className="content-wrapper">
-        {/* Content Header (Page header) */}
         <section className="content-header">
           <div className="container-fluid">
             <div className="row mb-2">
@@ -19,14 +19,12 @@ const Time_Availability = () => {
                     Disponibilidad Horaria
                   </li>
                   <li className="breadcrumb-item">
-                    {/* <a href="#">Home</a> */}
                     <Link to="Horarios">Horarios</Link>
                   </li>
                 </ol>
               </div>
             </div>
           </div>
-          {/* /.container-fluid */}
         </section>
         <div className="card">
           <div className="card-body">
@@ -61,6 +59,7 @@ const Time_Availability = () => {
       </div>
       );
     </Fragment>
-  );
-};
-export default Time_Availability;
+  )
+}
+
+export default TimeAvailability;

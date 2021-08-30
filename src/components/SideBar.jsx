@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavItem from "./NavItem";
 
 
-export default function SideBar() {
+function SideBar() {
   const initialState = [
     // Estudiantes
     {
@@ -166,3 +166,5 @@ export default function SideBar() {
     </aside>
   );
 }
+
+export default SideBar;

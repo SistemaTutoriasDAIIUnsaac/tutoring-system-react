@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import SubNavItem from "./SubNavItem";
 
+
 function NavItem({data, ChangeState}) {
 
   const { name, icon, _state, SubItems } = data;  
@@ -29,4 +30,5 @@ function NavItem({data, ChangeState}) {
     </Fragment>
   );
 }
+
 export default NavItem;

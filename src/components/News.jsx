@@ -1,17 +1,8 @@
 import React, { Fragment } from "react";
 import { useEffect } from "react";
 
-const News = ( {data} ) => {
 
-  // console.log(data)
-  //const { date, title, person } = props;
-
-
-  useEffect(() => {
-    console.log("asdf")
-    console.log(data)
-  }, [])
-
+function News({data}) {
   return (
     <Fragment>
       <div className="card card-secondary">
@@ -32,7 +23,6 @@ const News = ( {data} ) => {
                 <div className="form-group">
                   <label>Título</label>
                   <div className="input-group">
-                    {/* <div className="input-group-prepend"></div> */}
                     <input type="text" className="form-control" disabled="true" value={data.title }/>
                   </div>
                 </div>
@@ -52,6 +42,7 @@ const News = ( {data} ) => {
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
+
 export default News;

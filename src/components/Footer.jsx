@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 
-export default function Footer() {
+
+function Footer() {
   return (
     <Fragment>
       <footer className="main-footer">
@@ -21,3 +22,5 @@ export default function Footer() {
     </Fragment>
   );
 }
+
+export default Footer;
