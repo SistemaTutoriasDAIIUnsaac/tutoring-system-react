@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const NewAppointment = () => {
-  // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
 
+const NewAppointment = () => {
   const dataStudent = {
     cod_student: "160890",
     name: "Marko",
@@ -19,7 +17,6 @@ const NewAppointment = () => {
 
   return (
     <div className="content-wrapper">
-      {/* Content Header (Page header) */}
       <section className="content-header">
         <div className="container-fluid">
           <div className="row mb-2">
@@ -40,8 +37,8 @@ const NewAppointment = () => {
         <div className="card-header text-muted border-bottom-0">
           {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
         </div>
-        {/* /.container-fluid */}
       </section>
+      
       {/* Main content */}
       <section className="content">
         <div className="container-fluid">
@@ -76,8 +73,6 @@ const NewAppointment = () => {
                         </div>
                       </div>
 
-                      {/* /.card-header */}
-                      {/* form start */}
                       <form>
                         <div className="row">
                           <div className="col-sm-11">
@@ -108,7 +103,7 @@ const NewAppointment = () => {
                             </div>
                           </div>
                         </div>
-                        {/* /.card-body */}
+                      {/* /.card-body */}
                       </form>
                     </div>
                     <div className="card-footer">
@@ -133,7 +128,6 @@ const NewAppointment = () => {
           </div>
         </div>
       </section>
-      {/* /.content */}
     </div>
   );
 };

@@ -1,35 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
+
 const InformationStudent = () => {
-  // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
-
-  const data = {
-    student: {
-      cod_student: "160890",
-      name: "Marko",
-      f_lastname: "Castro",
-      m_lastname: "Cordova",
-      phone: "983048685",
-      email: "160890@unsaac.edu.pe",
-      cod_faculty: "#IEEMI",
-      cod_career: "#IIS",
-      adress: "Calle Domingo Guevara",
-    },
-    tutor: {
-      cod_teacher: "172080", //codigo de docente
-      name: "Rozas", //nombre
-      f_lastname: "Huacho", //apellidos
-      m_lastname: "Huachito", //email
-      phone: "987045671", //phone
-    },
-    workshop: {
-      cod_workshop: "123124",
-      name_workshop: "Base de Datos - I",
-      name: "Marko Leugim",
-    },
-  };
-
   const dataStudent = {
     cod_student: "160890",
     name: "Marko",
@@ -81,14 +53,11 @@ const InformationStudent = () => {
           </div>
         </div>
 
-        {/* /.container-fluid */}
+
       </section>
       {/* Main content */}
-
       <div className="col-md-11 ml-5 mt-2">
-        {/* Widget: user widget style 1 */}
         <div className="card card-widget widget-user">
-          {/* Add the bg color to the header using any of the bg-* classes */}
           <div className="widget-user-header bg-info">
             <h3 className="widget-user-username">
               {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
@@ -157,9 +126,7 @@ const InformationStudent = () => {
                   </div>
                 </div>
 
-                {/* /.description-block */}
               </div>
-              {/* /.col */}
               <div className="col-sm-4 border-right">
                 <div className="card bg-light">
                   <h5 className="ml-3 mt-2">
@@ -187,9 +154,7 @@ const InformationStudent = () => {
                     </ul>
                   </div>
                 </div>
-                {/* /.description-block */}
               </div>
-              {/* /.col */}
               <div className="col-sm-4">
                 <div className="card bg-light">
                   <h5 className="ml-3 mt-2">
@@ -216,12 +181,8 @@ const InformationStudent = () => {
                     </ul>
                   </div>
                 </div>
-
-                {/* /.description-block */}
               </div>
-              {/* /.col */}
             </div>
-            {/* /.row */}
           </div>
 
           <div className="form-group mt-2 ml-3 mb-2">
@@ -233,17 +194,21 @@ const InformationStudent = () => {
                 id="exampleCheck1"
               />
               <label className="custom-control-label" htmlFor="exampleCheck1">
-                Estoy de acuerdo en <a href="#">compartir mi informacion privada</a> en caso de cambio de tutor.
+                Estoy de acuerdo en{" "}
+                <a href="#">compartir mi informacion privada</a> en caso de
+                cambio de tutor.
               </label>
             </div>
           </div>
         </div>
-        {/* /.widget-user */}
       </div>
-      {/* /.content */}
-
+      
       <div className="card-body">
-        <button type="submit" className="btn btn-danger" style={{marginLeft: "35px"}}>
+        <button
+          type="submit"
+          className="btn btn-danger"
+          style={{ marginLeft: "35px" }}
+        >
           Volver
         </button>
       </div>

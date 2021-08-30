@@ -1,27 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {useState } from "react";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 
+
 function ViewAssistance() {
-  const [DataAssistance, setDataAssistance] = useState([]);
+  const [DataAssistance] = useState([]);
   const columns = [
     { title: "Código", field: "code" },
 
     { title: "Nombres y Apellidos", field: "full_name" },
   ];
-
-  const dataStudent = {
-    cod_student: "160890",
-    name: "Marko",
-    f_lastname: "Castro",
-    m_lastname: "Cordova",
-    phone: "983048685",
-    email: "160890@unsaac.edu.pe",
-    cod_faculty: "#IEEMI",
-    cod_career: "#IIS",
-    adress: "Calle Domingo Guevara",
-  };
 
   const dataWorkshop = {
     cod_workshop: "TA001",
@@ -32,7 +20,6 @@ function ViewAssistance() {
     phone: "978651743",
   };
 
-  
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
@@ -53,20 +40,16 @@ function ViewAssistance() {
             </div>
           </div>
         </div>
-        {/* /.container-fluid */}
-      </section>
 
+      </section>
       <section className="content">
         <div className="container-fluid">
-          
           <div className="row">
             <div className="col-12">
               <div className="card">
-                {/* /.card-header */}
                 <div className="card-body">
-                <div className="row">
+                  <div className="row">
                     <div className="col-sm-3">
-                      {/* textarea */}
                       <div className="form-group ml-5 mt-3">
                         <div className="form-group">
                           <label>Taller:</label> {dataWorkshop.workshop_name}
@@ -74,21 +57,19 @@ function ViewAssistance() {
                       </div>
                     </div>
                     <div className="col-sm-7">
-                      {/* textarea */}
                       <div className="form-group  mt-3">
                         <div className="form-group">
-                        <div className="form-group">
-                          <label>Estudiante ayudante:</label> {dataWorkshop.name}
-                        </div>
+                          <div className="form-group">
+                            <label>Estudiante ayudante:</label>{" "}
+                            {dataWorkshop.name}
+                          </div>
                         </div>
                       </div>
                     </div>
-                    
                   </div>
-                
+
                   <div className="row">
                     <div className="col-sm-3">
-                      {/* textarea */}
                       <div className="form-group ml-5 mt-3">
                         <div className="form-group">
                           <label>Asistencia por fecha:</label>
@@ -96,7 +77,6 @@ function ViewAssistance() {
                       </div>
                     </div>
                     <div className="col-sm-4">
-                      {/* textarea */}
                       <div className="form-group  mt-3">
                         <div className="form-group">
                           <input type="date" className="form-control" />
@@ -104,7 +84,6 @@ function ViewAssistance() {
                       </div>
                     </div>
                     <div className="col-sm-4">
-                      {/* textarea */}
                       <div className="form-group ml-5 mt-3">
                         <div className="form-group">
                           <button type="submit" className="btn btn-primary">
@@ -115,15 +94,10 @@ function ViewAssistance() {
                     </div>
                   </div>
                 </div>
-                {/* /.card-body */}
               </div>
-              {/* /.card */}
             </div>
-            {/* /.col */}
           </div>
-          {/* /.row */}
         </div>
-        {/* /.container-fluid */}
       </section>
 
       {/* Main content */}
@@ -132,7 +106,7 @@ function ViewAssistance() {
           <div className="row">
             <div className="col-12">
               <div className="card">
-                {/* /.card-header */}
+                { /*Tabla */}
                 <div className="card-body">
                   <MaterialTable
                     title="Asistencia por estudiante"
@@ -161,17 +135,11 @@ function ViewAssistance() {
                     </button>
                   </Link>
                 </div>
-                {/* /.card-body */}
               </div>
-              {/* /.card */}
             </div>
-            {/* /.col */}
           </div>
-          {/* /.row */}
         </div>
-        {/* /.container-fluid */}
       </section>
-      {/* /.content */}
     </div>
   );
 }

@@ -44,8 +44,8 @@ function AppointmentsState  ( { children } ) {
       getAppointmentList,
       getStudentsList,
       // Values
-      appointmentList: state.appointmentList,    
-      studentsList: state.studentsList,
+      appointmentList : state.appointmentList,    
+      studentsList : state.studentsList,
     }}
   >
     { children }
