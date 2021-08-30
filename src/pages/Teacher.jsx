@@ -1,32 +1,33 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-const Teacher = () => {
-    const initialState = {
-        cod_teacher: "",
-        name: "",
-        f_lastname: "",
-        m_lastname: "",
-        phone: "",
-        email: ""
-    }
-    const [FormData, setFormData ] = useState(initialState)
-    const handleInputChange = (event) => {
-        setFormData({
-            ...FormData,
-            [event.target.name] : event.target.value
-        })
-    }
-    const onSubmit = (e) => {
-        e.preventDefault();
-        postData()
-    }
-    const url = "https://tutoring-system-api.herokuapp.com/teachers"
 
-    const postData = async () => {
-        const res = await axios.post(url, FormData)
-        console.log(res.data)        
-    }
+const Teacher = () => {
+  const initialState = {
+    cod_teacher: "",
+    name: "",
+    f_lastname: "",
+    m_lastname: "",
+    phone: "",
+    email: "",
+  };
+  const [FormData, setFormData] = useState(initialState);
+  const handleInputChange = (event) => {
+    setFormData({
+      ...FormData,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    postData();
+  };
+  const url = "https://tutoring-system-api.herokuapp.com/teachers";
+
+  const postData = async () => {
+    const res = await axios.post(url, FormData);
+    console.log(res.data);
+  };
 
   return (
     <div className="content-wrapper">
@@ -48,8 +49,8 @@ const Teacher = () => {
             </div>
           </div>
         </div>
-        {/* /.container-fluid */}
       </section>
+
       {/* Main content */}
       <section className="content">
         <div className="container-fluid">
@@ -57,7 +58,6 @@ const Teacher = () => {
             <div className="card-header">
               <h3 className="card-title">Datos Docente</h3>
             </div>
-            {/* /.card-header */}
             {/* form start */}
             <form>
               <div className="card-body">
@@ -68,8 +68,8 @@ const Teacher = () => {
                     className="form-control"
                     id="exampleInputFLastname1"
                     placeholder="Ingrese código"
-                    name = "cod_teacher"
-                    onChange = {handleInputChange}
+                    name="cod_teacher"
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
@@ -79,30 +79,34 @@ const Teacher = () => {
                     className="form-control"
                     id="exampleInputName1"
                     placeholder="Ingrese nombres"
-                    name = "name"
-                    onChange = {handleInputChange}
+                    name="name"
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputFLastname1">Apellido Paterno</label>
+                  <label htmlFor="exampleInputFLastname1">
+                    Apellido Paterno
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     id="exampleInputFLastname1"
                     placeholder="Ingrese apellido paterno"
-                    name = "f_lastname"
-                    onChange = {handleInputChange}
+                    name="f_lastname"
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="exampleInputMLastname1">Apellido Materno</label>
+                  <label htmlFor="exampleInputMLastname1">
+                    Apellido Materno
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     id="exampleInputMLastname1"
                     placeholder="Ingrese apellido materno"
-                    name = "m_lastname"
-                    onChange = {handleInputChange}
+                    name="m_lastname"
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
@@ -112,8 +116,8 @@ const Teacher = () => {
                     className="form-control"
                     id="exampleInputPhone1"
                     placeholder="Ingrese número de teléfono"
-                    name = "phone"
-                    onChange = {handleInputChange}
+                    name="phone"
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="form-group">
@@ -123,23 +127,24 @@ const Teacher = () => {
                     className="form-control"
                     id="exampleInputEmail1"
                     placeholder="Ingrese correo electrónico"
-                    name = "email"
-                    onChange = {handleInputChange}
+                    name="email"
+                    onChange={handleInputChange}
                   />
                 </div>
-            </div>
-              {/* /.card-body */}
+              </div>
               <div className="card-footer">
-                <button type="submit" className="btn btn-primary" onClick={(e) => onSubmit(e)}>
-                  Guardar              
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={(e) => onSubmit(e)}
+                >
+                  Guardar
                 </button>
               </div>
             </form>
           </div>
         </div>
-        {/* /.container-fluid */}
       </section>
-      {/* /.content */}
     </div>
   );
 };
