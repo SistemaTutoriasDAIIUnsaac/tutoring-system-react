@@ -1,11 +1,8 @@
 import React, { Fragment } from "react";
 import { useEffect } from "react";
 
+
 const News = ( {data} ) => {
-
-  // console.log(data)
-  //const { date, title, person } = props;
-
 
   useEffect(() => {
     console.log("asdf")

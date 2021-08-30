@@ -1,5 +1,6 @@
-import React, { useState, Fragment } from "react";
-import axios from "axios";
+import React, { Fragment } from "react";
+
+
 const Appointments = () => {
   return (
     <Fragment>

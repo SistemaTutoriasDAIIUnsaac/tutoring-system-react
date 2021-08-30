@@ -10,24 +10,21 @@ import TimeAvailability from "./components/TimeAvailability";
 // import Prueba from './pages/Prueba';
 import Teacher from "./pages/Teacher";
 import NewStudent from "./pages/NewStudent";
-import ListStudent from "./pages/ListStudent";
 import InformationStudent from "./pages/InformationStudent";
 import NewAppointment from "./pages/NewAppointment";
 import Tutorados from "./pages/Tutorados";
 import Talleres from "./pages/Talleres";
 import AttendanceByDate from "./pages/AttendanceByDate";
 import VerListaPorAlumno from "./pages/VerListaPorAlumno";
-import ListStudents from "./pages/ListStudents";
 import Footer from "./components/Footer";
 import ViewAssistance from "./pages/ViewAssistance";
-import AppointmentsContext from "./context/Appointments/AppointmentsContext";
 import AppointmentsState from "./context/Appointments/AppointmentsState";
 function App() {
   return (
     <Router>
       <Header />
-      <SideBar />
-      <AppointmentsState>
+      <SideBar />      
+      {/*<AppointmentsState>*/}
         <Switch>
           {/* <Route exact path="/prueba" component={Prueba}/> */}
           <Route exact path="/teacher" component={Teacher} />
@@ -71,7 +68,7 @@ function App() {
             component={VerListaPorAlumno}
           />
         </Switch>
-      </AppointmentsState>
+      {/*</AppointmentsState>*/}
       <Footer />
     </Router>
   );

@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
-import MaterialTable from "material-table";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppointmentsContext from "../context/Appointments/AppointmentsContext"
+
 
 function Tutorados() {
 

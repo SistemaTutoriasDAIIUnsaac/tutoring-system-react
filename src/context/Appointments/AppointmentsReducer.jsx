@@ -1,6 +1,7 @@
 import { GET_APPOINTMENTS_LIST, GET_STUDENTS_LIST } from '../types'
-export default (state, action) => {
 
+
+export default (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -15,5 +16,4 @@ export default (state, action) => {
         appointmentList: payload
       }
   }
-
 }

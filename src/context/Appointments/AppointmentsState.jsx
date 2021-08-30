@@ -32,7 +32,7 @@ const AppointmentsState = ( { children } ) => {
   const getAppointmentList = async() => {
     const res=await axios.get(baseURL+"/appointmentList")
     dispatch({
-      type: 'GET_APPOINTMENTS_LIST',
+      type: 'GET_APPOINTMENTS_LIST',      
       payload: res.data
     });
   }
@@ -44,8 +44,8 @@ const AppointmentsState = ( { children } ) => {
       getAppointmentList,
       getStudentsList,
       // Values
-      appointmentList = state.appointmentList,    
-      studentsList = state.studentsList,
+      appointmentList: state.appointmentList,    
+      studentsList: state.studentsList,
     }}
   >
     { children }

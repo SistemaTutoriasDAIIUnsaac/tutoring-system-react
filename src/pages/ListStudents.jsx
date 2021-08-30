@@ -3,6 +3,7 @@ import axios from "axios";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 
+
 function ListStudents() {
   const [DataProducts, setDataProducts] = useState([]);
 
@@ -25,7 +26,7 @@ function ListStudents() {
   const queryAPI = async (method = "get", data = {}) => {
     const url = "https://tsc-rest-api.herokuapp.com/products";
     var ans = [];
-    if (method == "get") {
+    if (method == 'get') {
       ans = await axios.get(url);
       setDataProducts(ans.data);
     } else if (method == "delete") {
