@@ -1,10 +1,7 @@
-import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React from "react";
 
-const Attendance_By_Date = () => {
-  // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
 
+function AttendanceByDate() {
   const dataStudent = {
     cod_student: "160890",
     name: "Marko",
@@ -21,7 +18,7 @@ const Attendance_By_Date = () => {
     f_lastname: "Castro",
     m_lastname: "Cordova",
     Workshop: "Base de datos",
-    date: "12-09-2021"
+    date: "12-09-2021",
   };
 
   return (
@@ -48,7 +45,10 @@ const Attendance_By_Date = () => {
               <h5>Taller: {dataWorkshop.Workshop} </h5>
             </div>
             <div class="row">
-              <h5>Ayudante: {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}</h5>
+              <h5>
+                Ayudante:{" "}
+                {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
+              </h5>
             </div>
             <div class="row">
               <h5>Fecha: {dataWorkshop.date}</h5>
@@ -65,8 +65,7 @@ const Attendance_By_Date = () => {
               <div className="card card-primary">
                 <div className="card-header">
                   <h3 className="card-title">Lista de Estudiantes</h3>
-                  <div className="card-tools">
-</div>
+                  <div className="card-tools"></div>
                 </div>
                 {/* /.card-header */}
                 <div
@@ -108,6 +107,6 @@ const Attendance_By_Date = () => {
       {/* /.content */}
     </div>
   );
-};
+}
 
-export default Attendance_By_Date;
+export default AttendanceByDate;
