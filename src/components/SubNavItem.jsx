@@ -1,20 +1,20 @@
 import React from "react";
-import { BrowserRouter as Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-
-function SubNavItem({data}) {
-  const { name, icon, _state} = data;
+function SubNavItem({ data }) {
+  const { name, icon, _state } = data;
   var rt = "/" + name;
   rt = rt.split(" ").join("_");
-  return (    
-    <li className="nav-item" >
-      <Link to={rt} className={_state ? "nav-link active" : "nav-link" }>
-        {/* <a className={_state ? "nav-link active" : "nav-link" }> */}
+
+  return (
+    <li className="nav-item">
+      <Link to={rt} className={_state ? "nav-link active" : "nav-link"}>
+        {/* <a className={_state ? "nav-link active" : "nav-link"}> */}
           <i className={icon}></i>
-          <p>{name}</p>          
+          <p>{name}</p>
         {/* </a> */}
-      </Link>    
-      </li>
+      </Link>
+    </li>
   );
 }
 

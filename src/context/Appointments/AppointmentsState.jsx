@@ -29,6 +29,7 @@ function AppointmentsState({ children }) {
       payload: res.data,
     });
   };
+
   const getAppointmentList = async () => {
     const res = await axios.get(baseURL + "/appointmentList");
     dispatch({
@@ -36,6 +37,8 @@ function AppointmentsState({ children }) {
       payload: res.data
     });
   };
+
+  
   return (
     //Context provider
     <AppointmentsContext.Provider

@@ -5,11 +5,11 @@ import AppointmentsContext from "../context/Appointments/AppointmentsContext"
 
 function Tutorados() {
 
-  const { getStudentsList, students_list } = useContext(AppointmentsContext);
+  const { getStudentsList, studentsList } = useContext(AppointmentsContext);
 
   useEffect( () => {
     getStudentsList();
-    console.log(students_list)
+    console.log(studentsList)
   }, []);
 
   return (
