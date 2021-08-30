@@ -3,7 +3,7 @@ import AppointmentsReducer from './AppointmentsReducer';
 import AppointmentsContext from './AppointmentsContext';
 import axios from 'axios';
 
-const AppointmentsState = ( { children } ) => {
+function AppointmentsState  ( { children } ) {
 
   const initialState = {
     tutor: null,

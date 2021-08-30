@@ -1,6 +1,7 @@
 import React from 'react'
 
-export default function Header() {
+
+function Header() {
   return (    
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">
       {/* Left navbar links */}
@@ -137,3 +138,5 @@ export default function Header() {
     </nav>  
   )
 }
+
+export default Header;

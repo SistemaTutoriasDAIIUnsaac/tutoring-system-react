@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import { useEffect } from "react";
 
-const SchedulesAvailable = () => {
+
+function SchedulesAvailable() {
   return (
     <Fragment>
       <div className="card card-secondary">
@@ -51,8 +51,11 @@ const SchedulesAvailable = () => {
                 </div>
               </div>
               <div className="col-sm-0">
-                <button type="button" class="btn btn-block btn-danger float-right">
-                <i class="far fa-trash-alt"></i>
+                <button
+                  type="button"
+                  class="btn btn-block btn-danger float-right"
+                >
+                  <i class="far fa-trash-alt"></i>
                 </button>
               </div>
             </div>
@@ -61,5 +64,6 @@ const SchedulesAvailable = () => {
       </div>
     </Fragment>
   );
-};
+}
+
 export default SchedulesAvailable;

@@ -19,6 +19,8 @@ import VerListaPorAlumno from "./pages/VerListaPorAlumno";
 import Footer from "./components/Footer";
 import ViewAssistance from "./pages/ViewAssistance";
 import AppointmentsState from "./context/Appointments/AppointmentsState";
+
+
 function App() {
   return (
     <Router>

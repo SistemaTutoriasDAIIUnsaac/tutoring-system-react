@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import News from "../components/News";
 import { Link } from "react-router-dom";
 
-const News_List = () => {
+
+function NewsList() {
   const data = [
     {
       date: "30-08-2021",
@@ -35,7 +36,6 @@ const News_List = () => {
                 <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item active">Novedades</li>
                   <li className="breadcrumb-item">
-                    {/* <a href="#">Home</a> */}
                     <Link to="Nueva_cita"> Últimas novedades</Link>
                   </li>
                 </ol>
@@ -78,6 +78,7 @@ const News_List = () => {
       </div>
       );
     </Fragment>
-  );
-};
-export default News_List;
+  )
+}
+
+export default NewsList;

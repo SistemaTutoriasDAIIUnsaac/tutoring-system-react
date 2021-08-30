@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 
 
-const Appointments = () => {
+function Appointments() {
   return (
     <Fragment>
-      <div className="card card-secondary">
+         <div className="card card-secondary">
         <div className="card-header" style={{ padding: 5 }}>
           <h5 className="card-title">Cita</h5>
         </div>
@@ -15,7 +15,6 @@ const Appointments = () => {
                 <div className="form-group">
                   <label>N° Cita</label>
                   <div className="input-group">
-                    {/* <div className="input-group-prepend"></div> */}
                     <input type="number" className="form-control" />
                   </div>
                 </div>
@@ -40,6 +39,7 @@ const Appointments = () => {
         </div>
       </div>
     </Fragment>
-  );
-};
+  )
+}
+
 export default Appointments;
