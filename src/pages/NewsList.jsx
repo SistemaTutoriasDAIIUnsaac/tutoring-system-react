@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import News from "../components/News";
 import { Link } from "react-router-dom";
 
-
 function NewsList() {
   const data = [
     {
@@ -76,9 +75,8 @@ function NewsList() {
           </div>
         </div>
       </div>
-      );
     </Fragment>
-  )
+  );
 }
 
 export default NewsList;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const InformationStudent = () => {
   const dataStudent = {
     cod_student: "160890",

@@ -1,6 +1,7 @@
 import React from "react";
 
-const Prueba = () => {
+
+function Prueba() {
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
