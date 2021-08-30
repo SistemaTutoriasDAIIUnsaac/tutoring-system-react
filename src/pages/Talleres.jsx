@@ -3,16 +3,19 @@ import axios from "axios";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 
+
 function Talleres() {  
   const [DataProducts, setDataProducts] = useState([]);
   const columns = [
     { title: "Nro", field: "no_service" },
 
     { title: "Código", field: "code" },
+
     {title: "Taller", field:"taller"},
 
     { title: "Estudiante Ayudante", field: "full_name" },
   ];
+
   const queryAPI = async (method = "get", data = {}) => {
     const url = "https://tsc-rest-api.herokuapp.com/products";
     var ans = [];
@@ -28,14 +31,17 @@ function Talleres() {
       setDataProducts(DataProducts.filter((item) => item.id != data.id));
     }
   };
+
   const filterOptions = (inputValue, _data) => {
     return _data.filter((i) =>
       i.label.toUpperCase().includes(inputValue.toUpperCase())
     );
   };
+
   useEffect(() => {
     queryAPI("get");
   }, [setDataProducts]);
+  
   return (
     <div className="content-wrapper">
       {/* Content Header (Page header) */}

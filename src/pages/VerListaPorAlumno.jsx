@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
+
 
 function VerListaPorAlumno() {
   // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
@@ -8,20 +8,7 @@ function VerListaPorAlumno() {
       code:"IN654",
       name:"Base de Datos",
   }
-  const ListOfAttendance=[
-      {
-        date: "12/01/2021",
-        detail: "Asistió",
-      },
-      {
-        date: "18/02/2021",
-        detail: "No Asistió",
-      },
-      {
-        date: "17/03/2021",
-        detail: "Asistió",
-      },
-    ]
+
   const dataStudentHelper={
     cod_student: "160890",
     name: "Marko",

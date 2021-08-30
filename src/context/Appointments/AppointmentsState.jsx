@@ -31,8 +31,13 @@ function AppointmentsState({ children }) {
   const getAppointmentList = async () => {
     const res = await axios.get(baseURL + "/appointmentList");
     dispatch({
+<<<<<<< HEAD
       type: "GET_APPOINTMENTS_LIST",
       payload: res.data,
+=======
+      type: 'GET_APPOINTMENTS_LIST',      
+      payload: res.data
+>>>>>>> 2ba398833b7523749f4a18892b7dcf00ab3b791e
     });
   };
   return (
