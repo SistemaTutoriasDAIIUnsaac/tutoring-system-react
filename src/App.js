@@ -27,7 +27,7 @@ function App() {
     <Router>
       <Header />
       <SideBar />
-      <AppointmentsState>
+      {/* <AppointmentsState> */}
         <Switch>
           {/* <Route exact path="/prueba" component={Prueba}/> */}
           <Route exact path="/teacher" component={Teacher} />
@@ -71,7 +71,7 @@ function App() {
             component={VerListaPorAlumno}
           />
         </Switch>
-      </AppointmentsState>
+      {/* </AppointmentsState> */}
       <Footer />
     </Router>
   );
