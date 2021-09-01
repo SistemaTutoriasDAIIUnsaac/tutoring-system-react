@@ -1,9 +1,18 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import AppointmentsContext from "../context/Appointments/AppointmentsContext"
-
+import MaterialTable from "material-table";
 
 function Tutorados() {
+
+  const columns = [
+    { title: "Codigo", field: "cod_student"},
+    { title: "Nombre", field: "name" },
+    { title: "Apellido Paterno", field: "f_lastname" },
+    { title: "Apellido Materno", field: "m_lastname" },
+    { title: "Telefono", field: "phone" },
+    { title: "Correo", field: "email" }
+  ]
 
   const { getStudentsList, studentsList } = useContext(AppointmentsContext);
 
@@ -41,9 +50,9 @@ function Tutorados() {
               <div className="card">                
                 {/* /.card-header */}
                 <div className="card-body">
-                    {/* <MaterialTable
+                    <MaterialTable
                       title="Tutorados"
-                      data={DataProducts}
+                      data={studentsList}
                       columns={columns}
                       options={{
                         search: true,
@@ -68,7 +77,7 @@ function Tutorados() {
                             console.log("Editar Estudiante"),
                         },
                       ]}
-                    />                   */}
+                    />                  
                   <Link to="/">
                     <button type="submit" className="btn btn-danger ml-8 mt-3">
                       Volver
