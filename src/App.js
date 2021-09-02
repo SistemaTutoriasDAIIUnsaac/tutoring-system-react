@@ -19,30 +19,38 @@ import VerListaPorAlumno from "./pages/VerListaPorAlumno";
 import Footer from "./components/Footer";
 import ViewAssistance from "./pages/ViewAssistance";
 import AppointmentsState from "./context/Appointments/AppointmentsState";
+import AuthState from "./context/Authentication/authState"
+// import Login from "./auth/Login";
+// import Register from "./auth/Register";
+
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <SideBar />
-      <AppointmentsState>
-        <Switch>          
-          <Route exact path="/teacher" component={Teacher} />
-          <Route exact path="/Nuevo_Estudiante" component={NewStudent} />          
-          <Route exact path="/" component={NewsList} />
-          <Route exact path="/Lista_de_Tutorados" component={Tutorados} />
-          <Route exact path="/Lista_de_Talleres" component={Talleres} />
-          <Route exact path="/Asistencias_Talleres" component={ViewAssistance} />
-          <Route exact path="/Lista_de_citas" component={ViewAppointments} />
-          <Route exact path="/Informacion_Estudiante/:cod_student" component={InformationStudent} />
-          <Route exact path="/Nueva_cita/:cod_student" component={NewAppointment} />
-          <Route exact path="/Disponibilidad_Horaria/:cod_tutor" component={TimeAvailability} />
-          <Route exact path="/AttendanceByDate/:cod_taller" component={AttendanceByDate} />
-          <Route exact path="/Lista_Asistencia/:cod_taller" component={VerListaPorAlumno} />
-        </Switch>
-      </AppointmentsState>
-      <Footer />
-    </Router>
+    <AppointmentsState>
+      <AuthState>
+        <Router>
+          {/* <Route exact path="/login" component={Login} />
+          <Route exact path="/Registro" component={Register} /> */}
+          <Header />
+          <SideBar />
+            <Switch>
+              <Route exact path="/teacher" component={Teacher} />
+              <Route exact path="/Nuevo_Estudiante" component={NewStudent} />          
+              <Route exact path="/" component={NewsList} />
+              <Route exact path="/Lista_de_Tutorados" component={Tutorados} />
+              <Route exact path="/Lista_de_Talleres" component={Talleres} />
+              <Route exact path="/Asistencias_Talleres" component={ViewAssistance} />
+              <Route exact path="/Lista_de_citas" component={ViewAppointments} />
+              <Route exact path="/Informacion_Estudiante/:cod_student" component={InformationStudent} />
+              <Route exact path="/Nueva_cita/:cod_student" component={NewAppointment} />
+              <Route exact path="/Disponibilidad_Horaria/:cod_tutor" component={TimeAvailability} />
+              <Route exact path="/AttendanceByDate/:cod_taller" component={AttendanceByDate} />
+              <Route exact path="/Lista_Asistencia/:cod_taller" component={VerListaPorAlumno} />
+            </Switch>
+          <Footer />
+        </Router>
+      </AuthState>
+    </AppointmentsState>
   );
 }
 

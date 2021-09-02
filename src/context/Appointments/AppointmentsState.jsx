@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import AppointmentsReducer from "./AppointmentsReducer";
 import AppointmentsContext from "./AppointmentsContext";
 import axios from "axios";
+import baseURL from "../../cliente"
 
 
 function AppointmentsState({ children }) {
@@ -18,8 +19,7 @@ function AppointmentsState({ children }) {
   // useReducer is a hook that allows us to create a state variable and a reducer function
 
   const [state, dispatch] = useReducer(AppointmentsReducer, initialState);
-  // const baseURL = "https://localhost:5000";
-  const baseURL = "https://tutoring-system-api.herokuapp.com";
+  // const baseURL = "https://localhost:5000";  
 
   // All functions
   const getStudentsList = async () => {
