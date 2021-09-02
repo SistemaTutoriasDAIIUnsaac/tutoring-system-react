@@ -6,11 +6,11 @@ import MaterialTable from "material-table";
 function Tutorados() {
 
   const columns = [
-    { title: "Codigo", field: "cod_student"},
+    { title: "Código", field: "cod_student"},
     { title: "Nombre", field: "name" },
     { title: "Apellido Paterno", field: "f_lastname" },
     { title: "Apellido Materno", field: "m_lastname" },
-    { title: "Telefono", field: "phone" },
+    { title: "Teléfono", field: "phone" },
     { title: "Correo", field: "email" }
   ]
 
@@ -77,12 +77,12 @@ function Tutorados() {
                             console.log("Editar Estudiante"),
                         },
                       ]}
-                    />                  
-                  <Link to="/">
-                    <button type="submit" className="btn btn-danger ml-8 mt-3">
-                      Volver
-                    </button>
-                  </Link>
+                    />                
+                    <Link to="/">
+                      <button type="submit" className="btn btn-danger ml-8 mt-3">
+                        Volver
+                      </button>
+                    </Link>                  
                 </div>
                 {/* /.card-body */}
               </div>
