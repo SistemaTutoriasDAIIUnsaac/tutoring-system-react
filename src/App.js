@@ -23,6 +23,8 @@ import AuthState from "./context/Authentication/authState";
 import EditTeacherList from "./pages/EditTeacherList"
 import EditHelperStudentList from "./pages/EditHelperStudentList"
 import UploadFiles from "./pages/UploadFiles";
+import StudentsHelpersList from "./pages/StudentsHelpersList"
+import TutorsList from "./pages/TutorsList"
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 
