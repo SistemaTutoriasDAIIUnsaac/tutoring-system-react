@@ -24,6 +24,9 @@ import EditTeacherList from "./pages/EditTeacherList"
 import EditHelperStudentList from "./pages/EditHelperStudentList"
 import NewNovelty from "./pages/NewNovelty";
 
+import UploadFiles from "./pages/UploadFiles";
+import StudentsHelpersList from "./pages/StudentsHelpersList"
+import TutorsList from "./pages/TutorsList"
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 
@@ -53,6 +56,7 @@ function App() {
               <Route exact path="/Editar_Lista_De_Tutores" component={EditTeacherList} />
               <Route exact path="/Editar_Lista_De_Estudiantes_Ayudantes" component={EditHelperStudentList} />
               <Route exact path="/Informacion_Coordinador/:cod_Cor" component={NewNovelty} />
+              <Route exact path="/Subir_Archivos" component={UploadFiles} />
             </Switch>
           <Footer />
         </Router>

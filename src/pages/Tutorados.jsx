@@ -62,6 +62,7 @@ function Tutorados() {
                         actions: true,
                         actionsColumnIndex: -1,
                         pageSize: 10,
+                        selection: true,
                       }}
                       actions={[
                         {
