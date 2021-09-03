@@ -6,12 +6,13 @@ import MaterialTable from "material-table";
 function Tutorados() {
 
   const columns = [
+    // { title: "check", field:"check", type:"boolean"},
     { title: "Codigo", field: "cod_student"},
     { title: "Nombre", field: "name" },
     { title: "Apellido Paterno", field: "f_lastname" },
     { title: "Apellido Materno", field: "m_lastname" },
     { title: "Telefono", field: "phone" },
-    { title: "Correo", field: "email" }
+    { title: "Correo", field: "email" },
   ]
 
   const { getStudentsList, studentsList } = useContext(AppointmentsContext);
@@ -62,6 +63,7 @@ function Tutorados() {
                         actions: true,
                         actionsColumnIndex: -1,
                         pageSize: 10,
+                        selection: true,
                       }}
                       actions={[
                         {
