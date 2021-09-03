@@ -19,7 +19,11 @@ import VerListaPorAlumno from "./pages/VerListaPorAlumno";
 import Footer from "./components/Footer";
 import ViewAssistance from "./pages/ViewAssistance";
 import AppointmentsState from "./context/Appointments/AppointmentsState";
-import AuthState from "./context/Authentication/authState"
+import AuthState from "./context/Authentication/authState";
+import EditTeacherList from "./pages/EditTeacherList"
+import EditHelperStudentList from "./pages/EditHelperStudentList"
+import StudentsHelpersList from "./pages/StudentsHelpersList"
+import TutorsList from "./pages/TutorsList"
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 
@@ -46,6 +50,10 @@ function App() {
               <Route exact path="/Disponibilidad_Horaria/:cod_tutor" component={TimeAvailability} />
               <Route exact path="/AttendanceByDate/:cod_taller" component={AttendanceByDate} />
               <Route exact path="/Lista_Asistencia/:cod_taller" component={VerListaPorAlumno} />
+              <Route exact path="/Editar_Lista_De_Tutores" component={EditTeacherList} />
+              <Route exact path="/Editar_Lista_De_Estudiantes_Ayudantes" component={EditHelperStudentList} />
+              <Route exact path="/Lista_de_Estudiantes_Ayudantes" component={StudentsHelpersList} />
+              <Route exact path="/Lista_de_Tutores" component={TutorsList} />
             </Switch>
           <Footer />
         </Router>
