@@ -22,6 +22,8 @@ import AppointmentsState from "./context/Appointments/AppointmentsState";
 import AuthState from "./context/Authentication/authState";
 import EditTeacherList from "./pages/EditTeacherList"
 import EditHelperStudentList from "./pages/EditHelperStudentList"
+import NewNovelty from "./pages/NewNovelty";
+
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 
@@ -50,6 +52,7 @@ function App() {
               <Route exact path="/Lista_Asistencia/:cod_taller" component={VerListaPorAlumno} />
               <Route exact path="/Editar_Lista_De_Tutores" component={EditTeacherList} />
               <Route exact path="/Editar_Lista_De_Estudiantes_Ayudantes" component={EditHelperStudentList} />
+              <Route exact path="/Informacion_Coordinador/:cod_Cor" component={NewNovelty} />
             </Switch>
           <Footer />
         </Router>
