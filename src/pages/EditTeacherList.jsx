@@ -85,6 +85,7 @@ function EditTeacherList() {
                         actions: true,
                         actionsColumnIndex: -1,
                         pageSize: 10,
+                        selection: true,
                       }}
                       actions={[
                         {
@@ -101,21 +102,20 @@ function EditTeacherList() {
                         },
                       ]}
                     />
-                  <Link to="/">
-                    <button type="submit" className="btn btn-danger ml-8 mt-3">
-                      Volver
-                    </button>
-                  </Link>
-                  <Link to="/">
-                    <button type="submit" className="btn btn-warning ml-8 mt-3">
-                      Limpiar
-                    </button>
-                  </Link>
-                  <Link to="/">
-                    <button type="submit" className="btn btn-primary ml-8 mt-3">
-                      Guardar
-                    </button>
-                  </Link>                    
+                    <div class="row">
+                      <div class="col-12">                        
+                      <Link to="/">
+                        <button type="submit" className="btn btn-danger ml-8 mt-3">
+                          Volver
+                        </button>
+                      </Link>
+                      <Link to="/">
+                        <button type="submit" className="btn btn-primary ml-8 mt-3 float-right">
+                          Guardar
+                        </button>
+                      </Link>
+                      </div>
+                    </div>        
                   </div>
                   {/* /.card-body */}
                 </div>

@@ -30,6 +30,7 @@ import TutorsList from "./pages/TutorsList"
 import DataofAppointment from "./pages/DataofAppointments";
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
+import NewCoordinator from "./pages/NewCoordinator"
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
               <Route exact path="/Datos_de_citas" component={DataofAppointment} />
               <Route exact path="/Informacion_Coordinador/:cod_Cor" component={NewNovelty} />
               <Route exact path="/Subir_Archivos" component={UploadFiles} />
+              <Route exact path="/Nuevo_Coordinador" component={NewCoordinator} />
             </Switch>
           <Footer />
         </Router>
