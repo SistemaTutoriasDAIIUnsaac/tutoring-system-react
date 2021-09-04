@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
-
+import { Link } from "react-router-dom";
 
 function Appointments() {
   return (
     <Fragment>
          <div className="card card-secondary">
         <div className="card-header" style={{ padding: 5 }}>
+        <Link to="Datos_de_citas">
           <h5 className="card-title">Cita</h5>
-        </div>
+          </Link>
+        </div> 
         <div className="card-body pt-2 pb-0">
           <form>
             <div className="row">
@@ -15,14 +17,14 @@ function Appointments() {
                 <div className="form-group">
                   <label>N° Cita</label>
                   <div className="input-group">
-                    <input type="number" className="form-control" />
+                    <input type="text" className="form-control" disabled />
                   </div>
                 </div>
               </div>
               <div className="col-sm-3">
                 <div className="form-group">
                   <label>Fecha</label>
-                  <input type="date" className="form-control" />
+                  <input type="text" className="form-control" disabled/>
                 </div>
               </div>
               <div className="col-sm-8">
@@ -37,6 +39,7 @@ function Appointments() {
             </div>
           </form>
         </div>
+        
       </div>
     </Fragment>
   )

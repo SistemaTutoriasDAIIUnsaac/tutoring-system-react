@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import NewsList from "./pages/NewsList";
-import ViewAppointments from "./pages/ViewAppointments";
+import ListAppointments from "./pages/ListAppointments";
 import TimeAvailability from "./components/TimeAvailability";
 // import Prueba from './pages/Prueba';
 import Teacher from "./pages/Teacher";
@@ -24,6 +24,7 @@ import EditTeacherList from "./pages/EditTeacherList"
 import EditHelperStudentList from "./pages/EditHelperStudentList"
 import StudentsHelpersList from "./pages/StudentsHelpersList"
 import TutorsList from "./pages/TutorsList"
+import DataofAppointment from "./pages/DataofAppointments";
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 
@@ -44,7 +45,7 @@ function App() {
               <Route exact path="/Lista_de_Tutorados" component={Tutorados} />
               <Route exact path="/Lista_de_Talleres" component={Talleres} />
               <Route exact path="/Asistencias_Talleres" component={ViewAssistance} />
-              <Route exact path="/Lista_de_citas" component={ViewAppointments} />
+              <Route exact path="/Lista_de_citas" component={ListAppointments} />
               <Route exact path="/Informacion_Estudiante/:cod_student" component={InformationStudent} />
               <Route exact path="/Nueva_cita/:cod_student" component={NewAppointment} />
               <Route exact path="/Disponibilidad_Horaria/:cod_tutor" component={TimeAvailability} />
@@ -54,6 +55,7 @@ function App() {
               <Route exact path="/Editar_Lista_De_Estudiantes_Ayudantes" component={EditHelperStudentList} />
               <Route exact path="/Lista_de_Estudiantes_Ayudantes" component={StudentsHelpersList} />
               <Route exact path="/Lista_de_Tutores" component={TutorsList} />
+              <Route exact path="/Datos_de_citas" component={DataofAppointment} />
             </Switch>
           <Footer />
         </Router>
