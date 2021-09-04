@@ -22,6 +22,9 @@ import AppointmentsState from "./context/Appointments/AppointmentsState";
 import AuthState from "./context/Authentication/authState";
 import EditTeacherList from "./pages/EditTeacherList"
 import EditHelperStudentList from "./pages/EditHelperStudentList"
+import NewNovelty from "./pages/NewNovelty";
+
+import UploadFiles from "./pages/UploadFiles";
 import StudentsHelpersList from "./pages/StudentsHelpersList"
 import TutorsList from "./pages/TutorsList"
 import DataofAppointment from "./pages/DataofAppointments";
@@ -56,6 +59,8 @@ function App() {
               <Route exact path="/Lista_de_Estudiantes_Ayudantes" component={StudentsHelpersList} />
               <Route exact path="/Lista_de_Tutores" component={TutorsList} />
               <Route exact path="/Datos_de_citas" component={DataofAppointment} />
+              <Route exact path="/Informacion_Coordinador/:cod_Cor" component={NewNovelty} />
+              <Route exact path="/Subir_Archivos" component={UploadFiles} />
             </Switch>
           <Footer />
         </Router>
