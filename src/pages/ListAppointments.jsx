@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import Appointments from "../components/Appointments";
 
-
 function ViewAppointments() {
   const dataStudent = {
     cod_student: "160890",
@@ -54,37 +53,51 @@ function ViewAppointments() {
           </div>
           {/* /.container-fluid */}
         </section>
+        {/* Main content */}
+        <section className="content">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <div className="card">
+                  {/* /.card-header */}
+                  <div className="card-body">
+                    <div className="card card-primary">
+                      <div className="card-header">
+                        <h4 className="card-title">Lista de Citas</h4>
+                      </div>
 
-        <div className="card">
-          <div className="card-body">
-            <div className="card card-primary">
-              <div className="card-header">
-                <h4 className="card-title">Lista de Citas</h4>
-              </div>
-
-              <div className="card-body">
-                <div
-                  style={{
-                    overflowY: "scroll",
-                    height: 285,
-                    paddingRight: 30,
-                    paddingLeft: 30,
-                  }}
-                >
-                  <div className="card-header" style={{ padding: 1 }} />
-                  <Appointments />
-                  <Appointments />
-                  <Appointments />
+                      <div className="card-body">
+                        <div
+                          style={{
+                            overflowY: "scroll",
+                            height: 285,
+                            paddingRight: 30,
+                            paddingLeft: 30,
+                          }}
+                        >
+                          <div className="card-header" style={{ padding: 1 }} />
+                          <Appointments />
+                          <Appointments />
+                          <Appointments />
+                        </div>
+                      </div>
+                    </div>
+                    <Link to="list_student">
+                      <button
+                        type="button"
+                        className="btn btn-danger float-right"
+                      >
+                        <i className="" /> Volver
+                      </button>
+                    </Link>
+                  </div>
+                  {/* /.card-body */}
                 </div>
               </div>
             </div>
-            <Link to="list_student">
-              <button type="button" className="btn btn-danger float-right">
-                <i className="" /> Volver
-              </button>
-            </Link>
           </div>
-        </div>
+          {/* /.container-fluid */}
+        </section>
       </div>
     </Fragment>
   );

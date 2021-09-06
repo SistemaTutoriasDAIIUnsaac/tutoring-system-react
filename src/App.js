@@ -7,7 +7,7 @@ import SideBar from "./components/SideBar";
 import NewsList from "./pages/NewsList";
 import ListAppointments from "./pages/ListAppointments";
 import TimeAvailability from "./components/TimeAvailability";
-// import Prueba from './pages/Prueba';
+import Prueba from './pages/Prueba';
 import Teacher from "./pages/Teacher";
 import NewStudent from "./pages/NewStudent";
 import InformationStudent from "./pages/InformationStudent";
@@ -43,6 +43,7 @@ function App() {
           <Header />
           <SideBar />
             <Switch>
+              <Route exact path="/prueba" component={Prueba} />
               <Route exact path="/teacher" component={Teacher} />
               <Route exact path="/Nuevo_Estudiante" component={NewStudent} />          
               <Route exact path="/" component={NewsList} />
