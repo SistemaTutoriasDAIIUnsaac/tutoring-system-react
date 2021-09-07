@@ -5,15 +5,12 @@ import { Link } from "react-router-dom";
 
 function NewCoordinator() {
     const[datos,setDatos]=useState({
-        cod_student:'',
-        name: '',
-        f_lastname: '',
-        m_lastname: '',
-        phone:'',
-        email:'',
-        cod_faculty:'',
-        cod_career:'',
-        adress:''
+      cod_coordinator:'',
+      name: '',
+      f_lastname: '',
+      m_lastname: '',
+      phone:'',
+      email:''
     })
     const onSubmit = (e) => {
         e.preventDefault();
@@ -32,11 +29,11 @@ function NewCoordinator() {
         })
         console.log(datos)
     }
-
     const EnviarDatos = (event) =>{
         event.preventDefault();
         console.log(datos.nombre+' '+datos.apellido)
     }
+
     return (
         <Fragment>
     <div className="content-wrapper">
@@ -65,7 +62,7 @@ function NewCoordinator() {
         <div className="container-fluid">
           <div className="card card-primary">
             <div className="card-header">
-              <h3 className="card-title">Datos de Estudiante</h3>
+              <h3 className="card-title">Datos de coordinador</h3>
             </div>
             {/* /.card-header */}
             {/* form start */}
@@ -77,8 +74,8 @@ function NewCoordinator() {
                     type="text"
                     className="form-control"
                     id="exampleInputPassword1"
-                    placeholder="Código de docente"
-                    name='cod_student'
+                    placeholder="Código de coordinador"
+                    name='cod_coordinator'
                     onChange={CambiarEntrada}
                   />
                 </div>
@@ -137,40 +134,7 @@ function NewCoordinator() {
                     onChange={CambiarEntrada}
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Facultad</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Código de Facultad"
-                    name='cod_faculty'
-                    onChange={CambiarEntrada}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Escuela Profesional</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Código de Escuela Profesional"
-                    name='cod_career'
-                    onChange={CambiarEntrada}
-                  />
-                </div>                                
-                <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Dirección</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Dirección"
-                    name='adress'
-                    onChange={CambiarEntrada}
-                  />
-                </div>                                               
-            </div>
+              </div>
               {/* /.card-body */}              
               <div className="card-footer">
                 <button type="submit" className="btn btn-primary" onClick={(e) => onSubmit(e)}>

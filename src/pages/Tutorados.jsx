@@ -62,8 +62,7 @@ function Tutorados() {
                         exportButton: true,
                         actions: true,
                         actionsColumnIndex: -1,
-                        pageSize: 10,
-                        selection: true,
+                        pageSize: 10,                        
                       }}
                       actions={[
                         {
