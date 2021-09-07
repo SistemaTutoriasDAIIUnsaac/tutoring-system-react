@@ -31,7 +31,7 @@ import DataofAppointment from "./pages/DataofAppointments";
 // import Login from "./auth/Login";
 // import Register from "./auth/Register";
 import NewCoordinator from "./pages/NewCoordinator"
-
+import UploadDataCoordinator from "./pages/UploadDataCoordinator"
 
 function App() {
   return (
@@ -63,6 +63,7 @@ function App() {
               <Route exact path="/Informacion_Coordinador/:cod_Cor" component={NewNovelty} />
               <Route exact path="/Subir_Archivos" component={UploadFiles} />
               <Route exact path="/Nuevo_Coordinador" component={NewCoordinator} />
+              <Route exact path="/Subir_Datos_Coordinador" component={UploadDataCoordinator} />
             </Switch>
           <Footer />
         </Router>
