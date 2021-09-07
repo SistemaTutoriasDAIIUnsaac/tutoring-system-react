@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/Authentication/authContext";
 
-function Login() {
+function Login( props ) {
 
+  const authContext = useContext(AuthContext);
+  const { authenticated, loginUser } = authContext;
+
+  const [LoginData, setLoginData, getUserData] = useState({
+    username: "",
+    password: ""
+  })
+
+  useEffect ( () => {
+    if(authenticated){
+      props.history.push('/Novedades');      
+    } 
+    console.log(LoginData)
+  }, [authenticated, props.history])
 
   return (
     <div
-      class="center"
+      className="center"
       style={{
         display: "flex",
         justifyContent: "center",
@@ -27,12 +42,14 @@ function Login() {
           </div>
           <div className="card-body">
             <p className="login-box-msg">Inicio de Sesion</p>
-            <form action="../../index3.html" method="post">
+            <form>
               <div className="input-group mb-3">
                 <input
                   type="email"
                   className="form-control"
                   placeholder="Correo"
+                  name="username"
+                  onChange={ e => setLoginData({...LoginData, username: e.target.value})}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -45,6 +62,8 @@ function Login() {
                   type="password"
                   className="form-control"
                   placeholder="Contraseña"
+                  name="password"
+                  onChange={ e => setLoginData({...LoginData, password: e.target.value})}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -61,7 +80,9 @@ function Login() {
                 </div>
                 {/* /.col */}
                 <div className="col-4">
-                  <button type="submit" className="btn btn-primary btn-block">
+                  <button type="submit" className="btn btn-primary" onClick={ (e) => {
+                    e.preventDefault();
+                    loginUser(LoginData) }}>
                     Ingresar
                   </button>
                 </div>

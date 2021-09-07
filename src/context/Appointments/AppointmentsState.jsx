@@ -1,8 +1,7 @@
 import React, { useReducer } from "react";
 import AppointmentsReducer from "./AppointmentsReducer";
 import AppointmentsContext from "./AppointmentsContext";
-import axios from "axios";
-import baseURL from "../../cliente"
+import clienteAxios from "../../config/axios";
 
 
 function AppointmentsState({ children }) {
@@ -19,11 +18,10 @@ function AppointmentsState({ children }) {
   // useReducer is a hook that allows us to create a state variable and a reducer function
 
   const [state, dispatch] = useReducer(AppointmentsReducer, initialState);
-  // const baseURL = "https://localhost:5000";  
 
   // All functions
   const getStudentsList = async () => {
-    const res = await axios.get(baseURL + "/students");
+    const res = await clienteAxios.get("/students");
     dispatch({
       type: "GET_STUDENTS_LIST",
       payload: res.data,
@@ -31,7 +29,7 @@ function AppointmentsState({ children }) {
   };
 
   const getAppointmentList = async () => {
-    const res = await axios.get(baseURL + "/appointmentList");
+    const res = await clienteAxios.get("/appointmentList");
     dispatch({
       type: 'GET_APPOINTMENTS_LIST',      
       payload: res.data

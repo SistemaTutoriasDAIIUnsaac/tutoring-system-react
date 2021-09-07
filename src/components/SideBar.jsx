@@ -1,92 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import NavItem from "./NavItem";
+import AuthContext from '../context/Authentication/authContext'
 
 
 function SideBar() {
-  const initialState = [
-    // Estudiantes
-    {
-      name: "Estudiantes",
-      icon: "nav-icon fas fa-boxes",
-      _state: false,
-      SubItems: [
-        {
-          name: "Lista de Estudiantes",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
-        {
-          name: "Nuevo Estudiante",
-          icon: "fas fa-box-open nav-icon",
-          _state: false,
-        }        
-      ],
-    },
-    // Docentes
-    {
-      name: "Docentes",
-      icon: "nav-icon fas fa-wrench",
-      _state: false,
-      SubItems: [
-        {
-          name: "Lista de Tutorados",
-          icon: "fas fa-newspaper nav-icon",
-          _state: false,
-        },
-        {
-          name: "Lista de Talleres",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
-        {
-          name: "Asistencias Talleres",
-          icon: "fas fa-tools nav-icon",
-          _state: false,
-        },
-        {
-          name: "Lista de citas",
-          icon: "fas fa-clock nav-icon",
-          _state: false,
-        },
-        {
-          name: "Lista de estudiantes",
-          icon: "fas fa-clock nav-icon",
-          _state: false,
-        } 
-      ],
-    },
-    // Talleres
-    {
-      name: "Talleres",
-      icon: "nav-icon fas fa-book",
-      _state: false,
-      SubItems: [
-        {
-          name: "Lista de Talleres",
-          icon: "fas fa-newspaper nav-icon",
-          _state: false,
-        }        
-      ],
-    },
-    // Citas
-    {
-      name: "Citas",
-      icon: "nav-icon fas fa-book",
-      _state: false,
-      SubItems: [
-        {
-          name: "Lista de estudiantes",
-          icon: "fas fa-newspaper nav-icon",
-          _state: false,
-        } 
-      ],
-    }
-  ]
   
-  const [DataMenu, setDataMenu] = useState(initialState);
+  const authContext = useContext(AuthContext);
+  const { navbarList, user } = authContext;
+  // const { username, role } = user;
+
+  const [UserData, setUserData] = useState({
+    name: "username",
+    lastname: "",
+    role: "role",
+    img: "../../dist/img/user4-128x128.jpg",
+  })
+
+  const [DataMenu, setDataMenu] = useState(navbarList);
 
   const ChangeState = (_name) => {
-    let newDataMenu = [...initialState];
+    let newDataMenu = [...navbarList];
 
     newDataMenu.map((item) => {
       if (item.name == _name) {
@@ -101,13 +34,15 @@ function SideBar() {
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
       {/* Brand Logo */}
       <a href="#" className="brand-link">
+        
         <img
-          src="/favicon.ico"
+          src="/unsaacw.png"
           alt="AdminLTE Logo"
           className="brand-image img-circle elevation-3"
           style={{ opacity: ".8" }}
         />
-        <span className="brand-text font-weight-light">Turbos Admin</span>
+        <span className="brand-text font-weight-light">Sistema de Tutorias</span> <br/>
+        <span className="brand-text font-weight-light" style={{marginLeft: 85}}>UNSAAC</span>
       </a>
       {/* Sidebar */}
       <div className="sidebar">
@@ -115,14 +50,16 @@ function SideBar() {
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
           <div className="image">
             <img
-              src="/logo192.png"
+              src={UserData.img}
               className="img-circle elevation-2"
               alt="User Image"
             />
           </div>
           <div className="info">
             <a href="#" className="d-block">
-              Zonia Acurio
+              {UserData.name} {UserData.lastname}
+              <br/>
+              {UserData.role == 'principal' ? 'Director de Escuela' : ''}
             </a>
           </div>
         </div>

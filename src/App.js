@@ -7,7 +7,7 @@ import SideBar from "./components/SideBar";
 import NewsList from "./pages/NewsList";
 import ListAppointments from "./pages/ListAppointments";
 import TimeAvailability from "./components/TimeAvailability";
-import Prueba from './pages/Prueba';
+import Prueba from './pages/DistributeStudents';
 import Teacher from "./pages/Teacher";
 import NewStudent from "./pages/NewStudent";
 import InformationStudent from "./pages/InformationStudent";
@@ -28,25 +28,30 @@ import UploadFiles from "./pages/UploadFiles";
 import StudentsHelpersList from "./pages/StudentsHelpersList"
 import TutorsList from "./pages/TutorsList"
 import DataofAppointment from "./pages/DataofAppointments";
-// import Login from "./auth/Login";
-// import Register from "./auth/Register";
+import Login from "./auth/Login";
+import Register from "./auth/Register";
 import NewCoordinator from "./pages/NewCoordinator"
+import DistributeStudents from "./pages/DistributeStudents";
 
+import PrivateRoute from "./components/private/PrivateRoute";
 
 function App() {
+  
+  // console.log(process.env.REACT_APP_BACKEND_URL)
+
   return (
     <AppointmentsState>
       <AuthState>
         <Router>
-          {/* <Route exact path="/login" component={Login} />
-          <Route exact path="/Registro" component={Register} /> */}
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/Registro" component={Register} />
           <Header />
           <SideBar />
             <Switch>
-              <Route exact path="/prueba" component={Prueba} />
+              <Route exact path="/Distribuir_Estudiantes" component={DistributeStudents} />
               <Route exact path="/teacher" component={Teacher} />
               <Route exact path="/Nuevo_Estudiante" component={NewStudent} />          
-              <Route exact path="/" component={NewsList} />
+              <Route exact path="/Novedades" component={NewsList} />
               <Route exact path="/Lista_de_Tutorados" component={Tutorados} />
               <Route exact path="/Lista_de_Talleres" component={Talleres} />
               <Route exact path="/Asistencias_Talleres" component={ViewAssistance} />

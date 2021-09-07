@@ -1,6 +1,10 @@
 import React, { Fragment } from "react";
 import News from "../components/News";
 import { Link } from "react-router-dom";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
+
 
 function NewsList() {
   const data = [
@@ -23,6 +27,8 @@ function NewsList() {
 
   return (
     <Fragment>
+      {/* <Header />
+      <SideBar /> */}
       <div className="content-wrapper">
         {/* Content Header (Page header) */}
         <section className="content-header">
@@ -75,6 +81,7 @@ function NewsList() {
           </div>
         </div>
       </div>
+      {/* <Footer/> */}
     </Fragment>
   );
 }

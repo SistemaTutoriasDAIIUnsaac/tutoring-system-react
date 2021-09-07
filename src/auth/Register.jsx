@@ -7,12 +7,12 @@ function Register() {
   const { registerUser } = React.useContext(AuthContext);
 
   const [User, setUser] = useState({    
-    email: "",
+    username: "",
     password: "",
     confirmPassword: "",
   })
 
-  const { email, password, confirmPassword } = User;
+  const { username, password, confirmPassword } = User;
 
   const handleInputChange = (e) => {
     setUser({
@@ -27,7 +27,7 @@ function Register() {
       alert("Passwords do not match");
       return;
     }
-    registerUser({email, password});
+    registerUser({username, password, role: "student"});
   }
 
   return (
@@ -89,8 +89,8 @@ function Register() {
                   type="email"
                   className="form-control"
                   placeholder="Correo"
-                  name="email"
-                  onChange={(e) => setUser({ ...User, email: e.target.value })}
+                  name="username"
+                  onChange={(e) => setUser({ ...User, username: e.target.value })}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -104,7 +104,7 @@ function Register() {
                   className="form-control"
                   placeholder="Contraseña"
                   name="password"
-                  onChange={(e) => handleInputChange}
+                  onChange={(e) => setUser({ ...User, password: e.target.value })}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -118,6 +118,7 @@ function Register() {
                   className="form-control"
                   name="confirmPassword"
                   placeholder="Repita la contraseña"
+                  onChange={(e) => setUser({ ...User, confirmPassword: e.target.value })}
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
