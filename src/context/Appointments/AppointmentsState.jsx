@@ -20,16 +20,31 @@ function AppointmentsState({ children }) {
   const [state, dispatch] = useReducer(AppointmentsReducer, initialState);
 
   // All functions
+  const getTutor = async () => {
+    const res = await clienteAxios.get("/tutor/<string:cod_tutor>");
+    dispatch({
+      type: "GET_TUTOR",
+      payload: res.data,
+    });
+  };
+
   const getStudentsList = async () => {
-    const res = await clienteAxios.get("/students");
+    const res = await clienteAxios.get("/tutor_student/<string:cod_tutor>/<string:cod_tutoring_program>");
     dispatch({
       type: "GET_STUDENTS_LIST",
       payload: res.data,
     });
   };
+  const getStudentSelected = async () => {
+    const res = await clienteAxios.get("/student/<string:cod_student>");
+    dispatch({
+      type: "GET_STUDENTS_SELECTED",
+      payload: res.data,
+    });
+  };
 
   const getAppointmentList = async () => {
-    const res = await clienteAxios.get("/appointmentList");
+    const res = await clienteAxios.get("/appointments");
     dispatch({
       type: 'GET_APPOINTMENTS_LIST',      
       payload: res.data
@@ -42,11 +57,16 @@ function AppointmentsState({ children }) {
     <AppointmentsContext.Provider
       value={{
         // Functions
-        getAppointmentList,
+        getTutor,
         getStudentsList,
+        getStudentSelected,
+        getAppointmentList,
         // Values
-        appointmentList: state.appointmentList,
+        tutor: state.tutor,
         studentsList: state.studentsList,
+        studentSelected: state.studentSelected,
+        appointmentList: state.appointmentList,
+        
       }}
     >
       {children}
