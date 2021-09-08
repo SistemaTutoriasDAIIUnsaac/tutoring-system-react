@@ -12,73 +12,69 @@ import {
   LOGIN_SUCCESSFUL,
   LOGIN_FAILED,
   LOGOUT,
-  SET_NAVBAR_LIST
+  SET_NAVBAR_LIST,
+  SELECT_NAV_ITEM
 } from "../types";
 
 const AuthState = ({ children }) => {
   const loadNavBarList = (role) => {
     if (role === "student") {
-      return [// Students
+      return [
+        // Students
         {
-          name: "Estudiante",
-          icon: "nav-icon fas fa-wrench",
+          name: "Novedades",
+          icon: "fas fa-newspaper nav-icon",
           _state: false,
-          SubItems: [
-            {
-              name: "Novedades",
-              icon: "fas fa-newspaper nav-icon",
-              _state: false,
-            },
-            {
-              name: "Informacion personal",
-              icon: "fas fa-list nav-icon",
-              _state: false,
-            },
-          ],
-        } ];
+        },
+        {
+          name: "Informacion Estudiante",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+      ];
     } else if (role === "tutor") {
-      return [// Teachers
+      return [
+        // tutors
         {
-          name: "Tutor",
-          icon: "nav-icon fas fa-wrench",
+          name: "Novedades",
+          icon: "fas fa-newspaper nav-icon",
           _state: false,
-          SubItems: [
-            {
-              name: "Novedades",
-              icon: "fas fa-newspaper nav-icon",
-              _state: false,
-            },
-            {
-              name: "Lista de Tutorados",
-              icon: "fas fa-list nav-icon",
-              _state: false,
-            },
-            {
-              name: "Lista_de_citas",
-              icon: "fas fa-list nav-icon",
-              _state: false,
-            },
-          ],
-        } ];
+        },
+        {
+          name: "Lista de Tutorados",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Lista de citas",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Nueva cita",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Ver cita",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+      ];
     } else if (role === "coordinator") {
-      return [// Coordinator
+      return [
+        // Coordinator
         {
-          name: "Coordinator",
-          icon: "nav-icon fas fa-wrench",
+          name: "Novedades",
+          icon: "fas fa-newspaper nav-icon",
           _state: false,
-          SubItems: [
-            {
-              name: "Novedades",
-              icon: "fas fa-newspaper nav-icon",
-              _state: false,
-            },
-            {
-              name: "Subir Datos",
-              icon: "fas fa-list nav-icon",
-              _state: false,
-            },            
-          ],
-        } ];
+        },
+        {
+          name: "Subir Datos",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+      ];
     }
 
     return [];
@@ -146,7 +142,7 @@ const AuthState = ({ children }) => {
       dispatch({
         type: SET_NAVBAR_LIST,
         payload: loadNavBarList(res.data.role),
-      })
+      });
     } catch (error) {
       console.log(error.res.data);
       dispatch({
@@ -154,6 +150,21 @@ const AuthState = ({ children }) => {
       });
     }
   };
+
+  const selectNavItem = (name) => {
+    if (state.navbarList.length > 0) {
+      dispatch({
+        type: SET_NAVBAR_LIST,
+        payload: state.navbarList.map((item) => {
+          if (item.name === name) {
+            item._state = true;
+          } else {
+            item._state = false;
+          }
+        }),
+      });
+    }
+  }
 
   return (
     <AuthContext.Provider
@@ -168,6 +179,7 @@ const AuthState = ({ children }) => {
         registerUser,
         loginUser,
         getUserData,
+        selectNavItem
       }}
     >
       {children}

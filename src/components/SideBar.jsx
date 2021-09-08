@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import NavItem from "./NavItem";
 import AuthContext from '../context/Authentication/authContext'
 
@@ -6,15 +6,26 @@ import AuthContext from '../context/Authentication/authContext'
 function SideBar() {
   
   const authContext = useContext(AuthContext);
-  const { navbarList, user } = authContext;
+  const { navbarList, user, authenticated } = authContext;
   // const { username, role } = user;
 
   const [UserData, setUserData] = useState({
-    name: "username",
+    name: "",
     lastname: "",
-    role: "role",
+    role: "",
     img: "../../dist/img/user4-128x128.jpg",
   })
+
+  useEffect( () => {
+    if(authenticated && user) {
+      setUserData({
+        name: user.username,
+        role: user.role,
+        img: "../../dist/img/user4-128x128.jpg",
+      })
+    }
+    setDataMenu(navbarList)
+  }, [user, authenticated, navbarList])
 
   const [DataMenu, setDataMenu] = useState(navbarList);
 
@@ -29,6 +40,21 @@ function SideBar() {
     setDataMenu(newDataMenu);
     // console.log(DataMenu);
   };
+
+  const identifyRole = (role) => {
+    switch (role) {
+      case "student":
+        return "Estudiante";
+      case "coordinator":
+        return "Coordinador General";
+      case "tutor":
+        return "Docente Tutor";
+      case "principal":
+        return "Director de Escuela";
+      default:
+        return "";
+    }
+  }
 
   return (
     <aside className="main-sidebar sidebar-dark-primary elevation-4">
@@ -59,7 +85,7 @@ function SideBar() {
             <a href="#" className="d-block">
               {UserData.name} {UserData.lastname}
               <br/>
-              {UserData.role == 'principal' ? 'Director de Escuela' : ''}
+              {identifyRole(UserData.role)}
             </a>
           </div>
         </div>
@@ -90,10 +116,10 @@ function SideBar() {
             role="menu"
             data-accordion="false"
           >
-            {
-              DataMenu.map(nav_item => (
-                <NavItem data={nav_item} ChangeState={ChangeState} key={nav_item.name}/>
-              ))
+            { 
+              navbarList.map(nav_item => (
+                <NavItem data={nav_item} key={nav_item.name}/>
+              ))            
             }
           </ul>
         </nav>

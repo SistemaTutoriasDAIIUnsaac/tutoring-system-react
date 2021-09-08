@@ -5,9 +5,9 @@ import AuthContext from "../context/Authentication/authContext";
 function Login( props ) {
 
   const authContext = useContext(AuthContext);
-  const { authenticated, loginUser } = authContext;
+  const { authenticated, loginUser, getUserData } = authContext;
 
-  const [LoginData, setLoginData, getUserData] = useState({
+  const [LoginData, setLoginData] = useState({
     username: "",
     password: ""
   })

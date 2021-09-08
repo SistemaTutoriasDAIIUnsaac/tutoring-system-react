@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import News from "../components/News";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import AuthContext from "../context/Authentication/authContext";
 
 
 function NewsList() {
@@ -25,10 +26,18 @@ function NewsList() {
     },
   ];
 
+  const authContext = useContext(AuthContext);
+  const { authenticated, getUserData } = authContext;
+
+  useEffect(() => {
+    getUserData();
+    
+  }, [] );
+
   return (
     <Fragment>
-      {/* <Header />
-      <SideBar /> */}
+      <Header />
+      <SideBar />
       <div className="content-wrapper">
         {/* Content Header (Page header) */}
         <section className="content-header">
@@ -81,7 +90,7 @@ function NewsList() {
           </div>
         </div>
       </div>
-      {/* <Footer/> */}
+      <Footer/>
     </Fragment>
   );
 }

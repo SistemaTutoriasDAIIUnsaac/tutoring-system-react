@@ -5,7 +5,8 @@ GET_USER,
 LOGIN_SUCCESSFUL,
 LOGIN_FAILED,
 LOGOUT,
-SET_NAVBAR_LIST
+SET_NAVBAR_LIST,
+SELECT_NAV_ITEM
 } from '../types';
 
 export default (state, action) => {
@@ -16,6 +17,7 @@ export default (state, action) => {
       localStorage.setItem('token', action.payload.token)
       return {
         ...state,
+        token: action.payload.token,
         authenticated: true,
         message: null,
       }
@@ -35,6 +37,7 @@ export default (state, action) => {
           username: action.payload.username,
           id: action.payload.id,
           role: action.payload.role,
+          authenticated: true
         },
         message: action.payload.message
         }
@@ -43,6 +46,12 @@ export default (state, action) => {
         ...state,
         navbarList: action.payload
       }
+    // case SELECT_NAV_ITEM:
+    //   return {
+    //     ...state,
+    //     navbarList: action.pay
+    //   }
+
     default:
       return state;
   }

@@ -1,7 +1,10 @@
-import React from "react";
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import Appointments from "../components/Appointments";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
+
 
 function ViewAppointments() {
   const dataStudent = {
@@ -18,6 +21,8 @@ function ViewAppointments() {
 
   return (
     <Fragment>
+      <Header/>
+      <SideBar/> 
       <div className="content-wrapper">
         {/* Content Header (Page header) */}
         <section className="content-header">
@@ -99,6 +104,7 @@ function ViewAppointments() {
           {/* /.container-fluid */}
         </section>
       </div>
+      <Footer/>
     </Fragment>
   );
 }

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
 
 const InformationStudent = () => {
   const dataStudent = {
@@ -34,6 +36,9 @@ const InformationStudent = () => {
   };
 
   return (
+    <Fragment>
+      <Header/>
+      <SideBar/>
     <div className="content-wrapper">
       {/* Content Header (Page header) */}
       <section className="content-header">
@@ -212,8 +217,17 @@ const InformationStudent = () => {
         >
           Volver
         </button>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          style={{ marginLeft: "35px" }}
+        >
+          Guardar
+        </button>
       </div>
     </div>
+    <Footer/>
+    </Fragment>
   );
 };
 

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 
 const UploadFiles = () => {
   return (
+    <Fragment>
+      <Header/>
+      <SideBar/>
     <div className="content-wrapper">
       <section className="content-header">
         <div className="container-fluid">
@@ -143,6 +150,8 @@ const UploadFiles = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </Fragment>
   );
 };
 

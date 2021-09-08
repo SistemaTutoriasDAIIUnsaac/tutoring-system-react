@@ -1,8 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import AppointmentsContext from "../context/Appointments/AppointmentsContext"
 import MaterialTable from "material-table";
-
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
 
 function Tutorados() {
 
@@ -23,6 +25,10 @@ function Tutorados() {
   }, []);
 
   return (
+    <Fragment>
+      <Header />
+          <SideBar />
+    
     <div className="content-wrapper">
       <section className="content-header">
         <div className="container-fluid">
@@ -97,6 +103,8 @@ function Tutorados() {
       </section>
       {/* /.content */}
     </div>
+    <Footer/>
+    </Fragment>
   );
 }
 
