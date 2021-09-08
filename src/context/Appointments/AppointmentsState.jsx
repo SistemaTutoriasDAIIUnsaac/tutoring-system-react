@@ -67,6 +67,13 @@ function AppointmentsState({ children }) {
     });
   }
 
+  const cleanAppointment = () => {
+    dispatch({
+      type: 'CLEAN_APPOINTMENT',
+      payload: null
+    });
+  }
+
   
   return (
     //Context provider
@@ -79,6 +86,7 @@ function AppointmentsState({ children }) {
         getAppointmentList,
         postAppointmentNew,
         getAppointment,
+        cleanAppointment,
         // Values
         tutor: state.tutor,
         studentsList: state.studentsList,

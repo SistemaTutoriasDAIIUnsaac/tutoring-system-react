@@ -4,6 +4,7 @@ import {
   GET_APPOINTMENTS_LIST,
   POST_APPOINTMENT_NEW,
   GET_APPOINTMENT,
+  CLEAN_APPOINTMENT
 } from "../types";
 
 export default (state, action) => {
@@ -39,6 +40,11 @@ export default (state, action) => {
         ],
       };
     case GET_APPOINTMENT:
+      return {
+        ...state,
+        appointmentSelected: payload,
+      }
+    case CLEAN_APPOINTMENT:
       return {
         ...state,
         appointmentSelected: payload,

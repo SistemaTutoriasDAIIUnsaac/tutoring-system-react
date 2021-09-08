@@ -100,9 +100,23 @@ function Register() {
               </div>
               <div className="input-group mb-3">
                 <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Contraseña actual"
+                  name="username"
+                  onChange={(e) => setUser({ ...User, username: e.target.value })}
+                />
+                <div className="input-group-append">
+                  <div className="input-group-text">
+                    <span className="fas fa-envelope" />
+                  </div>
+                </div>
+              </div>
+              <div className="input-group mb-3">
+                <input
                   type="password"
                   className="form-control"
-                  placeholder="Contraseña"
+                  placeholder="Nueva Contraseña"
                   name="password"
                   onChange={(e) => setUser({ ...User, password: e.target.value })}
                 />

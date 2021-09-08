@@ -93,7 +93,7 @@ function Tutorados(props) {
                         },
                       ]}
                     />
-                    <Link to="/">
+                    <Link to="/Novedades">
                       <button
                         type="submit"
                         className="btn btn-danger ml-8 mt-3"
@@ -114,6 +114,7 @@ function Tutorados(props) {
         </section>
         {/* /.content */}
       </div>
+     
       <Footer />
     </Fragment>
   );

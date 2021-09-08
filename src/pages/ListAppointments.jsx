@@ -13,6 +13,7 @@ function ViewAppointments() {
     studentSelected,
     getAppointmentList,
     appointmentList,
+    cleanAppointment
   } = appointmentsContext;
 
   useEffect(() => {
@@ -20,7 +21,7 @@ function ViewAppointments() {
     codStudent = codStudent.replace("/Lista_de_citas/", "");
     getStudentSelected(codStudent);
     getAppointmentList(codStudent);
-
+    cleanAppointment();
   }, []);
 
   return (
@@ -106,7 +107,7 @@ function ViewAppointments() {
                         </div>
                       </div>
                     </div>
-                    <Link to="list_student">
+                    <Link to="/Lista_de_Tutorados">
                       <button
                         type="button"
                         className="btn btn-danger float-right"
