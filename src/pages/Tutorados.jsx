@@ -1,62 +1,61 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
-import AppointmentsContext from "../context/Appointments/AppointmentsContext"
+import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 import MaterialTable from "material-table";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 
 function Tutorados() {
-
   const columns = [
-    { title: "Código", field: "cod_student"},
+    { title: "Código", field: "cod_student" },
     { title: "Nombre", field: "name" },
     { title: "Apellido Paterno", field: "f_lastname" },
     { title: "Apellido Materno", field: "m_lastname" },
     { title: "Teléfono", field: "phone" },
-    { title: "Correo", field: "email" }
-  ]
+    { title: "Correo", field: "email" },
+  ];
 
   const { getStudentsList, studentsList } = useContext(AppointmentsContext);
 
-  useEffect( () => {
+  useEffect(() => {
     getStudentsList();
-    console.log(studentsList)
+    console.log(studentsList);
   }, []);
 
   return (
     <Fragment>
       <Header />
-          <SideBar />
-    
-    <div className="content-wrapper">
-      <section className="content-header">
-        <div className="container-fluid">
-          <div className="row mb-2">
-            <div className="col-sm-6">
-              <h1>Lista de Tutorados</h1>
-            </div>
-            <div className="col-sm-6">
-              <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Tutorados</li>
-                <li className="breadcrumb-item">
-                  {/* <a href="#">Home</a> */}
-                  <Link to="Nuevo_Estudiante"> Nuevo Tutorado</Link>
-                </li>
-              </ol>
+      <SideBar />
+
+      <div className="content-wrapper">
+        <section className="content-header">
+          <div className="container-fluid">
+            <div className="row mb-2">
+              <div className="col-sm-6">
+                <h1>Lista de Tutorados</h1>
+              </div>
+              <div className="col-sm-6">
+                <ol className="breadcrumb float-sm-right">
+                  <li className="breadcrumb-item active">Tutorados</li>
+                  <li className="breadcrumb-item">
+                    {/* <a href="#">Home</a> */}
+                    <Link to="Nuevo_Estudiante"> Nuevo Tutorado</Link>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
-        </div>
-        {/* /.container-fluid */}
-      </section>
-      {/* Main content */}
-      <section className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12">
-              <div className="card">                
-                {/* /.card-header */}
-                <div className="card-body">
+          {/* /.container-fluid */}
+        </section>
+        {/* Main content */}
+        <section className="content">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <div className="card">
+                  {/* /.card-header */}
+                  <div className="card-body">
                     <MaterialTable
                       title="Tutorados"
                       data={studentsList}
@@ -68,7 +67,7 @@ function Tutorados() {
                         exportButton: true,
                         actions: true,
                         actionsColumnIndex: -1,
-                        pageSize: 10,                        
+                        pageSize: 10,
                       }}
                       actions={[
                         {
@@ -84,26 +83,29 @@ function Tutorados() {
                             console.log("Editar Estudiante"),
                         },
                       ]}
-                    />                
+                    />
                     <Link to="/">
-                      <button type="submit" className="btn btn-danger ml-8 mt-3">
+                      <button
+                        type="submit"
+                        className="btn btn-danger ml-8 mt-3"
+                      >
                         Volver
                       </button>
-                    </Link>                  
+                    </Link>
+                  </div>
+                  {/* /.card-body */}
                 </div>
-                {/* /.card-body */}
+                {/* /.card */}
               </div>
-              {/* /.card */}
+              {/* /.col */}
             </div>
-            {/* /.col */}
+            {/* /.row */}
           </div>
-          {/* /.row */}      
-        </div>
-        {/* /.container-fluid */}
-      </section>
-      {/* /.content */}
-    </div>
-    <Footer/>
+          {/* /.container-fluid */}
+        </section>
+        {/* /.content */}
+      </div>
+      <Footer />
     </Fragment>
   );
 }

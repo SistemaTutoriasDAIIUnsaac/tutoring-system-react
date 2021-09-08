@@ -2,22 +2,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/Authentication/authContext";
 
-function Login( props ) {
-
+function Login(props) {
   const authContext = useContext(AuthContext);
   const { authenticated, loginUser, getUserData } = authContext;
 
   const [LoginData, setLoginData] = useState({
     username: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  useEffect ( () => {
-    if(authenticated){
-      props.history.push('/Novedades');      
-    } 
-    console.log(LoginData)
-  }, [authenticated, props.history])
+  useEffect(() => {
+    if (authenticated) {
+      props.history.push("/Novedades");
+    }
+    console.log(LoginData);
+  }, [authenticated, props.history]);
 
   return (
     <div
@@ -29,14 +28,16 @@ function Login( props ) {
         height: "100vh",
       }}
     >
-      <div className="login-box" style={{width: 400}}>
+      <div className="login-box" style={{ width: 400 }}>
         {/* /.login-logo */}
         <div className="card card-outline card-primary">
           <div className="card-header text-center">
             {/* <a href="!#" className="h1"> */}
             <h1>
-              <img src="/unsaacw.png" style={{width: 130}} alt="" /> <br/>
-              <b>Sistema de Tutorias <br/> UNSAAC  </b>
+              <img src="/unsaacw.png" style={{ width: 130 }} alt="" /> <br />
+              <b>
+                Sistema de Tutorias <br /> UNSAAC{" "}
+              </b>
             </h1>
             {/* </a> */}
           </div>
@@ -49,7 +50,9 @@ function Login( props ) {
                   className="form-control"
                   placeholder="Correo"
                   name="username"
-                  onChange={ e => setLoginData({...LoginData, username: e.target.value})}
+                  onChange={(e) =>
+                    setLoginData({ ...LoginData, username: e.target.value })
+                  }
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -63,7 +66,9 @@ function Login( props ) {
                   className="form-control"
                   placeholder="Contraseña"
                   name="password"
-                  onChange={ e => setLoginData({...LoginData, password: e.target.value})}
+                  onChange={(e) =>
+                    setLoginData({ ...LoginData, password: e.target.value })
+                  }
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -75,31 +80,39 @@ function Login( props ) {
                 <div className="col-8">
                   <div className="icheck-primary">
                     <input type="checkbox" id="remember" />
-                    <label htmlFor="remember" style={{marginLeft: 5}}>Recordar esta cuenta</label>
+                    <label htmlFor="remember" style={{ marginLeft: 5 }}>
+                      Recordar esta cuenta
+                    </label>
                   </div>
                 </div>
                 {/* /.col */}
                 <div className="col-4">
-                  <button type="submit" className="btn btn-primary" onClick={ (e) => {
-                    e.preventDefault();
-                    loginUser(LoginData) }}>
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      loginUser(LoginData);
+                    }}
+                  >
                     Ingresar
                   </button>
                 </div>
                 {/* /.col */}
               </div>
-            </form>            
-            {/* /.social-auth-links */}            
+            </form>
+            {/* /.social-auth-links */}
             <p className="mb-1">
               <a href="forgot-password.html">He olvidado mi contraseña</a>
             </p>
-            
+
             <p className="mb-0">
               <Link to="/Registro" className="text-center">
                 Cambiar contraseña
-              </Link> <br/>
-              NOTA: Si es la primera vez que ingresas
-              por seguridad debes cambiar tu contraseña. <br/>
+              </Link>{" "}
+              <br />
+              NOTA: Si es la primera vez que ingresas por seguridad debes
+              cambiar tu contraseña. <br />
             </p>
           </div>
           {/* /.card-body */}

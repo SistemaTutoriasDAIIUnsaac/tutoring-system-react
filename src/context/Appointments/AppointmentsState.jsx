@@ -29,12 +29,14 @@ function AppointmentsState({ children }) {
   };
 
   const getStudentsList = async () => {
-    const res = await clienteAxios.get("/tutor_student/<string:cod_tutor>/<string:cod_tutoring_program>");
+
+    const res = await clienteAxios.get("/students");
     dispatch({
       type: "GET_STUDENTS_LIST",
       payload: res.data,
     });
   };
+
   const getStudentSelected = async () => {
     const res = await clienteAxios.get("/student/<string:cod_student>");
     dispatch({
