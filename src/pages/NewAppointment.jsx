@@ -1,21 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 
 const NewAppointment = () => {
-  const dataStudent = {
-    cod_student: "160890",
-    name: "Marko",
-    f_lastname: "Castro",
-    m_lastname: "Cordova",
-    phone: "983048685",
-    email: "160890@unsaac.edu.pe",
-    cod_faculty: "#IEEMI",
-    cod_career: "#IIS",
-    adress: "Calle Domingo Guevara",
-  };
+
+  const appointmentsContext = useContext(AppointmentsContext);
+  const { setAppointmentNew  } = appointmentsContext;
+  
+  useEffect(() => {
+
+    setAppointmentNew();
+
+  }, []);
 
   return (
     <Fragment>
@@ -40,7 +39,7 @@ const NewAppointment = () => {
             </div>
           </div>
           <div className="card-header text-muted border-bottom-0">
-            {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
+            {/* {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`} */}
           </div>
         </section>
 

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 
-function Appointments() {
+function Appointments({data}) {
   return (
     <Fragment>
       <Link to="Datos_de_citas">
@@ -18,14 +18,14 @@ function Appointments() {
                 <div className="form-group">
                   <label style={{color:"#292929"}}>N° Cita</label>
                   <div className="input-group">
-                    <input type="text" className="form-control" disabled />
+                    <input type="text" className="form-control" disabled value={data.cod_appointment}/>                
                   </div>
                 </div>
               </div>
               <div className="col-sm-3">
                 <div className="form-group">
                   <label style={{color:"#292929"}}>Fecha</label>
-                  <input type="text" className="form-control" disabled/>
+                  <input type="text" className="form-control" disabled value= {data.date_time}/>
                 </div>
               </div>
               <div className="col-sm-8">
@@ -33,7 +33,7 @@ function Appointments() {
                   <label style={{color:"#292929"}}>Descripción</label>
                   <div className="input-group">
                     <div className="input-group-prepend"></div>
-                    <input type="text" class="form-control" disabled="true"></input>
+                    <input type="text" class="form-control" disabled="true" value={data.general_description}/>
                   </div>
                 </div>
               </div>  

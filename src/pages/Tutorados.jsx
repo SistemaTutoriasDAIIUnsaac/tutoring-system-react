@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 
-function Tutorados() {
+function Tutorados(props) {
 
   const columns = [
     { title: "Código", field: "cod_student"},
@@ -71,17 +71,24 @@ function Tutorados() {
                         pageSize: 10,                        
                       }}
                       actions={[
+                        // {
+                        //   icon: "delete",
+                        //   tooltip: "Borrar Estudiante",
+                        //   onClick: (ev, rowData) =>
+                        //     console.log("Borrar Estudiante"),
+                        // },
+                        // {
+                        //   icon: "edit",
+                        //   tooltip: "Editar Estudiante",
+                        //   onClick: (ev, rowData) =>
+                        //     console.log("Editar Estudiante"),
+                        // },
                         {
-                          icon: "delete",
-                          tooltip: "Borrar Estudiante",
-                          onClick: (ev, rowData) =>
-                            console.log("Borrar Estudiante"),
-                        },
-                        {
-                          icon: "edit",
-                          tooltip: "Editar Estudiante",
-                          onClick: (ev, rowData) =>
-                            console.log("Editar Estudiante"),
+                          icon: "visibility",
+                          tooltip: "Ver Lista de Citas",
+                          onClick: (ev, rowData) => {
+                            console.log("Ver Cita")
+                            props.history.push(`/Lista_de_citas/${rowData.cod_student}`)}
                         },
                       ]}
                     />                

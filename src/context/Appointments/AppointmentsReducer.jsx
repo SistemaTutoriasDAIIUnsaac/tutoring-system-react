@@ -1,5 +1,9 @@
-import { GET_STUDENTS_LIST, GET_STUDENT_SELECTED, GET_APPOINTMENTS_LIST} from '../types'
-
+import {
+  GET_STUDENTS_LIST,
+  GET_STUDENT_SELECTED,
+  GET_APPOINTMENTS_LIST,
+  POST_APPOINTMENT_NEW,
+} from "../types";
 
 export default (state, action) => {
   const { type, payload } = action;
@@ -13,17 +17,22 @@ export default (state, action) => {
     case GET_STUDENTS_LIST:
       return {
         ...state,
-        studentsList: payload
-      }
+        studentsList: payload,
+      };
     case GET_STUDENT_SELECTED:
       return {
         ...state,
-        studentSelected: payload
-      } 
+        studentSelected: payload,
+      };
     case GET_APPOINTMENTS_LIST:
-      return{
+      return {
         ...state,
-        appointmentList: payload
-      }
+        appointmentList: payload,
+      };
+    case POST_APPOINTMENT_NEW:
+      return {
+        ...state,
+        appointmentNew: payload,
+      };
   }
-}
+};

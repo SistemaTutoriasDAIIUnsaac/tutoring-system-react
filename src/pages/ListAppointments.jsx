@@ -1,28 +1,32 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Appointments from "../components/Appointments";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
-
+import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 
 function ViewAppointments() {
-  const dataStudent = {
-    cod_student: "160890",
-    name: "Marko",
-    f_lastname: "Castro",
-    m_lastname: "Cordova",
-    phone: "983048685",
-    email: "160890@unsaac.edu.pe",
-    cod_faculty: "#IEEMI",
-    cod_career: "#IIS",
-    adress: "Calle Domingo Guevara",
-  };
+  const appointmentsContext = useContext(AppointmentsContext);
+  const {
+    getStudentSelected,
+    studentSelected,
+    getAppointmentList,
+    appointmentList,
+  } = appointmentsContext;
+
+  useEffect(() => {
+    var codStudent = window.location.pathname;
+    codStudent = codStudent.replace("/Lista_de_citas/", "");
+    getStudentSelected(codStudent);
+    getAppointmentList(codStudent);
+
+  }, []);
 
   return (
     <Fragment>
-      <Header/>
-      <SideBar/> 
+      <Header />
+      <SideBar />
       <div className="content-wrapper">
         {/* Content Header (Page header) */}
         <section className="content-header">
@@ -44,10 +48,14 @@ function ViewAppointments() {
           <div className="card">
             <div className="card-body">
               <div className="row">
-                <h4>
-                  Tutorado:{" "}
-                  {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
-                </h4>
+                {studentSelected != null ? (
+                  <h4>
+                    Tutorado:{" "}
+                    {` ${studentSelected.name} ${studentSelected.f_lastname} ${studentSelected.m_lastname}`}
+                  </h4>
+                ) : (
+                  <h4>Tutorado:{`No se tiene datos del estudiante`}</h4>
+                )}
               </div>
               <Link to="/Nueva_cita/160890">
                 <button type="submit" class="btn btn-primary mt-2">
@@ -81,9 +89,9 @@ function ViewAppointments() {
                           }}
                         >
                           <div className="card-header" style={{ padding: 1 }} />
-                          <Appointments />
-                          <Appointments />
-                          <Appointments />
+                          {appointmentList.map((item, index) => (
+                            <Appointments data={item} />
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -104,7 +112,7 @@ function ViewAppointments() {
           {/* /.container-fluid */}
         </section>
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 }

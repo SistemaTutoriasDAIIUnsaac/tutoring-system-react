@@ -58,7 +58,7 @@ function App() {
             <Switch>
               {/* Views for Tutors */}
               <PrivateRoute exact path="/Lista_de_Tutorados" component={Tutorados} />
-              <PrivateRoute exact path="/Lista_de_citas" component={ListAppointments} />
+              <PrivateRoute exact path="/Lista_de_citas/:cod_student" component={ListAppointments} />
               <PrivateRoute exact path="/Nueva_cita" component={NewAppointment} />
               <PrivateRoute exact path="/Ver_cita" component={DataofAppointment} />
               {/* Views for Students */}
