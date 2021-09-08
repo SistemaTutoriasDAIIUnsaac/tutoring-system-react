@@ -1,15 +1,15 @@
-import { GET_TUTOR, GET_STUDENTS_LIST, GET_STUDENT_SELECTED, GET_APPOINTMENTS_LIST} from '../types'
+import { GET_STUDENTS_LIST, GET_STUDENT_SELECTED, GET_APPOINTMENTS_LIST} from '../types'
 
 
 export default (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GET_TUTOR:
-      return {
-        ...state,
-        tutor: payload
-      }
+    // case GET_TUTOR:
+    //   return {
+    //     ...state,
+    //     tutor: payload
+    //   }
     case GET_STUDENTS_LIST:
       return {
         ...state,
