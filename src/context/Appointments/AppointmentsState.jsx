@@ -51,13 +51,21 @@ function AppointmentsState({ children }) {
     });
   };
 
-  const postAppointmentNew = async (codStudent) => {
-    const res = await clienteAxios.get(`/appointmentnew/`);
+  const postAppointmentNew = async (codStudent,data) => {
+    const res = await clienteAxios.post(`/appointments/${codStudent}`,data);
     dispatch({
-      type: 'POST_APPOINTMENT_NEW',      
+      type: 'POST_APPOINTMENT_NEW',
       payload: res.data
     });
   };
+
+  const getAppointment = async (codAppointment) => {
+    const res = await clienteAxios.get(`/appointment/${codAppointment}`);
+    dispatch({
+      type: 'GET_APPOINTMENT',
+      payload: res.data
+    });
+  }
 
   
   return (
@@ -70,13 +78,14 @@ function AppointmentsState({ children }) {
         getStudentSelected,
         getAppointmentList,
         postAppointmentNew,
+        getAppointment,
         // Values
         tutor: state.tutor,
         studentsList: state.studentsList,
         studentSelected: state.studentSelected,
         appointmentList: state.appointmentList,
         appointmentNew: state.appointmentNew,
-        
+        appointmentSelected: state.appointmentSelected
       }}
     >
       {children}

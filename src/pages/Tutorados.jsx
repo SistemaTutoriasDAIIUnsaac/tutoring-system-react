@@ -17,7 +17,7 @@ function Tutorados(props) {
     { title: "Correo", field: "email" },
   ];
 
-  const { getStudentsList, studentsList } = useContext(AppointmentsContext);
+  const { getStudentsList, studentsList, studentSelected, getStudentSelected } = useContext(AppointmentsContext);
 
   useEffect(() => {
     getStudentsList();
@@ -88,6 +88,7 @@ function Tutorados(props) {
                           tooltip: "Ver Lista de Citas",
                           onClick: (ev, rowData) => {
                             console.log("Ver Cita")
+                            getStudentSelected(rowData.cod_student);
                             props.history.push(`/Lista_de_citas/${rowData.cod_student}`)}
                         },
                       ]}

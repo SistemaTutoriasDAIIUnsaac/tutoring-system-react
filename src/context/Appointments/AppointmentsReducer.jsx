@@ -3,6 +3,7 @@ import {
   GET_STUDENT_SELECTED,
   GET_APPOINTMENTS_LIST,
   POST_APPOINTMENT_NEW,
+  GET_APPOINTMENT,
 } from "../types";
 
 export default (state, action) => {
@@ -32,7 +33,15 @@ export default (state, action) => {
     case POST_APPOINTMENT_NEW:
       return {
         ...state,
-        appointmentNew: payload,
+        appointmentList: [
+          ...state.appointmentList,
+          payload
+        ],
       };
+    case GET_APPOINTMENT:
+      return {
+        ...state,
+        appointmentSelected: payload,
+      }
   }
 };

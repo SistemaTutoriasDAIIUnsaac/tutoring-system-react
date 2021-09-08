@@ -57,11 +57,22 @@ function ViewAppointments() {
                   <h4>Tutorado:{`No se tiene datos del estudiante`}</h4>
                 )}
               </div>
-              <Link to="/Nueva_cita/160890">
+              {studentSelected != null ? (
+                <Link to={`/Nueva_cita/${studentSelected.cod_student}`}>
                 <button type="submit" class="btn btn-primary mt-2">
                   Nueva Cita <i className="fas fa-plus ml-2"></i>
                 </button>
               </Link>
+              ) : (
+                <Link to={`/Nueva_cita/error_cod_student`}>
+                <button type="submit" class="btn btn-primary mt-2">
+                  Nueva Cita <i className="fas fa-plus ml-2"></i>
+                </button>
+              </Link>
+              )
+                
+              }
+              
             </div>
           </div>
           {/* /.container-fluid */}

@@ -1,10 +1,20 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext,useEffect } from "react";
 import { Link } from "react-router-dom";
+import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 
 function Appointments({data}) {
+
+  const appointmentsContext = useContext(AppointmentsContext)
+  const { getAppointment, appointmentSelected } = appointmentsContext;
+
+  useEffect(() => {
+    // getAppointment();
+    // eslint-disable-next-line
+  })
+
   return (
     <Fragment>
-      <Link to="Datos_de_citas">
+      <Link to={`/Ver_cita/${data.cod_appointment}`} onClick={() => getAppointment(data.cod_appointment)}>
          <div className="card card-secondary">
         <div className="card-header" style={{ padding: 5 }}>
         

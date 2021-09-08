@@ -1,10 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 
-const DataofAppointment = () => {
+const DataofAppointment = (props) => {
+
+  const appointmentsContext = useContext(AppointmentsContext);
+  const { studentSelected, appointmentSelected } = appointmentsContext;
+
   const dataStudent = {
     cod_student: "160890",
     name: "Marko",
@@ -65,6 +70,7 @@ const DataofAppointment = () => {
                                 <input
                                   type="text"
                                   className="form-control"
+                                  defaultValue={appointmentSelected.date_time}
                                   disabled
                                 />
                               </div>
@@ -78,6 +84,7 @@ const DataofAppointment = () => {
                                 <input
                                   type="text"
                                   className="form-control"
+                                  defaultValue={appointmentSelected.cod_appointment}
                                   disabled
                                 />
                               </div>
@@ -94,7 +101,7 @@ const DataofAppointment = () => {
                                 <textarea
                                   className="form-control"
                                   rows={5}
-                                  defaultValue={""}
+                                  defaultValue={appointmentSelected.general_description}
                                   disabled
                                 />
                               </div>
@@ -109,7 +116,7 @@ const DataofAppointment = () => {
                                 <textarea
                                   className="form-control"
                                   rows={5}
-                                  defaultValue={""}
+                                  defaultValue={appointmentSelected.private_description}
                                   disabled
                                 />
                               </div>
@@ -119,15 +126,17 @@ const DataofAppointment = () => {
                         </form>
                       </div>
                       <div className="card-footer">
-                        <Link to="Lista_de_citas">
-                          <button
-                            type="submit"
-                            className="btn btn-danger"
-                            style={{ float: "right" }}
-                          >
-                            Cerrar
-                          </button>
-                        </Link>
+                      <button
+                          type="submit"
+                          className="btn btn-danger"
+                          style={{ float: "right" }}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            props.history.push(`/Lista_de_citas/${studentSelected.cod_student}`)
+                          }}
+                        >
+                          Cancelar
+                        </button>
                       </div>
                     </div>
                   </div>

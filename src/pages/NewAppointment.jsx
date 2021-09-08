@@ -1,20 +1,34 @@
-import React, { Fragment, useEffect, useContext } from "react";
+import React, { Fragment, useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 import AppointmentsContext from "../context/Appointments/AppointmentsContext";
 
-const NewAppointment = () => {
+const NewAppointment = (props) => {
 
   const appointmentsContext = useContext(AppointmentsContext);
-  const { setAppointmentNew  } = appointmentsContext;
+  const { postAppointmentNew, studentSelected } = appointmentsContext;
   
+  const [AppointmentData, setAppointmentData] = useState({
+    date_time: "",
+    general_description: "",
+    private_description: "",
+    diagnosis: "SN"
+  })
+
+
+  const fixedData = () => {
+    var fxd_date = AppointmentData.date_time;
+    fxd_date = fxd_date.substring(2,fxd_date.length);
+    setAppointmentData({...AppointmentData, date_time: fxd_date})
+    postAppointmentNew(studentSelected.cod_student, AppointmentData);
+  }
+
   useEffect(() => {
+    console.log(AppointmentData)    
 
-    setAppointmentNew();
-
-  }, []);
+  }, [AppointmentData]);
 
   return (
     <Fragment>
@@ -61,7 +75,7 @@ const NewAppointment = () => {
                             <div className="form-group ml-5 mt-3">
                               <div className="form-group">
                                 <label>Fecha:</label>
-                                <input type="date" className="form-control" />
+                                <input type="date" className="form-control" onChange={(e) => setAppointmentData({...AppointmentData, date_time: e.target.value }) } />
                               </div>
                             </div>
                           </div>
@@ -86,7 +100,7 @@ const NewAppointment = () => {
                                   className="form-control"
                                   rows={5}
                                   placeholder="Enter ..."
-                                  defaultValue={""}
+                                  onChange={(e) => setAppointmentData({...AppointmentData, general_description: e.target.value }) }
                                 />
                               </div>
                             </div>
@@ -101,7 +115,7 @@ const NewAppointment = () => {
                                   className="form-control"
                                   rows={5}
                                   placeholder="Enter ..."
-                                  defaultValue={""}
+                                  onChange={(e) => setAppointmentData({...AppointmentData, private_description: e.target.value }) }
                                 />
                               </div>
                             </div>
@@ -110,13 +124,22 @@ const NewAppointment = () => {
                         </form>
                       </div>
                       <div className="card-footer">
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="btn btn-primary" onClick={ (e) => {
+                          e.preventDefault();
+                          fixedData();
+                          // e.target.reset();
+                          props.history.push(`/Lista_de_citas/${studentSelected.cod_student}`);
+                        }}>
                           Guardar
                         </button>
                         <button
                           type="submit"
                           className="btn btn-danger"
                           style={{ float: "right" }}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            props.history.push(`/Lista_de_citas/${studentSelected.cod_student}`)
+                          }}
                         >
                           Cancelar
                         </button>

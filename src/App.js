@@ -59,8 +59,8 @@ function App() {
               {/* Views for Tutors */}
               <PrivateRoute exact path="/Lista_de_Tutorados" component={Tutorados} />
               <PrivateRoute exact path="/Lista_de_citas/:cod_student" component={ListAppointments} />
-              <PrivateRoute exact path="/Nueva_cita" component={NewAppointment} />
-              <PrivateRoute exact path="/Ver_cita" component={DataofAppointment} />
+              <PrivateRoute exact path="/Nueva_cita/:cod_student" component={NewAppointment} />
+              <PrivateRoute exact path="/Ver_cita/:cod_appointment" component={DataofAppointment} />
               {/* Views for Students */}
               <PrivateRoute exact path="/Informacion_Estudiante" component={InformationStudent} />
               <PrivateRoute exact path="/Subir_Datos" component={UploadFiles} />
