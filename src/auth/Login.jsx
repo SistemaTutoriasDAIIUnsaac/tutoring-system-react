@@ -36,7 +36,7 @@ function Login(props) {
           <div className="card-header text-center">
             {/* <a href="!#" className="h1"> */}
             <h1>
-              <img src="/unsaacw.png" style={{ width: 130 }} alt="" /> <br />
+              <img src="/UNSAACW.png" style={{ width: 130 }} alt="" /> <br />
               <b>
                 Sistema de Tutorias <br /> UNSAAC{" "}
               </b>
