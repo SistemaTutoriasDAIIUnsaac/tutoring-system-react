@@ -110,7 +110,7 @@ const NewAppointment = (props) => {
                             <div className="col-sm-11">
                               {/* textarea */}
                               <div className="form-group ml-5 mt-2">
-                                <label>Observaciones:</label>
+                                <label>Informacion Privada:</label>
                                 <textarea
                                   className="form-control"
                                   rows={5}

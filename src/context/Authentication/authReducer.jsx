@@ -6,7 +6,8 @@ LOGIN_SUCCESSFUL,
 LOGIN_FAILED,
 LOGOUT,
 SET_NAVBAR_LIST,
-SELECT_NAV_ITEM
+SELECT_NAV_ITEM,
+SET_LAST_URL
 } from '../types';
 
 export default (state, action) => {
@@ -32,12 +33,12 @@ export default (state, action) => {
     case GET_USER:
       return {
         ...state,
+        authenticated: true,
         user: {
           ...state.user,
           username: action.payload.username,
           id: action.payload.id,
           role: action.payload.role,
-          authenticated: true
         },
         message: action.payload.message
         }
@@ -45,6 +46,12 @@ export default (state, action) => {
       return {
         ...state,
         navbarList: action.payload
+      }
+    case SET_LAST_URL:      
+      localStorage.setItem('lastURL', action.payload)
+      return {
+        ...state,
+        currentURL: action.payload
       }
     // case SELECT_NAV_ITEM:
     //   return {

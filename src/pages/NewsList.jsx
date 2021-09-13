@@ -6,7 +6,6 @@ import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 import AuthContext from "../context/Authentication/authContext";
 
-
 function NewsList() {
   const data = [
     {
@@ -24,15 +23,30 @@ function NewsList() {
       title: "Reunión Tutores",
       person: "Coordinador de Tutoria",
     },
+    {
+      date: "15-09-2021",
+      title: "Reunión Tutores",
+      person: "Coordinador de Tutoria",
+    },
+    {
+      date: "15-09-2021",
+      title: "Reunión Tutores",
+      person: "Coordinador de Tutoria",
+    },
+    {
+      date: "15-09-2021",
+      title: "Reunión Tutores",
+      person: "Coordinador de Tutoria",
+    },
   ];
 
   const authContext = useContext(AuthContext);
-  const { authenticated, getUserData } = authContext;
+  const { authenticated, getUserData, setLastURL } = authContext;
 
   useEffect(() => {
+    setLastURL();
     getUserData();
-    
-  }, [] );
+  }, []);
 
   return (
     <Fragment>
@@ -59,38 +73,50 @@ function NewsList() {
           {/* /.container-fluid */}
         </section>
 
-        <div className="card">
-          <div className="card-body">
-            <div className="card card-primary">
-              <div className="card-header">
-                <h4 className="card-title">Últimas novedades</h4>
-              </div>
+        <section className="content-body">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-12">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="card card-primary">
+                      <div className="card-header">
+                        <h4 className="card-title">Últimas novedades</h4>
+                      </div>
 
-              <div className="card-body">
-                <div
-                  style={{
-                    overflowY: "scroll",
-                    height: 300,
-                    paddingRight: 30,
-                    paddingLeft: 30,
-                  }}
-                >
-                  <div className="card-header" style={{ padding: 1 }} />
-                  {data.map((item, index) => (
-                    <News data={item} />
-                  ))}
+                      <div className="card-body">
+                        <div
+                          style={{
+                            overflowY: "scroll",
+                            height: "100%",
+                            maxHeight: 525,
+                            paddingRight: 30,
+                            paddingLeft: 30,
+                          }}
+                        >
+                          <div className="card-header" style={{ padding: 1 }} />
+                          {data.map((item, index) => (
+                            <News data={item} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <Link to="list_student">
+                      <button
+                        type="button"
+                        className="btn btn-danger float-right"
+                      >
+                        <i className="" /> Volver
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
-            <Link to="list_student">
-              <button type="button" className="btn btn-danger float-right">
-                <i className="" /> Volver
-              </button>
-            </Link>
           </div>
-        </div>
+        </section>
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 }

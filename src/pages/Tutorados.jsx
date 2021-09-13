@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
 import AppointmentsContext from "../context/Appointments/AppointmentsContext";
+import AuthContext from "../context/Authentication/authContext";
 import MaterialTable from "material-table";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
@@ -8,18 +9,23 @@ import Footer from "../components/Footer";
 
 function Tutorados(props) {
 
+
+
   const columns = [
     { title: "Código", field: "cod_student" },
-    { title: "Nombre", field: "name" },
+    { title: "Nombres", field: "name" },
     { title: "Apellido Paterno", field: "f_lastname" },
-    { title: "Apellido Materno", field: "m_lastname" },
+    { title: "Apellido Materno", field: "m_lastname" },    
     { title: "Teléfono", field: "phone" },
     { title: "Correo", field: "email" },
   ];
 
+  const { setLastURL } = useContext(AuthContext);
   const { getStudentsList, studentsList, studentSelected, getStudentSelected } = useContext(AppointmentsContext);
 
   useEffect(() => {
+    // getUserData();
+    setLastURL();
     getStudentsList();
     console.log(studentsList);
   }, []);
@@ -54,7 +60,7 @@ function Tutorados(props) {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12">
-                <div className="card">
+                <div className="card" >
                   {/* /.card-header */}
                   <div className="card-body">
                     <MaterialTable
@@ -69,6 +75,9 @@ function Tutorados(props) {
                         actions: true,
                         actionsColumnIndex: -1,
                         pageSize: 10,
+                        maxBodyHeight: 495,
+                        // showEmptyDataSourceMessage: true,
+                        
                       }}
                       actions={[
                         // {

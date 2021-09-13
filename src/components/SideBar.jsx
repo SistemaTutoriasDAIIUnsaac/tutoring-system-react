@@ -62,7 +62,7 @@ function SideBar() {
       <a href="#" className="brand-link">
         
         <img
-          src="/unsaacw.png"
+          src="/UNSAACW.png"
           alt="AdminLTE Logo"
           className="brand-image img-circle elevation-3"
           style={{ opacity: ".8" }}

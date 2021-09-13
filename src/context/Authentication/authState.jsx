@@ -13,7 +13,9 @@ import {
   LOGIN_FAILED,
   LOGOUT,
   SET_NAVBAR_LIST,
-  SELECT_NAV_ITEM
+  SELECT_NAV_ITEM,
+  GET_CURRENT_URL,
+  SET_LAST_URL,
 } from "../types";
 
 const AuthState = ({ children }) => {
@@ -74,6 +76,16 @@ const AuthState = ({ children }) => {
           icon: "fas fa-list nav-icon",
           _state: false,
         },
+        {
+          name: "Distribuir Estudiantes",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Nueva Novedad",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
       ];
     }
 
@@ -86,6 +98,7 @@ const AuthState = ({ children }) => {
     user: null,
     message: null,
     navbarList: [],
+    currentURL: null,
   };
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -164,7 +177,23 @@ const AuthState = ({ children }) => {
         }),
       });
     }
-  }
+  };
+
+  const setLastURL = () => {
+    var url = window.location.pathname;
+    if (
+      !(
+        url.includes("/login") ||
+        url.includes("/Registro")
+        // url.includes("/Novedades")
+      )
+    ) {
+      dispatch({
+        type: SET_LAST_URL,
+        payload: window.location.pathname,
+      });
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -175,11 +204,13 @@ const AuthState = ({ children }) => {
         user: state.user,
         message: state.message,
         navbarList: state.navbarList,
+        currentURL: state.currentURl,
         // Functions
         registerUser,
         loginUser,
         getUserData,
-        selectNavItem
+        selectNavItem,
+        setLastURL,
       }}
     >
       {children}

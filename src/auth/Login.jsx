@@ -4,7 +4,7 @@ import AuthContext from "../context/Authentication/authContext";
 
 function Login(props) {
   const authContext = useContext(AuthContext);
-  const { authenticated, loginUser, getUserData } = authContext;
+  const { authenticated, loginUser, getUserData, currentURL } = authContext;
 
   const [LoginData, setLoginData] = useState({
     username: "",
@@ -12,8 +12,10 @@ function Login(props) {
   });
 
   useEffect(() => {
-    if (authenticated) {
-      props.history.push("/Novedades");
+    if (authenticated){
+
+      const lastURL = localStorage.getItem('lastURL');
+      lastURL === null ? (props.history.push('/Novedades')) : (props.history.push(lastURL));      
     }
     console.log(LoginData);
   }, [authenticated, props.history]);
