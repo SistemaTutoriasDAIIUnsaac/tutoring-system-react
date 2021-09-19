@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
@@ -6,6 +6,16 @@ import Header from "../components/Header";
 
 
 const UploadFiles = () => {
+
+
+  const [Img, setImg] = useState()
+
+  const fileSelectedHandler = event => {
+    const img = event.target.files[0]
+    console.log(img)
+    setImg(img)
+  }
+
   return (
     <Fragment>
       <Header/>
@@ -50,6 +60,7 @@ const UploadFiles = () => {
                               type="file"
                               className="custom-file-input"
                               id="customFile"
+                              onChange={fileSelectedHandler}
                             />
                             <label
                               className="custom-file-label"
@@ -57,6 +68,7 @@ const UploadFiles = () => {
                             >
                               Escoger archivo
                             </label>
+                            <img src={Img} alt="new image" />
                           </div>
                         </div>
                       </div>

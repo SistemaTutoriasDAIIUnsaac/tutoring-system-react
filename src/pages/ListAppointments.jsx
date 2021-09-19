@@ -60,7 +60,7 @@ function ViewAppointments() {
               </div>
               {studentSelected != null ? (
                 <Link to={`/Nueva_cita/${studentSelected.cod_student}`}>
-                <button type="submit" class="btn btn-primary mt-2">
+                <button type="submit" class="btn btn-primary mt-2" style={{backgroundColor: "#060c2d"}}>
                   Nueva Cita <i className="fas fa-plus ml-2"></i>
                 </button>
               </Link>
@@ -87,7 +87,7 @@ function ViewAppointments() {
                   {/* /.card-header */}
                   <div className="card-body">
                     <div className="card card-primary">
-                      <div className="card-header">
+                      <div className="card-header" style={{backgroundColor: "#060c2d"}}>
                         <h4 className="card-title">Lista de Citas</h4>
                       </div>
 

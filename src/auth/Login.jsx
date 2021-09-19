@@ -4,7 +4,7 @@ import AuthContext from "../context/Authentication/authContext";
 
 function Login(props) {
   const authContext = useContext(AuthContext);
-  const { authenticated, loginUser, getUserData, currentURL } = authContext;
+  const { authenticated, loginUser, getUserData, currentURL, message } = authContext;
 
   const [LoginData, setLoginData] = useState({
     username: "",
@@ -13,12 +13,14 @@ function Login(props) {
 
   useEffect(() => {
     if (authenticated){
-
       const lastURL = localStorage.getItem('lastURL');
       lastURL === null ? (props.history.push('/Novedades')) : (props.history.push(lastURL));      
     }
+    if (message) {
+      alert(message);
+    }
     console.log(LoginData);
-  }, [authenticated, props.history]);
+  }, [authenticated, props.history, message]);
 
   return (
     <div
@@ -109,7 +111,7 @@ function Login(props) {
             </p>
 
             <p className="mb-0">
-              <Link to="/Registro" className="text-center">
+              <Link to="/cambiar_contraseña" className="text-center">
                 Cambiar contraseña
               </Link>{" "}
               <br />

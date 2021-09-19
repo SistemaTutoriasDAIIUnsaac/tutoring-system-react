@@ -57,7 +57,7 @@ const UploadDataCoordinator = () => {
                   </h5>
                   <div className="col-sm-12 ">
                     <div className="card ml-3 mt-2">
-                      <form action="../../index.html" method="post">
+                      <form >
                         <div className="input-group mb-3">
                           <input
                             type="Correo"

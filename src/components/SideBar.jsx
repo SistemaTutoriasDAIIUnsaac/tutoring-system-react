@@ -57,9 +57,9 @@ function SideBar() {
   }
 
   return (
-    <aside className="main-sidebar sidebar-dark-primary elevation-4">
+    <aside className="main-sidebar sidebar-dark-primary elevation-4" style={{backgroundColor: "#060c2d" }}>
       {/* Brand Logo */}
-      <a href="#" className="brand-link">
+      <a href="#" className="brand-link" style={{backgroundColor: "#eb9b44"}}>
         
         <img
           src="/UNSAACW.png"
@@ -67,7 +67,7 @@ function SideBar() {
           className="brand-image img-circle elevation-3"
           style={{ opacity: ".8" }}
         />
-        <span className="brand-text font-weight-light">Sistema de Tutorias</span> <br/>
+        <span className="brand-text">Sistema de Tutorias</span> <br/>
         <span className="brand-text font-weight-light" style={{marginLeft: 85}}>UNSAAC</span>
       </a>
       {/* Sidebar */}

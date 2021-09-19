@@ -15,7 +15,8 @@ import {
   SET_NAVBAR_LIST,
   SELECT_NAV_ITEM,
   GET_CURRENT_URL,
-  SET_LAST_URL,
+  CHANGE_PASSWORD_SUCCESSFUL,
+  SET_LAST_URL,  
 } from "../types";
 
 const AuthState = ({ children }) => {
@@ -121,6 +122,19 @@ const AuthState = ({ children }) => {
     }
   };
 
+  const updateUser = async (data) => {
+    try {
+      const res = await clienteAxios.put("/update_user", data);
+      console.log(res.data);
+      dispatch({
+        type: CHANGE_PASSWORD_SUCCESSFUL,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+
   const loginUser = async (data) => {
     try {
       const res = await clienteAxios.post("/login", data);
@@ -132,12 +146,19 @@ const AuthState = ({ children }) => {
       // getting user data
       getUserData();
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response.data.message);
       dispatch({
         type: LOGIN_FAILED,
+        payload: error.response.data.message,
       });
     }
   };
+
+  const logOut = () => {
+    dispatch({
+      type: LOGOUT,
+    });
+  }
 
   const getUserData = async () => {
     const token = localStorage.getItem("token");
@@ -211,6 +232,7 @@ const AuthState = ({ children }) => {
         getUserData,
         selectNavItem,
         setLastURL,
+        logOut
       }}
     >
       {children}

@@ -29,7 +29,7 @@ import StudentsHelpersList from "./pages/StudentsHelpersList";
 import TutorsList from "./pages/TutorsList";
 import DataofAppointment from "./pages/DataofAppointments";
 import Login from "./auth/Login";
-import Register from "./auth/Register";
+import ChangeCredentials from "./auth/ChangeCredentials";
 import NewCoordinator from "./pages/NewCoordinator";
 import DistributeStudents from "./pages/DistributeStudents";
 import UploadDataCoordinator from "./pages/UploadDataCoordinator";
@@ -53,107 +53,107 @@ function App() {
           <SideBar /> */}
           <Switch>
             <Route exact path="/login" component={Login} />
-            <Route exact path="/Registro" component={Register} />
+            <Route exact path="/cambiar_contraseña" component={ChangeCredentials} />
             {/* Views for Tutors */}
             <PrivateRoute
               exact
-              path="/Lista_de_Tutorados"
+              path="/lista_de_tutorados"
               component={Tutorados}
             />
             <PrivateRoute
               exact
-              path="/Lista_de_citas/:cod_student"
+              path="/lista_de_citas/:cod_student"
               component={ListAppointments}
             />
             <PrivateRoute
               exact
-              path="/Nueva_cita/:cod_student"
+              path="/nueva_cita/:cod_student"
               component={NewAppointment}
             />
             <PrivateRoute
               exact
-              path="/Ver_cita/:cod_appointment"
+              path="/ver_cita/:cod_appointment"
               component={DataofAppointment}
             />
             {/* Views for Students */}
             <PrivateRoute
               exact
-              path="/Informacion_Estudiante"
+              path="/informacion_estudiante"
               component={InformationStudent}
             />
-            <PrivateRoute exact path="/Subir_Datos" component={UploadFiles} />
+            <PrivateRoute exact path="/subir_datos" component={UploadFiles} />
             {/* Views for all */}
-            <PrivateRoute exact path="/Novedades" component={NewsList} />
+            <PrivateRoute exact path="/novedades" component={NewsList} />
 
             <PrivateRoute
               exact
-              path="/Distribuir_Estudiantes"
+              path="/distribuir_Estudiantes"
               component={DistributeStudents}
             />
             <PrivateRoute
               exact
-              path="/Nueva_Novedad"
+              path="/nueva_Novedad"
               component={NewNovelty}
             />
             <Route exact path="/teacher" component={Teacher} />
             <Route
               exact
-              path="/Nuevo_Estudiante"
+              path="/nuevo_estudiante"
               component={NewStudent}
             />
             <Route
               exact
-              path="/Lista_de_Talleres"
+              path="/lista_de_talleres"
               component={Talleres}
             />
             <Route
               exact
-              path="/Asistencias_Talleres"
+              path="/asistencias_talleres"
               component={ViewAssistance}
             />
             <Route
               exact
-              path="/Disponibilidad_Horaria/:cod_tutor"
+              path="/disponibilidad_horaria/:cod_tutor"
               component={TimeAvailability}
             />
             <Route
               exact
-              path="/AttendanceByDate/:cod_taller"
+              path="/asistencia_por_fecha/:cod_taller"
               component={AttendanceByDate}
             />
             <Route
               exact
-              path="/Lista_Asistencia/:cod_taller"
+              path="/asistencia_por_alumno/:cod_taller"
               component={VerListaPorAlumno}
             />
             <Route
               exact
-              path="/Editar_Lista_De_Tutores"
+              path="/editar_lista_de_tutores"
               component={EditTeacherList}
             />
             <Route
               exact
-              path="/Editar_Lista_De_Estudiantes_Ayudantes"
+              path="/editar_lista_de_estudiantes_ayudantes"
               component={EditHelperStudentList}
             />
             <Route
               exact
-              path="/Lista_de_Estudiantes_Ayudantes"
+              path="/lista_de_estudiantes_ayudantes"
               component={StudentsHelpersList}
             />
             <Route
               exact
-              path="/Lista_de_Tutores"
+              path="/lista_de_tutores"
               component={TutorsList}
             />            
             <Route
               exact
-              path="/Nuevo_Coordinador"
+              path="/nuevo_coordinador"
               component={NewCoordinator}
             />
             <Route
               exact
-              path="/Subir_Datos_Coordinador"
+              path="/subir_datos_coordinador"
               component={UploadDataCoordinator}
             />
           </Switch>

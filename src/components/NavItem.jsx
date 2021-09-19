@@ -6,8 +6,8 @@ import AuthContext from "../context/Authentication/authContext";
 function NavItem({data}) {
 
   const { name, icon, _state} = data;  
-    
-  var route = "/" + name;
+  
+  var route = "/" + name.toLowerCase();
   route = route.split(" ").join("_");
 
   var st = _state ? "active" : ""

@@ -7,12 +7,14 @@ LOGIN_FAILED,
 LOGOUT,
 SET_NAVBAR_LIST,
 SELECT_NAV_ITEM,
-SET_LAST_URL
+SET_LAST_URL,
+CHANGE_PASSWORD_SUCCESSFUL,
 } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
 
+    case CHANGE_PASSWORD_SUCCESSFUL:
     case LOGIN_SUCCESSFUL:
     case REGISTER_SUCCESSFUL:
       localStorage.setItem('token', action.payload.token)
@@ -22,12 +24,17 @@ export default (state, action) => {
         authenticated: true,
         message: null,
       }
+    case LOGOUT:
     case LOGIN_FAILED:
     case REGISTER_FAILED:
       localStorage.removeItem('token')
       return {
         ...state,
         token: null,
+        authenticated: null,
+        user: null,
+        navbarList: [],
+        currentURL: null,        
         message: action.payload
       }
     case GET_USER:

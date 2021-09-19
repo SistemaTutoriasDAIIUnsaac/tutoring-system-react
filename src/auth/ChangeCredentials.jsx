@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/Authentication/authContext"
 
-function Register() {
+function ChangeCredentials() {
   
-  const { registerUser } = React.useContext(AuthContext);
+  const { registerUser, message } = React.useContext(AuthContext);
 
   const [User, setUser] = useState({    
     username: "",
@@ -24,11 +24,17 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(password !== confirmPassword) {
-      alert("Passwords do not match");
+      alert("Las contraseñas nuevas no coinciden");
       return;
     }
     registerUser({username, password, role: "student"});
   }
+
+  useEffect(() => {
+    if(message) {
+      alert(message);
+    }
+  }, [message])
 
   return (
     <div
@@ -54,44 +60,15 @@ function Register() {
           </div>
           <div className="card-body">
             <p className="login-box-msg">Cambio de Contraseña</p>
-            <form >
-              {/* <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="DNI" />
-                <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fas fa-user" />
-                  </div>
-                </div>
-              </div>
-              <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Nombres" />
-                <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fas fa-user" />
-                  </div>
-                </div>
-              </div>
-              <div className="input-group mb-3">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Apellidos"
-                />
-                <div className="input-group-append">
-                  <div className="input-group-text">
-                    <span className="fas fa-user" />
-                  </div>
-                </div>
-              </div>
-               */}
+            <form >          
               <div className="input-group mb-3">
                 <input
                   type="email"
                   className="form-control"
                   placeholder="Correo"
-                  name="username"
+                  name="username"                  
                   onChange={(e) => setUser({ ...User, username: e.target.value })}
-                />
+                />                
                 <div className="input-group-append">
                   <div className="input-group-text">
                     <span className="fas fa-envelope" />
@@ -99,16 +76,17 @@ function Register() {
                 </div>
               </div>
               <div className="input-group mb-3">
+
                 <input
-                  type="email"
+                  type="password"
                   className="form-control"
                   placeholder="Contraseña actual"
-                  name="username"
+                  name="username"                  
                   onChange={(e) => setUser({ ...User, username: e.target.value })}
-                />
+                />                
                 <div className="input-group-append">
                   <div className="input-group-text">
-                    <span className="fas fa-envelope" />
+                    <span className="fas fa-lock" />
                   </div>
                 </div>
               </div>
@@ -119,6 +97,7 @@ function Register() {
                   placeholder="Nueva Contraseña"
                   name="password"
                   onChange={(e) => setUser({ ...User, password: e.target.value })}
+                  
                 />
                 <div className="input-group-append">
                   <div className="input-group-text">
@@ -188,4 +167,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default ChangeCredentials;

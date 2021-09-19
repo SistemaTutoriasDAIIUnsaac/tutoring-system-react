@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../context/Authentication/authContext";
 
-function Header() {
+function Header(props) {
+
+  const authContext = useContext(AuthContext)
+  const { logOut } = authContext;
+
   return (
-    <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{height:87}}>
+    <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{height:87}} >
       {/* Left navbar links */}
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -57,7 +62,10 @@ function Header() {
                 <i className="far fa-bell" />
                 <span className="badge badge-warning navbar-badge">15</span>
               </Link>
-              <Link className="nav-link">
+              <Link className="nav-link" onClick={ () => {
+                logOut()
+                // props.history.push('/login')
+                }}>
                 Cerrar Sesion <i className="fas fa-sign-out-alt" />
               </Link>
             </form>
