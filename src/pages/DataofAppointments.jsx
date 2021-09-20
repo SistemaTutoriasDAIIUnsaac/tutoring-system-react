@@ -28,7 +28,7 @@ const DataofAppointment = (props) => {
 
   useEffect(() => {
     var codAppointment = window.location.pathname;
-    codAppointment = codAppointment.replace("/Ver_cita/", "");    
+    codAppointment = codAppointment.replace("/Ver_cita/", "");
     getAppointment(codAppointment);
   }, []);
 
@@ -43,9 +43,7 @@ const DataofAppointment = (props) => {
             <div className="container-fluid">
               <div className="row mb-2">
                 <div className="col-sm-6">
-                <h1>
-                  Cargando ..... 
-                </h1>
+                  <h1>Cargando .....</h1>
                 </div>
               </div>
             </div>
@@ -70,11 +68,21 @@ const DataofAppointment = (props) => {
                 </div>
               </div>
             </div>
-            {
-              <div className="card-header text-muted border-bottom-0">
-                {`${studentSelected.name} ${studentSelected.f_lastname} ${studentSelected.m_lastname}`}
+
+            <div className="card">
+              <div className="card-body">
+                <div className="row">
+                  {studentSelected != null ? (
+                    <h4>
+                      Tutorado:{" "}
+                      {` ${studentSelected.name} ${studentSelected.f_lastname} ${studentSelected.m_lastname}`}
+                    </h4>
+                  ) : (
+                    <h4>Tutorado:{`No se tiene datos del estudiante`}</h4>
+                  )}
+                </div>
               </div>
-            }
+            </div>
           </section>
 
           {/* Main content */}
