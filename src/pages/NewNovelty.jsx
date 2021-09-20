@@ -49,7 +49,7 @@ const NewNovelty = () => {
                 <div className="card">
                   <div className="card-body">
                     <div className=" card card-primary">
-                      <div className="card-header"></div>
+                      <div className="card-header" style={{backgroundColor: "#060c2d"}}></div>
 
                       <div className="card-body">
                         <div className="row">
@@ -111,7 +111,7 @@ const NewNovelty = () => {
                       </div>
                       <div className="card-footer">
                         <Link to="/">
-                          <button type="submit" className="btn btn-primary">
+                          <button type="submit" className="btn btn-primary" style={{backgroundColor: "#060c2d"}}>
                             Guardar
                           </button>
                         </Link>

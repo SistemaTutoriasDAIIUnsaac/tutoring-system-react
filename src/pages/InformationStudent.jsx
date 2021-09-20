@@ -45,11 +45,11 @@ const InformationStudent = () => {
         <div className="container-fluid">
           <div className="row mb-2">
             <div className="col-sm-6">
-              <h1>Mi Informacion</h1>
+              <h1>Mi Información</h1>
             </div>
             <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
-                <li className="breadcrumb-item active">Mi Informacion</li>
+                <li className="breadcrumb-item active">Mi Información</li>
                 <li className="breadcrumb-item">
                   {/* <a href="#">Home</a> */}
                   <Link to="Detalle_Servicio"> Detalle Servicio</Link>
@@ -64,11 +64,11 @@ const InformationStudent = () => {
       {/* Main content */}
       <div className="col-md-11 ml-5 mt-2">
         <div className="card card-widget widget-user">
-          <div className="widget-user-header bg-info">
+          <div className="widget-user-header" style={{backgroundColor: "#eb9b44",color:"#060c2d"}}>
             <h3 className="widget-user-username">
-              {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}
+              <b>{`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}</b>
             </h3>
-            <h5 className="widget-user-desc">Student</h5>
+            <h5 className="widget-user-desc"> Estudiante </h5>
           </div>
           <div className="widget-user-image">
             <img
@@ -82,7 +82,12 @@ const InformationStudent = () => {
               <div className="col-sm-4 border-right">
                 <div className="card bg-light">
                   <h5 className="ml-3 mt-2">
-                    <b>Informacion general </b> .
+                    <b>Información general</b>                      
+                      <Link to="/novedades" style={{color:"#060c2d"}}>
+                        <a class="btn btn-app">
+                          <i class="fas fa-edit"></i> Editar
+                        </a>
+                      </Link>
                   </h5>
                   <div className="card-header text-muted border-bottom-0">
                     <p className="text-muted text-sm mb-0">
@@ -136,7 +141,7 @@ const InformationStudent = () => {
               <div className="col-sm-4 border-right">
                 <div className="card bg-light">
                   <h5 className="ml-3 mt-2">
-                    <b>Informacion tutor </b> .
+                    <b>Información tutor </b>
                   </h5>
                   <div className="card-header text-muted border-bottom-0">
                     <p className="text-muted text-sm mb-0">
@@ -164,7 +169,7 @@ const InformationStudent = () => {
               <div className="col-sm-4">
                 <div className="card bg-light">
                   <h5 className="ml-3 mt-2">
-                    <b>Informacion talleres </b> .
+                    <b>Información talleres </b>
                   </h5>
                   <div className="card-header text-muted border-bottom-0">
                     <p className="text-muted text-sm mb-0">
@@ -201,7 +206,7 @@ const InformationStudent = () => {
               />
               <label className="custom-control-label" htmlFor="exampleCheck1">
                 Estoy de acuerdo en{" "}
-                <a href="#">compartir mi informacion privada</a> en caso de
+                <a href="#">compartir mi información privada</a> en caso de
                 cambio de tutor.
               </label>
             </div>
@@ -212,7 +217,7 @@ const InformationStudent = () => {
       <div className="card-body">
         <button
           type="submit"
-          className="btn btn-danger"
+          className="btn btn-danger float-right"
           style={{ marginLeft: "35px" }}
         >
           Volver
@@ -220,10 +225,10 @@ const InformationStudent = () => {
         <button
           type="submit"
           className="btn btn-primary"
-          style={{ marginLeft: "35px" }}
+          style={{ marginLeft: "35px" },{backgroundColor: "#060c2d"}}          
         >
           Guardar
-        </button>
+        </button>        
       </div>
     </div>
     <Footer/>

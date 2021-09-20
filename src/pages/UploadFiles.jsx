@@ -76,6 +76,7 @@ const UploadFiles = () => {
                         <button
                           type="button"
                           className="btn btn-primary float-right"
+                          style={{backgroundColor: "#060c2d"}}
                         >
                           <i className="" /> Guardar
                         </button>
@@ -109,6 +110,7 @@ const UploadFiles = () => {
                         <button
                           type="button"
                           className="btn btn-primary float-right"
+                          style={{backgroundColor: "#060c2d"}}
                         >
                           <i className="" /> Guardar
                         </button>
@@ -142,6 +144,7 @@ const UploadFiles = () => {
                         <button
                           type="button"
                           className="btn btn-primary float-right"
+                          style={{backgroundColor: "#060c2d"}}
                         >
                           <i className="" /> Guardar
                         </button>

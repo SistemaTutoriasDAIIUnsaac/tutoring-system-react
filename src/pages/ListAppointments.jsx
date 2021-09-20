@@ -87,8 +87,8 @@ function ViewAppointments() {
                   {/* /.card-header */}
                   <div className="card-body">
                     <div className="card card-primary">
-                      <div className="card-header" style={{backgroundColor: "#060c2d"}}>
-                        <h4 className="card-title">Lista de Citas</h4>
+                      <div className="card-header" style={{backgroundColor: "#eb9b44"}}>
+                        <h4 className="card-title" style={{color: "#060c2d"}}> <b> Lista de Citas</b></h4>
                       </div>
 
                       <div className="card-body">

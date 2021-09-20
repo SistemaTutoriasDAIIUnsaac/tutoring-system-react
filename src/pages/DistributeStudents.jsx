@@ -68,6 +68,7 @@ function DistributeStudents() {
                         style={{ height: 50 }}
                         data-toggle="modal"
                         data-target="#modal-default"
+                        style={{backgroundColor: "#060c2d"}}
                       >
                         <h4> -- Distribuir Alumnos -- </h4>
                       </button>

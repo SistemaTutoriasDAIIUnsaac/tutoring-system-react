@@ -104,10 +104,10 @@ function Tutored(props) {
                     />
                     <Link to="/Novedades">
                       <button
-                        type="submit"
-                        className="btn btn-danger ml-8 mt-3"
+                        type="button"
+                        className="btn btn-danger float-right"
                       >
-                        Volver
+                        <i className="" /> Volver
                       </button>
                     </Link>
                   </div>

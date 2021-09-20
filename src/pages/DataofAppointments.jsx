@@ -85,8 +85,8 @@ const DataofAppointment = (props) => {
                   <div className="card">
                     <div className="card-body">
                       <div className=" card card-primary">
-                        <div className="card-header">
-                          <h3 className="card-title">DETALLES</h3>
+                        <div className="card-header" style={{backgroundColor: "#eb9b44"}}>
+                          <h3 className="card-title" style={{color: "#060c2d"}}> <b>DETALLES </b></h3>
                         </div>
                         <div className="card-body">
                           <div className="row">
