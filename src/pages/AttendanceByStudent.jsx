@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function VerListaPorAlumno() {
+function AttendanceByStudent() {
   // Traer de la api del estudiatne con codigo 160890 en la variable dataStudent
   const dataCourse={
       code:"IN654",
@@ -112,4 +112,4 @@ function VerListaPorAlumno() {
     </div>
   );
 }
-export default VerListaPorAlumno;
+export default AttendanceByStudent;

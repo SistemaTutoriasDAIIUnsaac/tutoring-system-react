@@ -12,10 +12,10 @@ import Teacher from "./pages/Teacher";
 import NewStudent from "./pages/NewStudent";
 import InformationStudent from "./pages/InformationStudent";
 import NewAppointment from "./pages/NewAppointment";
-import Tutorados from "./pages/Tutorados";
-import Talleres from "./pages/Talleres";
+import Tutored from "./pages/Tutored";
+import TutoringWorkshops from "./pages/TutoringWorkshops";
 import AttendanceByDate from "./pages/AttendanceByDate";
-import VerListaPorAlumno from "./pages/VerListaPorAlumno";
+import AttendanceByStudent from "./pages/AttendanceByStudent";
 import Footer from "./components/Footer";
 import ViewAssistance from "./pages/ViewAssistance";
 import AppointmentsState from "./context/Appointments/AppointmentsState";
@@ -58,7 +58,7 @@ function App() {
             <PrivateRoute
               exact
               path="/lista_de_tutorados"
-              component={Tutorados}
+              component={Tutored}
             />
             <PrivateRoute
               exact
@@ -87,12 +87,12 @@ function App() {
 
             <PrivateRoute
               exact
-              path="/distribuir_Estudiantes"
+              path="/distribuir_estudiantes"
               component={DistributeStudents}
             />
             <PrivateRoute
               exact
-              path="/nueva_Novedad"
+              path="/nueva_novedad"
               component={NewNovelty}
             />
             <Route exact path="/teacher" component={Teacher} />
@@ -104,7 +104,7 @@ function App() {
             <Route
               exact
               path="/lista_de_talleres"
-              component={Talleres}
+              component={TutoringWorkshops}
             />
             <Route
               exact
@@ -124,7 +124,7 @@ function App() {
             <Route
               exact
               path="/asistencia_por_alumno/:cod_taller"
-              component={VerListaPorAlumno}
+              component={AttendanceByStudent}
             />
             <Route
               exact

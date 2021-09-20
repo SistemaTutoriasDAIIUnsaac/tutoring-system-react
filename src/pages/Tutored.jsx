@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 
-function Tutorados(props) {
+function Tutored(props) {
 
 
 
@@ -129,4 +129,4 @@ function Tutorados(props) {
   );
 }
 
-export default Tutorados;
+export default Tutored;
