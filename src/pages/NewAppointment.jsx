@@ -55,7 +55,23 @@ const NewAppointment = (props) => {
           <div className="card-header text-muted border-bottom-0">
             {/* {`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`} */}
           </div>
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                {studentSelected != null ? (
+                  <h4>
+                    Tutorado:{" "}
+                    {` ${studentSelected.name} ${studentSelected.f_lastname} ${studentSelected.m_lastname}`}
+                  </h4>
+                ) : (
+                  <h4>Tutorado:{`No se tiene datos del estudiante`}</h4>
+                )}
+              </div>
+              
+            </div>
+          </div>
         </section>
+
 
         {/* Main content */}
         <section className="content">
