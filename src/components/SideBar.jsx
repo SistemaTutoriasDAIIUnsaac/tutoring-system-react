@@ -65,10 +65,10 @@ function SideBar() {
           src="/UNSAACW.png"
           alt="AdminLTE Logo"
           className="brand-image img-circle elevation-3"
-          style={{ opacity: ".8" }}
+          style={{ opacity: "1" }}
         />
-        <span className="brand-text">Sistema de Tutorias</span> <br/>
-        <span className="brand-text font-weight-light" style={{marginLeft: 85}}>UNSAAC</span>
+        <span className="brand-text "style={{color:"#060c2d"}}><b>Sistema de Tutorias</b></span> <br/>
+        <span className="brand-text" style={{marginLeft: 85, color:"#060c2d"}}><b>UNSAAC</b></span>
       </a>
       {/* Sidebar */}
       <div className="sidebar">

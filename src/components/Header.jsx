@@ -14,6 +14,7 @@ function Header(props) {
         <li className="nav-item">
           <a
             className="nav-link"
+            style={{color:"#eb9b44"}}
             data-widget="pushmenu"
             href="!#"
             role="button"
@@ -21,14 +22,14 @@ function Header(props) {
             <i className="fas fa-bars" />
           </a>
         </li>
-        <li className="nav-item d-none d-sm-inline-block">
+        <li className="nav-item d-none d-sm-inline-block" >
           <Link to="/Novedades" className="nav-link">
-            Novedades
+            <b>Novedades</b>
           </Link>
         </li>
         <li className="nav-item d-none d-sm-inline-block">
           <Link to="/perfil" className="nav-link">
-            Perfil
+          <b>Perfil</b>
           </Link>
         </li>
         <li className="nav-item">
@@ -52,7 +53,7 @@ function Header(props) {
             role="button"
           >
             <i className="fas fa-user" style={{ marginRight: 10 }} />
-            Waldo Elio Ibarra Zambrano
+            <b>Waldo Elio Ibarra Zambrano</b>
           </a>
         </li>
         <li>
@@ -60,13 +61,13 @@ function Header(props) {
             <form className="form-inline">
               <Link className="nav-link">
                 <i className="far fa-bell" />
-                <span className="badge badge-warning navbar-badge">15</span>
+                <span className="badge badge-warning navbar-badge" >15</span>
               </Link>
               <Link className="nav-link" onClick={ () => {
                 logOut()
                 // props.history.push('/login')
                 }}>
-                Cerrar Sesion <i className="fas fa-sign-out-alt" />
+                <b>Cerrar Sesión</b> <i className="fas fa-sign-out-alt" style={{color:"#eb9b44"}} />
               </Link>
             </form>
           {/* </div> */}

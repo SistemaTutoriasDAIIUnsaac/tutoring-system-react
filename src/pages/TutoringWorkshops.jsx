@@ -4,7 +4,7 @@ import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
 
 
-function Talleres() {  
+function TutoringWorkshops() {  
   const [DataProducts, setDataProducts] = useState([]);
   const columns = [
     { title: "Nro", field: "no_service" },
@@ -112,4 +112,4 @@ function Talleres() {
   );
 }
 
-export default Talleres;
+export default TutoringWorkshops;
