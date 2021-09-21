@@ -4,35 +4,16 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 
-const InformationStudent = () => {
-  const dataStudent = {
-    cod_student: "171259",
-    name: "Widmar Raul",
-    f_lastname: "Quispe",
-    m_lastname: "Leon",
-    phone: "983048685",
-    email: "160890@unsaac.edu.pe",
-    cod_faculty: "#IEEMI",
-    cod_career: "#IIS",
-    adress: "Calle Domingo Guevara",
-  };
-
-  const dataTeacher = {
-    cod_teacher: "102030",
-    name: "Pedrito",
-    f_lastname: "Zolano",
-    m_lastname: "Siempre",
-    phone: "951617181",
-    email: "pedritoZolano@solito.com",
-  };
-
-  const dataWorkshop = {
-    cod_workshop: "TA001",
-    workshop_name: "Base de datos",
-    f_lastname: "Perez",
-    m_lastname: "Alzamora",
-    name: "Juan Armando",
-    phone: "978651743",
+const InformationTutor = () => {
+  const dataTutor = {
+    cod_coordinator: "COO_01",
+    name: "Waldo Elio",
+    f_lastname: "Ibarra",
+    m_lastname: "Zambrano",
+    phone: "966361737",
+    email: "Waldo.Ibarra@unsaac.edu.pe",
+    filiacion: "Nombrado",
+    categoria: "Auxiliar",
   };
 
   return (
@@ -61,16 +42,16 @@ const InformationStudent = () => {
         </section>
 
         {/* Main content */}
-        <div className="col-md-11 ml-5 mt-2">
+        <div className="col-md-6 ml-5 mt-2">
           <div className="card card-widget widget-user">
             <div
               className="widget-user-header"
               style={{ backgroundColor: "#eb9b44", color: "#060c2d" }}
             >
               <h3 className="widget-user-username">
-                <b>{`${dataStudent.name} ${dataStudent.f_lastname} ${dataStudent.m_lastname}`}</b>
+                <b>{`${dataTutor.name} ${dataTutor.f_lastname} ${dataTutor.m_lastname}`}</b>
               </h3>
-              <h5 className="widget-user-desc"> Estudiante </h5>
+              <h5 className="widget-user-desc"> Tutor </h5>
             </div>
             <div className="widget-user-image">
               <img
@@ -81,8 +62,8 @@ const InformationStudent = () => {
             </div>
             <div className="card-footer">
               <div className="row">
-                <div className="col-sm-4 border-right">
-                  <div className="card bg-light">
+                <div className="col-sm-8  left-8">
+                  <div className="card body">
                     <h5 className="ml-3 mt-2">
                       <b>Información general</b>
                       <button
@@ -93,7 +74,7 @@ const InformationStudent = () => {
                       >
                         <i className="fas fa-edit"></i>Editar
                       </button>
-                      {/* ------- MODAL UPDATE DATA STUDENT ------- */}
+                      {/* ------- MODAL UPDATE DATA TUTOR ------- */}
                       <div
                         className="modal fade"
                         id="modal-update-data"
@@ -126,7 +107,7 @@ const InformationStudent = () => {
                                       </h3>
                                     </div> */}
                                     <div className="card-body">
-                                      Datos estudiante 
+                                      Datos tutor 
                                       <hr />
                                       <div className="form-group row">
                                         <label                                          
@@ -139,7 +120,7 @@ const InformationStudent = () => {
                                             type="text"
                                             className="form-control"
                                             placeholder="Codigo"
-                                            defaultValue={171259}
+                                            defaultValue={"Tu-001"}
                                             disabled
                                           />
                                         </div>
@@ -155,7 +136,7 @@ const InformationStudent = () => {
                                             type="text"
                                             className="form-control"                                            
                                             placeholder="Nombres"
-                                            defaultValue={"Widmar Raul"}
+                                            defaultValue={"Waldo Elio"}
                                             disabled
                                           />
                                         </div>
@@ -171,7 +152,7 @@ const InformationStudent = () => {
                                             type="text"
                                             className="form-control"                                            
                                             placeholder="Apellidos"
-                                            defaultValue={"Quispe Leon"}
+                                            defaultValue={"Ibarra Zambrano"}
                                             disabled
                                           />
                                         </div>
@@ -187,23 +168,8 @@ const InformationStudent = () => {
                                             type="email"
                                             className="form-control"                                            
                                             placeholder="Correo"
-                                            defaultValue={"171259@unsaac.edu.pe"}
+                                            defaultValue={"Waldo.Ibarra@unsaac.edu.pe"}
                                             disabled
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
-                                          Dirección:
-                                        </label>
-                                        <div className="col-sm-9">
-                                          <input
-                                            type="text"
-                                            className="form-control"                                            
-                                            placeholder="Dirección"
-                                            defaultValue={"Av. Brasil"}
                                           />
                                         </div>
                                       </div>
@@ -221,51 +187,37 @@ const InformationStudent = () => {
                                           />
                                         </div>
                                       </div>
-                                      Persona de referencia
-                                      <hr />
-                                      <div className="form-group row mt-2">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
-                                          Nombres:
-                                        </label>
-                                        <div className="col-sm-9">
-                                          <input
-                                            type="text"
-                                            className="form-control"                                            
-                                            placeholder="Nombres"
-                                          />
-                                        </div>
-                                      </div>
+
                                       <div className="form-group row">
                                         <label                                          
                                           className="col-sm-3 col-form-label"
                                         >
-                                          Apellidos:
+                                          Filiacion:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="text"
                                             className="form-control"                                            
-                                            placeholder="Apellidos"
+                                            placeholder="Teléfono"
                                           />
                                         </div>
                                       </div>
-                                      <div className="form-group row mt-2">
+
+                                      <div className="form-group row">
                                         <label                                          
                                           className="col-sm-3 col-form-label"
                                         >
-                                          Teléfono:
+                                          Categoria:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="text"
                                             className="form-control"                                            
-                                            placeholder="Telefono"
+                                            placeholder="Teléfono"
                                           />
                                         </div>
                                       </div>
-                                     </div>
+                                    </div>
                                   </div>
                                 </div>
                                 {/* </div> */}
@@ -290,17 +242,26 @@ const InformationStudent = () => {
                       </div>
                     </h5>
                     <div className="card-header text-muted border-bottom-0">
-                      <p className="text-muted text-sm mb-0">
-                        <b>Codigo: </b> {dataStudent.cod_student}
+                    <p className="text-muted text-sm mb-0">
+                        <b>Codigo coordinador: </b> {dataTutor.cod_Tutor}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Email: </b> {dataStudent.email}
+                        <b>Nombre: </b> {dataTutor.name}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Codigo de Facultad: </b> {dataStudent.cod_faculty}
+                        <b>Apellido paterno: </b> {dataTutor.f_lastname}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Codigo de Carrera: </b> {dataStudent.cod_career}
+                        <b>Apellido materno: </b> {dataTutor.m_lastname}
+                      </p>
+                      <p className="text-muted text-sm mb-0">
+                        <b>Email: </b> {dataTutor.email}
+                      </p>
+                      <p className="text-muted text-sm mb-0">
+                        <b>Filiacion: </b> {dataTutor.filiacion}
+                      </p>
+                      <p className="text-muted text-sm mb-0">
+                        <b>Catergoria: </b> {dataTutor.categoria}
                       </p>
                     </div>
                     <div className="card-body pt-0">
@@ -309,86 +270,13 @@ const InformationStudent = () => {
                           <ul className="ml-4 mb-0 fa-ul text-muted">
                             <li className="small">
                               <span className="fa-li">
-                                <i className="fas fa-lg fa-building" />
-                              </span>{" "}
-                              Direccion: {dataStudent.adress}
-                            </li>
-                            <li className="small">
-                              <span className="fa-li">
                                 <i className="fas fa-lg fa-phone" />
                               </span>{" "}
-                              # de celular: {dataStudent.phone}
-                            </li>
-                          </ul>
-                          <p className="text-muted text-sm mb-0">
-                            <b>Persona de referencia: </b> Joaquin Castro Luna
-                          </p>
-
-                          <ul className="ml-4 mb-0 fa-ul text-muted">
-                            <li className="small">
-                              <span className="fa-li">
-                                <i className="fas fa-lg fa-phone" />
-                              </span>{" "}
-                              # de celular: 974459590
+                              # de celular: {dataTutor.phone}
                             </li>
                           </ul>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-4 border-right">
-                  <div className="card bg-light">
-                    <h5 className="ml-3 mt-2">
-                      <b>Información tutor </b>
-                    </h5>
-                    <div className="card-header text-muted border-bottom-0">
-                      <p className="text-muted text-sm mb-0">
-                        <b>Codigo: </b> {dataTeacher.cod_teacher}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Apellidos y nombres: </b>
-                        {`${dataTeacher.name} ${dataTeacher.f_lastname} ${dataTeacher.m_lastname}`}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Email: </b>
-                        {dataTeacher.email}
-                      </p>
-                      <ul className="ml-4 mb-0 fa-ul text-muted">
-                        <li className="small">
-                          <span className="fa-li">
-                            <i className="fas fa-lg fa-phone" />
-                          </span>{" "}
-                          {dataTeacher.phone}
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-sm-4">
-                  <div className="card bg-light">
-                    <h5 className="ml-3 mt-2">
-                      <b>Información talleres </b>
-                    </h5>
-                    <div className="card-header text-muted border-bottom-0">
-                      <p className="text-muted text-sm mb-0">
-                        <b>Codigo curso: </b> {dataWorkshop.cod_workshop}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Nombre: </b> {dataWorkshop.workshop_name}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Estudiante ayudante a cargo:</b>
-                        {`${dataWorkshop.name} ${dataWorkshop.f_lastname} ${dataWorkshop.m_lastname}`}
-                      </p>
-                      <ul className="ml-4 mb-0 fa-ul text-muted">
-                        <li className="small">
-                          <span className="fa-li">
-                            <i className="fas fa-lg fa-phone" />
-                          </span>{" "}
-                          # de celular: {dataWorkshop.phone}
-                        </li>
-                      </ul>
                     </div>
                   </div>
                 </div>
@@ -400,7 +288,7 @@ const InformationStudent = () => {
         <div className="card-body">
           <button
             type="submit"
-            className="btn btn-danger float-right"
+            className="btn btn-danger float-left"
             style={{ marginLeft: "35px" }}
           >
             Volver
@@ -418,5 +306,4 @@ const InformationStudent = () => {
     </Fragment>
   );
 };
-
-export default InformationStudent;
+export default InformationTutor;

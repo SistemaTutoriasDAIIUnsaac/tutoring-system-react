@@ -33,6 +33,8 @@ import ChangeCredentials from "./auth/ChangeCredentials";
 import NewCoordinator from "./pages/NewCoordinator";
 import DistributeStudents from "./pages/DistributeStudents";
 import UploadDataCoordinator from "./pages/UploadDataCoordinator";
+import InformationCoordinator from "./pages/InformationCoordinator";
+import InformationTutor from "./pages/InformationTutor";
 import PrivateRoute from "./components/private/PrivateRoute";
 import AuthContext from "./context/Authentication/authContext";
 import tokenAuth from "./config/token";
@@ -55,6 +57,11 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/cambiar_contraseña" component={ChangeCredentials} />
             {/* Views for Tutors */}
+            <PrivateRoute
+              exact
+              path="/informacion_tutor"
+              component={InformationTutor}
+            />
             <PrivateRoute
               exact
               path="/lista_de_tutorados"
@@ -111,6 +118,7 @@ function App() {
               path="/asistencias_talleres"
               component={ViewAssistance}
             />
+           
             <Route
               exact
               path="/disponibilidad_horaria/:cod_tutor"
@@ -156,6 +164,14 @@ function App() {
               path="/subir_datos_coordinador"
               component={UploadDataCoordinator}
             />
+            {/* Views for Students */}
+            <PrivateRoute
+              exact
+              path="/informacion_cordinador"
+              component={InformationCoordinator}
+            />
+
+            
           </Switch>
           {/* <Footer /> */}
         </Router>
