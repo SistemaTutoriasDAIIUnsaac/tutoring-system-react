@@ -4,16 +4,14 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 
-const InformationTutor = () => {
-  const dataTutor = {
+const InformationCoordinator = () => {
+  const dataCoordinator = {
     cod_coordinator: "COO_01",
-    name: "Waldo Elio",
-    f_lastname: "Ibarra",
-    m_lastname: "Zambrano",
-    phone: "966361737",
-    email: "Waldo.Ibarra@unsaac.edu.pe",
-    filiacion: "Nombrado",
-    categoria: "Auxiliar",
+    name: "Lauro",
+    f_lastname: "Enciso",
+    m_lastname: "Rodas",
+    phone: "981717190",
+    email: "lauro@unsaac.edu.pe",
   };
 
   return (
@@ -49,9 +47,9 @@ const InformationTutor = () => {
               style={{ backgroundColor: "#eb9b44", color: "#060c2d" }}
             >
               <h3 className="widget-user-username">
-                <b>{`${dataTutor.name} ${dataTutor.f_lastname} ${dataTutor.m_lastname}`}</b>
+                <b>{`${dataCoordinator.name} ${dataCoordinator.f_lastname} ${dataCoordinator.m_lastname}`}</b>
               </h3>
-              <h5 className="widget-user-desc"> Tutor </h5>
+              <h5 className="widget-user-desc"> Coordinador </h5>
             </div>
             <div className="widget-user-image">
               <img
@@ -74,7 +72,7 @@ const InformationTutor = () => {
                       >
                         <i className="fas fa-edit"></i>Editar
                       </button>
-                      {/* ------- MODAL UPDATE DATA TUTOR ------- */}
+                      {/* ------- MODAL UPDATE DATA COORDINATOR ------- */}
                       <div
                         className="modal fade"
                         id="modal-update-data"
@@ -107,7 +105,7 @@ const InformationTutor = () => {
                                       </h3>
                                     </div> */}
                                     <div className="card-body">
-                                      Datos tutor 
+                                      Datos coordinador 
                                       <hr />
                                       <div className="form-group row">
                                         <label                                          
@@ -120,7 +118,7 @@ const InformationTutor = () => {
                                             type="text"
                                             className="form-control"
                                             placeholder="Codigo"
-                                            defaultValue={"Tu-001"}
+                                            defaultValue={"COO-01"}
                                             disabled
                                           />
                                         </div>
@@ -136,7 +134,7 @@ const InformationTutor = () => {
                                             type="text"
                                             className="form-control"                                            
                                             placeholder="Nombres"
-                                            defaultValue={"Waldo Elio"}
+                                            defaultValue={"Lauro"}
                                             disabled
                                           />
                                         </div>
@@ -152,7 +150,7 @@ const InformationTutor = () => {
                                             type="text"
                                             className="form-control"                                            
                                             placeholder="Apellidos"
-                                            defaultValue={"Ibarra Zambrano"}
+                                            defaultValue={"Enciso Rodas"}
                                             disabled
                                           />
                                         </div>
@@ -168,7 +166,7 @@ const InformationTutor = () => {
                                             type="email"
                                             className="form-control"                                            
                                             placeholder="Correo"
-                                            defaultValue={"Waldo.Ibarra@unsaac.edu.pe"}
+                                            defaultValue={"Lauro.Enciso@unsaac.edu.pe"}
                                             disabled
                                           />
                                         </div>
@@ -178,36 +176,6 @@ const InformationTutor = () => {
                                           className="col-sm-3 col-form-label"
                                         >
                                           Telefono:
-                                        </label>
-                                        <div className="col-sm-9">
-                                          <input
-                                            type="text"
-                                            className="form-control"                                            
-                                            placeholder="Teléfono"
-                                          />
-                                        </div>
-                                      </div>
-
-                                      <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
-                                          Filiacion:
-                                        </label>
-                                        <div className="col-sm-9">
-                                          <input
-                                            type="text"
-                                            className="form-control"                                            
-                                            placeholder="Teléfono"
-                                          />
-                                        </div>
-                                      </div>
-
-                                      <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
-                                          Categoria:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
@@ -243,25 +211,19 @@ const InformationTutor = () => {
                     </h5>
                     <div className="card-header text-muted border-bottom-0">
                     <p className="text-muted text-sm mb-0">
-                        <b>Codigo coordinador: </b> {dataTutor.cod_Tutor}
+                        <b>Codigo coordinador: </b> {dataCoordinator.cod_coordinator}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Nombre: </b> {dataTutor.name}
+                        <b>Nombre: </b> {dataCoordinator.name}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Apellido paterno: </b> {dataTutor.f_lastname}
+                        <b>Apellido paterno: </b> {dataCoordinator.f_lastname}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Apellido materno: </b> {dataTutor.m_lastname}
+                        <b>Apellido materno: </b> {dataCoordinator.m_lastname}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Email: </b> {dataTutor.email}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Filiacion: </b> {dataTutor.filiacion}
-                      </p>
-                      <p className="text-muted text-sm mb-0">
-                        <b>Catergoria: </b> {dataTutor.categoria}
+                        <b>Email: </b> {dataCoordinator.email}
                       </p>
                     </div>
                     <div className="card-body pt-0">
@@ -272,7 +234,7 @@ const InformationTutor = () => {
                               <span className="fa-li">
                                 <i className="fas fa-lg fa-phone" />
                               </span>{" "}
-                              # de celular: {dataTutor.phone}
+                              # de celular: {dataCoordinator.phone}
                             </li>
                           </ul>
                         </div>
@@ -306,4 +268,4 @@ const InformationTutor = () => {
     </Fragment>
   );
 };
-export default InformationTutor;
+export default InformationCoordinator;

@@ -6,10 +6,10 @@ import Footer from "../components/Footer";
 
 const InformationStudent = () => {
   const dataStudent = {
-    cod_student: "160890",
-    name: "Marko",
-    f_lastname: "Castro",
-    m_lastname: "Cordova",
+    cod_student: "171259",
+    name: "Widmar Raul",
+    f_lastname: "Quispe",
+    m_lastname: "Leon",
     phone: "983048685",
     email: "160890@unsaac.edu.pe",
     cod_faculty: "#IEEMI",
@@ -85,32 +85,27 @@ const InformationStudent = () => {
                   <div className="card bg-light">
                     <h5 className="ml-3 mt-2">
                       <b>Información general</b>
-
-
-
-                      ---
                       <button
                         type="button"
-                        class="btn btn-default"
+                        className="btn btn-default float-right mr-1"
                         data-toggle="modal"
-                        data-target="#modal-default"
+                        data-target="#modal-update-data"
                       >
-                        
-                        <a class="btn btn-app">
-                          <i class="fas fa-edit"></i> Editar
-                        </a>
-                       
+                        <i className="fas fa-edit"></i>Editar
                       </button>
+                      {/* ------- MODAL UPDATE DATA STUDENT ------- */}
                       <div
                         className="modal fade"
-                        id="modal-default"
-                        style={{ display: "none" }}
+                        id="modal-update-data"
+                        // style={{ display: "none" }}
                         aria-hidden="true"
                       >
                         <div className="modal-dialog">
                           <div className="modal-content">
                             <div className="modal-header">
-                              <h4 className="modal-title">Default Modal</h4>
+                              <h4 className="modal-title">
+                                Actualizacion de Datos
+                              </h4>
                               <button
                                 type="button"
                                 className="close"
@@ -121,18 +116,171 @@ const InformationStudent = () => {
                               </button>
                             </div>
                             <div className="modal-body">
-                              <p>One fine body…</p>
+                              <div className="row">
+                                {/* <div className="col-md-12"> */}
+                                <div className="col-md-12">
+                                  <div className="card card-primary">
+                                    {/* <div className="card-header">
+                                      <h3 className="card-title">
+                                        Datos Personales
+                                      </h3>
+                                    </div> */}
+                                    <div className="card-body">
+                                      Datos estudiante 
+                                      <hr />
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Codigo:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Codigo"
+                                            defaultValue={171259}
+                                            disabled
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Nombres:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Nombres"
+                                            defaultValue={"Widmar Raul"}
+                                            disabled
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Apellidos:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Apellidos"
+                                            defaultValue={"Quispe Leon"}
+                                            disabled
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Correo:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="email"
+                                            className="form-control"                                            
+                                            placeholder="Correo"
+                                            defaultValue={"171259@unsaac.edu.pe"}
+                                            disabled
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Dirección:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Dirección"
+                                            defaultValue={"Av. Brasil"}
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Telefono:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Teléfono"
+                                          />
+                                        </div>
+                                      </div>
+                                      Persona de referencia
+                                      <hr />
+                                      <div className="form-group row mt-2">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Nombres:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Nombres"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Apellidos:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Apellidos"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row mt-2">
+                                        <label                                          
+                                          className="col-sm-3 col-form-label"
+                                        >
+                                          Teléfono:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"                                            
+                                            placeholder="Telefono"
+                                          />
+                                        </div>
+                                      </div>
+                                     </div>
+                                  </div>
+                                </div>
+                                {/* </div> */}
+                              </div>
                             </div>
                             <div className="modal-footer justify-content-between">
                               <button
                                 type="button"
-                                className="btn btn-default"
+                                className="btn btn-danger"
                                 data-dismiss="modal"
                               >
-                                Close
+                                Cancelar
                               </button>
-                              <button type="button" className="btn btn-primary">
-                                Save changes
+                              <button type="button" className="btn btn-primary" style={{backgroundColor: "#060c2d"}}>
+                                Guardar Cambios
                               </button>
                             </div>
                           </div>
@@ -140,9 +288,6 @@ const InformationStudent = () => {
                         </div>
                         {/* /.modal-dialog */}
                       </div>
-
-
-                      ---------
                     </h5>
                     <div className="card-header text-muted border-bottom-0">
                       <p className="text-muted text-sm mb-0">
@@ -263,7 +408,7 @@ const InformationStudent = () => {
           <button
             type="submit"
             className="btn btn-primary"
-            style={({ marginLeft: "35px" }, { backgroundColor: "#060c2d" })}
+            style={{ marginLeft: "35px", backgroundColor: "#060c2d" }}
           >
             Guardar
           </button>

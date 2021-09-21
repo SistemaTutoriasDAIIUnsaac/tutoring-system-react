@@ -39,6 +39,11 @@ const AuthState = ({ children }) => {
       return [
         // tutors
         {
+          name: "Informacion Tutor",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
           name: "Novedades",
           icon: "fas fa-newspaper nav-icon",
           _state: false,
@@ -67,6 +72,11 @@ const AuthState = ({ children }) => {
     } else if (role === "coordinator") {
       return [
         // Coordinator
+        {
+          name: "Informacion Coordinador",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
         {
           name: "Novedades",
           icon: "fas fa-newspaper nav-icon",
