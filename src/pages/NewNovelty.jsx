@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
-import { useForm } from "react-hook-form";
+
 
 const NewNovelty = () => {
   const dataStudent = {
@@ -18,13 +18,7 @@ const NewNovelty = () => {
     adress: "Calle Domingo Guevara",
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+
 
   return (
     <Fragment>
@@ -57,7 +51,7 @@ const NewNovelty = () => {
               <div className="col-12">
                 <div className="card">
                   <div className="card-body">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                  
                     <div className=" card card-primary">
                       <div
                         className="card-header"
@@ -83,7 +77,7 @@ const NewNovelty = () => {
                                 className="form-control"
                                 placeholder="Ingrese título"
                                 name="Titulo"
-                                {...register("Ingrese título", { required: true, maxLength: 80 })}
+                                
                               />
                             </div>
                           </div>
@@ -97,7 +91,7 @@ const NewNovelty = () => {
                                   rows={5}
                                   placeholder="Enter ..."
                                   defaultValue={""}
-                                  {...register("First name", { required: true, maxLength: 80 })}
+                                  
                                 />
                               </div>
                             </div>
@@ -116,7 +110,7 @@ const NewNovelty = () => {
                                 className="form-control"
                                 id="exampleInputPassword1"
                                 placeholder="Código de Estudiante"
-                                {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
+                                
                               />
                             </div>
                           </div>
@@ -143,8 +137,7 @@ const NewNovelty = () => {
                           </button>
                         </Link>
                       </div>
-                    </div>
-                    </form>
+                    </div>                   
                   </div>
                 </div>
               </div>
