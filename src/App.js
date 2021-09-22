@@ -38,6 +38,7 @@ import InformationTutor from "./pages/InformationTutor";
 import PrivateRoute from "./components/private/PrivateRoute";
 import AuthContext from "./context/Authentication/authContext";
 import tokenAuth from "./config/token";
+import CsvReader from "./pages/CsvReader";
 
 // Check if exist a token
 const token = localStorage.getItem("token");
@@ -169,6 +170,11 @@ function App() {
               exact
               path="/informacion_coordinador"
               component={InformationCoordinator}
+            />
+            <Route
+              exact
+              path="/CSV"
+              component={CsvReader}
             />
 
             

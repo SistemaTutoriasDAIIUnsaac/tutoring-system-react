@@ -85,6 +85,7 @@ const NewNovelty = () => {
                                   className="form-control"
                                   rows={5}
                                   placeholder="Enter ..."
+                                  
                                 />
                               </div>
                             </div>
