@@ -1,17 +1,41 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Papa from "papaparse";
 
 const UploadFiles = () => {
-  const [Img, setImg] = useState();
 
-  const fileSelectedHandler = (event) => {
-    const img = event.target.files[0];
-    console.log(img);
-    setImg(img);
-  };
+  const [File, setFile] = useState();
+  const [Columns, setColumns] = useState();
+  const [Data, setData] = useState([]);
+  const fileSelectedHandler = event => {
+    const file = event.target.files[0]
+    console.log(file)
+    if (file) {
+      //console.log(file);
+      Papa.parse(file, {
+        complete: function(results) {
+          console.log("Finished:", results.data);
+          setColumns(results.data[0]);
+          results.data.map(row => {
+            setData([...Data,{
+              "cod_student":row[0],
+              "name":row[1],
+              "f_lastname":row[2],
+              "m_lastname":row[3],
+              "email":row[4]
+            }])
+          } )
+        }}
+      )
+    }
+    setFile(file)
+  }
+  useEffect(() => {
+    console.log(Data)
+  }, [Data])
 
   return (
     <Fragment>
@@ -66,13 +90,16 @@ const UploadFiles = () => {
                                   type="file"
                                   className="custom-file-input"
                                   id="customFile"
+                                  accept=".csv,.xlsx,.xls"
                                   onChange={fileSelectedHandler}
                                 />
                                 <label
                                   className="custom-file-label"
                                   htmlFor="customFile"
                                 >
-                                  Seleccione archivo...
+                                  {
+                                    File ? File.name : "Seleccione archivo..."
+                                  }
                                 </label>
                                 {/* <img src={Img} alt="new image" /> */}
                               </div>
@@ -88,8 +115,8 @@ const UploadFiles = () => {
                               }}
                             >
                               <Link to = "/lista_de_tutores">
-                              <i className="fas fa-lg fa-upload" /> Subir
-                              archivo
+                              <i className="fas fa-lg" /> Enviar
+                              datos
                               </Link>
                             </button>
                           </div>
@@ -118,13 +145,16 @@ const UploadFiles = () => {
                                   type="file"
                                   className="custom-file-input"
                                   id="customFile"
+                                  accept=".csv,.xlsx,.xls"
                                   onChange={fileSelectedHandler}
                                 />
                                 <label
                                   className="custom-file-label"
                                   htmlFor="customFile"
                                 >
-                                  Seleccione archivo...
+                                  {
+                                    File ? File.name : "Seleccione archivo..."
+                                  }
                                 </label>
                                 {/* <img src={Img} alt="new image" /> */}
                               </div>
@@ -139,8 +169,7 @@ const UploadFiles = () => {
                                 backgroundColor: "#060c2d",
                               }}
                             >
-                              <i className="fas fa-lg fa-upload" /> Subir
-                              archivo
+                              <i className="fas fa-lg" /> Enviar datos
                             </button>
                           </div>
                         </div>
@@ -168,13 +197,16 @@ const UploadFiles = () => {
                                     className="form-control"
                                     class="custom-file-input"
                                     id="customFile"
+                                    accept=".csv,.xlsx,.xls"
                                     onChange={fileSelectedHandler}
                                   />
                                   <label
                                     className="custom-file-label"
                                     for="customFile"
                                   >
-                                    Seleccione archivo...
+                                    {
+                                    File ? File.name : "Seleccione archivo..."
+                                  }
                                   </label>
                                   {/* <img src={Img} alt="new image" /> */}
                                 </div>
@@ -189,8 +221,7 @@ const UploadFiles = () => {
                                 backgroundColor: "#060c2d",
                               }}
                             >
-                              <i className="fas fa-lg fa-upload" /> Subir
-                              archivo
+                              <i className="fas fa-lg " /> Enviar datos
                             </button>
                           </div>
                         </div>
