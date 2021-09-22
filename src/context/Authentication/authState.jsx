@@ -97,6 +97,16 @@ const AuthState = ({ children }) => {
           icon: "fas fa-list nav-icon",
           _state: false,
         },
+        {
+          name: "Lista de Tutores",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Lista de Estudiantes",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        }
       ];
     }
 

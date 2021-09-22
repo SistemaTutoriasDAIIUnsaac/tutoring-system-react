@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import { useForm } from "react-hook-form";
 
 const NewNovelty = () => {
   const dataStudent = {
@@ -16,6 +17,14 @@ const NewNovelty = () => {
     cod_career: "#IIS",
     adress: "Calle Domingo Guevara",
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(errors);
 
   return (
     <Fragment>
@@ -48,8 +57,12 @@ const NewNovelty = () => {
               <div className="col-12">
                 <div className="card">
                   <div className="card-body">
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div className=" card card-primary">
-                      <div className="card-header" style={{backgroundColor: "#060c2d"}}></div>
+                      <div
+                        className="card-header"
+                        style={{ backgroundColor: "#060c2d" }}
+                      ></div>
 
                       <div className="card-body">
                         <div className="row">
@@ -68,9 +81,9 @@ const NewNovelty = () => {
                               <input
                                 type="text"
                                 className="form-control"
-                                id="exampleInputPassword1"
-                                placeholder="Código de Estudiante"
-                                name="cod_student"
+                                placeholder="Ingrese título"
+                                name="Titulo"
+                                {...register("Ingrese título", { required: true, maxLength: 80 })}
                               />
                             </div>
                           </div>
@@ -84,6 +97,7 @@ const NewNovelty = () => {
                                   rows={5}
                                   placeholder="Enter ..."
                                   defaultValue={""}
+                                  {...register("First name", { required: true, maxLength: 80 })}
                                 />
                               </div>
                             </div>
@@ -98,11 +112,11 @@ const NewNovelty = () => {
                                 Para
                               </label>
                               <input
-                                type="text"
+                                type=""
                                 className="form-control"
                                 id="exampleInputPassword1"
                                 placeholder="Código de Estudiante"
-                                name="cod_student"
+                                {...register("Email", { required: true, pattern: /^\S+@\S+$/i })}
                               />
                             </div>
                           </div>
@@ -110,11 +124,15 @@ const NewNovelty = () => {
                         </form>
                       </div>
                       <div className="card-footer">
-                        <Link to="/">
-                          <button type="submit" className="btn btn-primary" style={{backgroundColor: "#060c2d"}}>
+                        {/* <Link to=""> */}
+                          <button
+                            type="submit"
+                            className="btn btn-primary"
+                            style={{ backgroundColor: "#060c2d" }}
+                          >
                             Guardar
                           </button>
-                        </Link>
+                        {/* </Link> */}
                         <Link to="/">
                           <button
                             type="submit"
@@ -126,6 +144,7 @@ const NewNovelty = () => {
                         </Link>
                       </div>
                     </div>
+                    </form>
                   </div>
                 </div>
               </div>

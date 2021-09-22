@@ -167,7 +167,7 @@ function App() {
             {/* Views for Students */}
             <PrivateRoute
               exact
-              path="/informacion_cordinador"
+              path="/informacion_coordinador"
               component={InformationCoordinator}
             />
 

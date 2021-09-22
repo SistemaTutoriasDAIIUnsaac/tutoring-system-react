@@ -64,11 +64,11 @@ function DistributeStudents() {
                       }}
                     >
                       <button
-                        className="col-md-8 btn btn-danger mb-5"
+                        className="col-md-8 btn mb-5"
                         style={{ height: 50 }}
                         data-toggle="modal"
                         data-target="#modal-default"
-                        style={{backgroundColor: "#060c2d"}}
+                        style={{ color: "white" ,backgroundColor: "#060c2d"}}
                       >
                         <h4> -- Distribuir Alumnos -- </h4>
                       </button>
@@ -131,8 +131,9 @@ function DistributeStudents() {
                 </button>
                 <button
                   type="submit"
-                  className="btn btn-danger"
+                  className="btn"
                   data-dismiss="modal"
+                  style={{ color: "white" ,backgroundColor: "#060c2d"}}
                   // onSubmit={onSubmit}
                   onClick={(e) => onSubmit(e)}
                 >

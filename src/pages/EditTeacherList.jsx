@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
 import MaterialTable from "material-table";
 import { Link } from "react-router-dom";
-
+import SideBar from "../components/SideBar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 function EditTeacherList() {
     const [DataProducts, setDataProducts] = useState([]);
@@ -44,6 +46,9 @@ function EditTeacherList() {
     }, [setDataProducts]);
   
     return (
+      <Fragment>
+      <Header />
+      <SideBar />
       <div className="content-wrapper">
         {/* Content Header (Page header) */}  
         <section className="content-header">
@@ -104,13 +109,13 @@ function EditTeacherList() {
                     />
                     <div class="row">
                       <div class="col-12">                        
-                      <Link to="/">
-                        <button type="submit" className="btn btn-danger ml-8 mt-3">
+                      <Link to="/lista_de_tutores">
+                        <button type="submit" className="btn btn-danger ml-8 mt-3 float-right">
                           Volver
                         </button>
                       </Link>
-                      <Link to="/">
-                        <button type="submit" className="btn btn-primary ml-8 mt-3 float-right">
+                      <Link to="/lista_de_tutores">
+                        <button type="submit" className="btn ml-8 mt-3" style={{ color: "white", backgroundColor: "#060c2d"}}>
                           Guardar
                         </button>
                       </Link>
@@ -129,6 +134,8 @@ function EditTeacherList() {
         </section>
         {/* /.content */}
       </div>
+       <Footer />
+       </Fragment>
     );  
 }
 

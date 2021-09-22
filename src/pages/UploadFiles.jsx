@@ -78,7 +78,7 @@ const UploadFiles = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="col-4">
+                          <div className="col-4" >
                             <button
                               type="button"
                               className="btn float-right"
@@ -87,8 +87,10 @@ const UploadFiles = () => {
                                 backgroundColor: "#060c2d",
                               }}
                             >
+                              <Link to = "/lista_de_tutores">
                               <i className="fas fa-lg fa-upload" /> Subir
                               archivo
+                              </Link>
                             </button>
                           </div>
                         </div>
