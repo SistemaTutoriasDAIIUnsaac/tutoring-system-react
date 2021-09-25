@@ -16,7 +16,8 @@ import {
   SELECT_NAV_ITEM,
   GET_CURRENT_URL,
   CHANGE_PASSWORD_SUCCESSFUL,
-  SET_LAST_URL,  
+  SET_LAST_URL,
+  CLEAR_MESSAGE,
 } from "../types";
 
 const AuthState = ({ children }) => {
@@ -52,22 +53,7 @@ const AuthState = ({ children }) => {
           name: "Lista de Tutorados",
           icon: "fas fa-list nav-icon",
           _state: false,
-        },
-        {
-          name: "Lista de citas",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
-        {
-          name: "Nueva cita",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
-        {
-          name: "Ver cita",
-          icon: "fas fa-list nav-icon",
-          _state: false,
-        },
+        }
       ];
     } else if (role === "coordinator") {
       return [
@@ -83,6 +69,11 @@ const AuthState = ({ children }) => {
           _state: false,
         },
         {
+          name: "Agregar Novedad",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
           name: "Subir Datos",
           icon: "fas fa-list nav-icon",
           _state: false,
@@ -93,24 +84,46 @@ const AuthState = ({ children }) => {
           _state: false,
         },
         {
-          name: "Nueva Novedad",
+          name: "Actualizar Coordinador",
+          icon: "fas fa-list nav-icon", 
+          _state: false,
+        },
+        {
+          name: "Crear Programa de Tutoria",
           icon: "fas fa-list nav-icon",
           _state: false,
         },
         {
-          name: "Lista de Tutores",
+          name: "Asignar Director",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+      ];
+    } else if (role === "principal") {
+      return [
+        // Principal
+        {
+          name: "Novedades",
           icon: "fas fa-list nav-icon",
           _state: false,
         },
         {
-          name: "Lista de Estudiantes",
+          name: "Informacion director",
+          icon: "fas fa-list nav-icon",
+          _state: false,
+        },
+        {
+          name: "Lista de tutores",
+          icon: "fas fa-newspaper nav-icon",
+          _state: false,
+        },
+        {
+          name: "Lista de estudiantes",
           icon: "fas fa-list nav-icon",
           _state: false,
         }
       ];
     }
-
-    return [];
   };
 
   const initialState = {
@@ -126,25 +139,9 @@ const AuthState = ({ children }) => {
 
   // Functions
 
-  const registerUser = async (data) => {
-    try {
-      const res = await clienteAxios.post("/register", data);
-      console.log(res.data);
-      dispatch({
-        type: REGISTER_SUCCESSFUL,
-        payload: res.data,
-      });
-    } catch (error) {
-      console.log(error.response.data.message);
-      dispatch({
-        type: REGISTER_FAILED,
-      });
-    }
-  };
-
   const updateUser = async (data) => {
     try {
-      const res = await clienteAxios.put("/update_user", data);
+      const res = await clienteAxios.put("/update_credentials", data);
       console.log(res.data);
       dispatch({
         type: CHANGE_PASSWORD_SUCCESSFUL,
@@ -153,7 +150,7 @@ const AuthState = ({ children }) => {
     } catch (error) {
       console.log(error.response.data.message);
     }
-  }
+  };
 
   const loginUser = async (data) => {
     try {
@@ -178,7 +175,7 @@ const AuthState = ({ children }) => {
     dispatch({
       type: LOGOUT,
     });
-  }
+  };
 
   const getUserData = async () => {
     const token = localStorage.getItem("token");
@@ -187,7 +184,7 @@ const AuthState = ({ children }) => {
       tokenAuth(token);
     }
     try {
-      const res = await clienteAxios.get("/login");
+      const res = await clienteAxios.get("/authenticate_user");
       console.log(res.data);
       dispatch({
         type: GET_USER,
@@ -198,7 +195,7 @@ const AuthState = ({ children }) => {
         payload: loadNavBarList(res.data.role),
       });
     } catch (error) {
-      console.log(error.res.data);
+      console.log(error);
       dispatch({
         type: LOGIN_FAILED,
       });
@@ -224,8 +221,7 @@ const AuthState = ({ children }) => {
     var url = window.location.pathname;
     if (
       !(
-        url.includes("/login") ||
-        url.includes("/Registro")
+        url.includes("/login")
         // url.includes("/Novedades")
       )
     ) {
@@ -234,6 +230,12 @@ const AuthState = ({ children }) => {
         payload: window.location.pathname,
       });
     }
+  };
+
+  const clearMessage = () => {
+    dispatch({
+      type: CLEAR_MESSAGE,
+    });
   };
 
   return (
@@ -247,12 +249,12 @@ const AuthState = ({ children }) => {
         navbarList: state.navbarList,
         currentURL: state.currentURl,
         // Functions
-        registerUser,
         loginUser,
         getUserData,
         selectNavItem,
         setLastURL,
-        logOut
+        logOut,
+        clearMessage,
       }}
     >
       {children}

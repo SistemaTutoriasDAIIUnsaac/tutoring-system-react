@@ -5,29 +5,55 @@ import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 import AuthContext from "../context/Authentication/authContext";
 
-
-const InformationCoordinator = () => {
+const InformationPrincipal = (props) => {
   const authContext = useContext(AuthContext);
   const { user, authenticated } = authContext;
 
-  useEffect(() => { 
-    setDataCoordinator(user)
-  }, [user])
+  useEffect(() => {
+    setDataPrincipal(user);
+  }, [user]);
 
-  const [DataCoordinator, setDataCoordinator] = useState({
-    cod_coordinator: "COO_01",
-    name: "Lauro",
-    f_lastname: "Enciso",
-    m_lastname: "Rodas",
-    phone: "981717190",
-    email: "lauro@unsaac.edu.pe",
-  })  
+  const [DataPrincipal, setDataPrincipal] = useState({
+    cod_coordinator: "",
+    name: "",
+    f_lastname: "",
+    m_lastname: "",
+    phone: "",
+    email: "",
+    filiation: "",
+    category: "",
+
+  });
 
   return (
     <Fragment>
       <Header />
       <SideBar />
-      <div className="content-wrapper">
+      {
+        user == null ? (
+          <div className="content-wrapper">
+          {/* Content Header (Page header) */}
+          <section className="content-header">
+            <div className="container-fluid">
+              <div className="row mb-2">
+                <div className="col-sm-6">
+                  <h1>Mi Información</h1>
+                </div>
+                <div className="col-sm-6">
+                  {/* <ol className="breadcrumb float-sm-right">
+                    <li className="breadcrumb-item active">Mi Información</li>
+                    <li className="breadcrumb-item">
+                      <a href="#">Home</a>
+                      <Link to="Detalle_Servicio"> Detalle Servicio</Link>
+                    </li>
+                  </ol> */}
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>    
+        ) : (
+          <div className="content-wrapper">
         {/* Content Header (Page header) */}
         <section className="content-header">
           <div className="container-fluid">
@@ -36,19 +62,19 @@ const InformationCoordinator = () => {
                 <h1>Mi Información</h1>
               </div>
               <div className="col-sm-6">
-                <ol className="breadcrumb float-sm-right">
+                {/* <ol className="breadcrumb float-sm-right">
                   <li className="breadcrumb-item active">Mi Información</li>
                   <li className="breadcrumb-item">
-                    {/* <a href="#">Home</a> */}
+                    <a href="#">Home</a>
                     <Link to="Detalle_Servicio"> Detalle Servicio</Link>
                   </li>
-                </ol>
+                </ol> */}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Main content */}        
+        {/* Main content */}
         <div className="col-md-8">
           <div className="card card-widget widget-user">
             <div
@@ -56,9 +82,9 @@ const InformationCoordinator = () => {
               style={{ backgroundColor: "#eb9b44", color: "#060c2d" }}
             >
               <h3 className="widget-user-username">
-                <b>{`${DataCoordinator.name} ${DataCoordinator.f_lastname} ${DataCoordinator.m_lastname}`}</b>
+                <b>{`${DataPrincipal.name} ${DataPrincipal.f_lastname} ${DataPrincipal.m_lastname}`}</b>
               </h3>
-              <h5 className="widget-user-desc"> Coordinador General </h5>
+              <h5 className="widget-user-desc"> Director(a) de Escuela </h5>
             </div>
             <div className="widget-user-image">
               <img
@@ -114,83 +140,86 @@ const InformationCoordinator = () => {
                                       </h3>
                                     </div> */}
                                     <div className="card-body">
-                                      Datos coordinador 
+                                      Datos Director(a) de Escuela
                                       <hr />
                                       <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
-                                          Codigo:
-                                        </label>
-                                        <div className="col-sm-9">
-                                          <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="Codigo"
-                                            defaultValue={"COO-01"}
-                                            disabled
-                                          />
-                                        </div>
-                                      </div>
-                                      <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
+                                        <label className="col-sm-3 col-form-label">
                                           Nombres:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="text"
-                                            className="form-control"                                            
+                                            className="form-control"
                                             placeholder="Nombres"
-                                            defaultValue={"Lauro"}
+                                            defaultValue={`${DataPrincipal.name}`}
                                             disabled
                                           />
                                         </div>
                                       </div>
                                       <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
+                                        <label className="col-sm-3 col-form-label">
                                           Apellidos:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="text"
-                                            className="form-control"                                            
+                                            className="form-control"
                                             placeholder="Apellidos"
-                                            defaultValue={"Enciso Rodas"}
+                                            defaultValue={`${user.f_lastname} ${user.m_lastname}`}
                                             disabled
                                           />
                                         </div>
                                       </div>
                                       <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
+                                        <label className="col-sm-3 col-form-label">
                                           Correo:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="email"
-                                            className="form-control"                                            
+                                            className="form-control"
                                             placeholder="Correo"
-                                            defaultValue={"Lauro.Enciso@unsaac.edu.pe"}
+                                            defaultValue={`${DataPrincipal.email}`}
                                             disabled
                                           />
                                         </div>
                                       </div>
                                       <div className="form-group row">
-                                        <label                                          
-                                          className="col-sm-3 col-form-label"
-                                        >
+                                        <label className="col-sm-3 col-form-label">
                                           Telefono:
                                         </label>
                                         <div className="col-sm-9">
                                           <input
                                             type="text"
-                                            className="form-control"                                            
+                                            className="form-control"
                                             placeholder="Teléfono"
+                                            defaultValue={`${DataPrincipal.phone}`}
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label className="col-sm-3 col-form-label">
+                                          Filiación:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Filiacion"
+                                            defaultValue={`${DataPrincipal.filiation}`}
+                                          />
+                                        </div>
+                                      </div>
+                                      <div className="form-group row">
+                                        <label className="col-sm-3 col-form-label">
+                                          Categoría:
+                                        </label>
+                                        <div className="col-sm-9">
+                                          <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Categoria"
+                                            defaultValue={`${DataPrincipal.category}`}
                                           />
                                         </div>
                                       </div>
@@ -208,7 +237,11 @@ const InformationCoordinator = () => {
                               >
                                 Cancelar
                               </button>
-                              <button type="button" className="btn btn-primary" style={{backgroundColor: "#060c2d"}}>
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                style={{ backgroundColor: "#060c2d" }}
+                              >
                                 Guardar Cambios
                               </button>
                             </div>
@@ -218,36 +251,36 @@ const InformationCoordinator = () => {
                         {/* /.modal-dialog */}
                       </div>
                     </h5>
-                    <div className="card-header text-muted border-bottom-0">
-                    <p className="text-muted text-sm mb-0">
-                        <b>Codigo coordinador: </b> {DataCoordinator.cod_coordinator}
+                    <div className="card-header text-muted border-bottom-0">                      
+                      <p className="text-muted text-sm mb-0">
+                        <b>Nombre: </b> {DataPrincipal.name}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Nombre: </b> {DataCoordinator.name}
+                        <b>Apellido paterno: </b> {DataPrincipal.f_lastname}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Apellido paterno: </b> {DataCoordinator.f_lastname}
+                        <b>Apellido materno: </b> {DataPrincipal.m_lastname}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Apellido materno: </b> {DataCoordinator.m_lastname}
+                        <b>Email: </b> {DataPrincipal.email}
                       </p>
                       <p className="text-muted text-sm mb-0">
-                        <b>Email: </b> {DataCoordinator.email}
+                        <b>Filiacion: </b> {DataPrincipal.filiation}
                       </p>
-                    </div>
-                    <div className="card-body pt-0">
-                      <div className="row">
-                        <div className="col-7">
-                          <ul className="ml-4 mb-0 fa-ul text-muted">
-                            <li className="small">
-                              <span className="fa-li">
-                                <i className="fas fa-lg fa-phone" />
-                              </span>{" "}
-                              # de celular: {DataCoordinator.phone}
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+                      <p className="text-muted text-sm mb-0">
+                        <b>Categoria: </b> {DataPrincipal.category}
+                      </p>
+                      <p className="text-muted text-sm mb-0">
+                        <b>Director(a) Email: </b> {DataPrincipal.username}
+                      </p>
+                      <ul className="ml-4 mb-0 fa-ul text-muted mt-2">
+                        <li className="small">
+                          <span className="fa-li">
+                            <i className="fas fa-lg fa-phone" />
+                          </span>{" "}
+                          # de celular: {DataPrincipal.phone}
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -261,6 +294,7 @@ const InformationCoordinator = () => {
             type="submit"
             className="btn btn-danger float-left"
             style={{ marginLeft: "35px" }}
+            onClick={props.history.goBack}
           >
             Volver
           </button>
@@ -273,8 +307,11 @@ const InformationCoordinator = () => {
           </button>
         </div>
       </div>
+      
+        )
+      }
       <Footer />
     </Fragment>
   );
 };
-export default InformationCoordinator;
+export default InformationPrincipal;

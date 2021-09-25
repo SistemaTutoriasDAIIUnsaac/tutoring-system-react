@@ -17,7 +17,6 @@ const NewAppointment = (props) => {
     diagnosis: "SN"
   })
 
-
   const fixedData = () => {
     var fxd_date = AppointmentData.date_time;
     fxd_date = fxd_date.substring(2,fxd_date.length);
@@ -26,9 +25,8 @@ const NewAppointment = (props) => {
   }
 
   useEffect(() => {
-    console.log(AppointmentData)    
-
-  }, [AppointmentData]);
+    
+  }, []);
 
   return (
     <Fragment>

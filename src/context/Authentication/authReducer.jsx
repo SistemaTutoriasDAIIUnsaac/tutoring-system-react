@@ -9,6 +9,7 @@ SET_NAVBAR_LIST,
 SELECT_NAV_ITEM,
 SET_LAST_URL,
 CHANGE_PASSWORD_SUCCESSFUL,
+CLEAR_MESSAGE,
 } from '../types';
 
 export default (state, action) => {
@@ -34,20 +35,14 @@ export default (state, action) => {
         authenticated: null,
         user: null,
         navbarList: [],
-        currentURL: null,        
+        currentURL: null,
         message: action.payload
       }
     case GET_USER:
       return {
         ...state,
         authenticated: true,
-        user: {
-          ...state.user,
-          username: action.payload.username,
-          id: action.payload.id,
-          role: action.payload.role,
-        },
-        message: action.payload.message
+        user: action.payload,    
         }
     case SET_NAVBAR_LIST:
       return {
@@ -60,11 +55,11 @@ export default (state, action) => {
         ...state,
         currentURL: action.payload
       }
-    // case SELECT_NAV_ITEM:
-    //   return {
-    //     ...state,
-    //     navbarList: action.pay
-    //   }
+    case CLEAR_MESSAGE:
+      return {
+        ...state,
+        message: null
+      }
 
     default:
       return state;

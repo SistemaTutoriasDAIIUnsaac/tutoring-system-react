@@ -1,10 +1,15 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import AdminContext from "../context/AdminFunctions/adminContext";
 
 function DistributeStudents() {
+
+  const adminContext = useContext(AdminContext);
+  const { distributeStudents, adminMessage } = adminContext;
+
   const [ModalPassword, setModalPassword] = useState("");
 
   const handleModalPassword = (e) => {
@@ -14,10 +19,15 @@ function DistributeStudents() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    e.target.reset();
-
-    console.log(`Autodesctruccion lanzada, codigo: ${ModalPassword}`);
+    // e.target.reset();
+    distributeStudents()
   };
+
+  useEffect(() => {
+    if (adminMessage) {
+      console.log(adminMessage);
+    }
+  },[adminMessage]);
 
   return (
     <Fragment>
@@ -68,17 +78,38 @@ function DistributeStudents() {
                         style={{ height: 50 }}
                         data-toggle="modal"
                         data-target="#modal-default"
-                        style={{ color: "white" ,backgroundColor: "#060c2d"}}
+                        style={{ color: "white" ,backgroundColor: "#060c2d"}}                      
                       >
                         <h4> -- Distribuir Alumnos -- </h4>
                       </button>
                     </div>
                     {/* </div> */}
-                    <div className="card card-secondary">
+                    <div className="card card-danger">
                       <div className="card-header">
-                        <h3 className="card-title">Danger</h3>
+                        <h3 className="card-title">Cuidado</h3>
                       </div>
-                      <div className="card-body">The body of the card</div>
+                      <div className="card-body">La distribucion de alumnos toma todos los alumnos que se encuentren en el sistema y los distribuye
+                      equitativamente a los tutores que se encuentren en el sistema. 
+                      <div>
+                        <ul>
+                          <li>
+                          Si un tutor ya tiene alumnos asignados, este mantendra sus alumnos,
+                          y solo se le asignaran los nuevos alumnos, si existiesen.       
+                          </li>
+                          <li>
+                          Si un estudiante no tiene tutor asignado, este sera asignado a un tutor 
+                          que tenga menos alumnos asignados.
+                          </li>
+                          <li>
+                          Si todos los tutores tienen la misma cantidad de alumnos asignados la distribucion de los nuevos 
+                          alumnos sera equitativa.
+                          </li>
+                        </ul>
+                      </div>                                                                                  
+                      <br />
+                      NOTA: Debe tener cuidado puesto que este cambio es muy dificil de revertir, se recomienda realizar la distribucion de alumnos,
+                      solo una vez por Programa de Tutoria.
+                      </div>
                       {/* /.card-body */}
                     </div>
                     {/* /.card-body end */}
@@ -135,7 +166,7 @@ function DistributeStudents() {
                   data-dismiss="modal"
                   style={{ color: "white" ,backgroundColor: "#060c2d"}}
                   // onSubmit={onSubmit}
-                  onClick={(e) => onSubmit(e)}
+                  onClick={(e) => {onSubmit(e)}}
                 >
                   Distribuir
                 </button>

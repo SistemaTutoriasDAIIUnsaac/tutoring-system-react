@@ -15,7 +15,7 @@ function News({data}) {
             <div className="col-sm-2">
                 <div className="form-group">
                   <label>Fecha</label>
-                  <input type="text" className="form-control" disabled="true" value={data.date}/>
+                  <input type="text" className="form-control" disabled="true" value={data.date_time}/>
                   
                 </div>
               </div>
@@ -23,7 +23,7 @@ function News({data}) {
                 <div className="form-group">
                   <label>Título</label>
                   <div className="input-group">
-                    <input type="text" className="form-control" disabled="true" value={data.title }/>
+                    <input type="text" className="form-control" disabled="true" value={data.title}/>
                   </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@ function News({data}) {
                   <label>Persona</label>
                   <div className="input-group">
                     <div className="input-group-prepend"></div>
-                    <input type="text" class="form-control" disabled="true" value={data.person}>
+                    <input type="text" class="form-control" disabled="true" value={data.whom}>
                     </input>
                   </div>
                 </div>

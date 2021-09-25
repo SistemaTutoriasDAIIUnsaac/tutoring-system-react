@@ -13,15 +13,15 @@ function SideBar() {
     name: "",
     lastname: "",
     role: "",
-    img: "../../dist/img/user4-128x128.jpg",
+    img: "/../../dist/img/user5-128x128.jpg",
   })
 
   useEffect( () => {
     if(authenticated && user) {
       setUserData({
-        name: user.username,
+        name: `${user.name} ${user.f_lastname} ${user.m_lastname}`,
         role: user.role,
-        img: "../../dist/img/user4-128x128.jpg",
+        img: "../../dist/img/user8-128x128.jpg",
       })
     }
     setDataMenu(navbarList)
@@ -50,7 +50,7 @@ function SideBar() {
       case "tutor":
         return "Docente Tutor";
       case "principal":
-        return "Director de Escuela";
+        return "Director(a) de Escuela";
       default:
         return "";
     }
@@ -62,7 +62,7 @@ function SideBar() {
       <a href="#" className="brand-link" style={{backgroundColor: "#eb9b44"}}>
         
         <img
-          src="/UNSAACW.png"
+          src="/unsaac.png"
           alt="AdminLTE Logo"
           className="brand-image img-circle elevation-3"
           style={{ opacity: "1" }}

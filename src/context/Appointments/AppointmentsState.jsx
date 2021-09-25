@@ -12,6 +12,7 @@ function AppointmentsState({ children }) {
     appointmentList: [],
     appointmentSelected: null,
     appointmentNew: null,
+    news: []
   };
 
   // useState is a hook that allows us to create a state variable
@@ -74,6 +75,14 @@ function AppointmentsState({ children }) {
     });
   }
 
+  const getNews = async () => {
+    const res = await clienteAxios.get("/new_list_coordinator");
+    console.log(res.data)
+    dispatch({
+      type: 'GET_NEWS',
+      payload: res.data
+    });
+  }
   
   return (
     //Context provider
@@ -87,13 +96,15 @@ function AppointmentsState({ children }) {
         postAppointmentNew,
         getAppointment,
         cleanAppointment,
+        getNews,
         // Values
         tutor: state.tutor,
         studentsList: state.studentsList,
         studentSelected: state.studentSelected,
         appointmentList: state.appointmentList,
         appointmentNew: state.appointmentNew,
-        appointmentSelected: state.appointmentSelected
+        appointmentSelected: state.appointmentSelected,
+        news: state.news,
       }}
     >
       {children}

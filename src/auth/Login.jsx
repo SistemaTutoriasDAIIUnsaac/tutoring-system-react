@@ -4,7 +4,7 @@ import AuthContext from "../context/Authentication/authContext";
 
 function Login(props) {
   const authContext = useContext(AuthContext);
-  const { authenticated, loginUser, getUserData, currentURL, message } = authContext;
+  const { authenticated, loginUser, getUserData, currentURL, message, clearMessage } = authContext;
 
   const [LoginData, setLoginData] = useState({
     username: "",
@@ -14,10 +14,11 @@ function Login(props) {
   useEffect(() => {
     if (authenticated){
       const lastURL = localStorage.getItem('lastURL');
-      lastURL === null ? (props.history.push('/Novedades')) : (props.history.push(lastURL));      
+      lastURL === null ? (props.history.push('/novedades')) : (props.history.push(lastURL));      
     }
     if (message) {
       alert(message);
+      clearMessage();
     }
     console.log(LoginData);
   }, [authenticated, props.history, message]);
@@ -38,7 +39,7 @@ function Login(props) {
           <div className="card-header text-center">
             {/* <a href="!#" className="h1"> */}
             <h1>
-              <img src="/UNSAACW.png" style={{ width: 130 }} alt="" /> <br />
+              <img src="/unsaac.png" style={{ width: 130 }} alt="" /> <br />
               <b>
                 Sistema de Tutorias <br /> UNSAAC{" "}
               </b>

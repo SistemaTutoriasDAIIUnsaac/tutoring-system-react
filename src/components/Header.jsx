@@ -1,11 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/Authentication/authContext";
 
 function Header(props) {
 
   const authContext = useContext(AuthContext)
-  const { logOut } = authContext;
+  const { navbarList, user, authenticated, logOut } = authContext;
+  
+  
+  const [UserData, setUserData] = useState({
+    name: "",
+    lastname: "",
+    role: "",
+    img: "/../../dist/img/user5-128x128.jpg",
+  })
+
+  useEffect( () => {
+    if(authenticated && user) {
+      setUserData({
+        name: `${user.name}`,
+        lastname: `${user.f_lastname} ${user.m_lastname}`,
+        role: user.role,
+        img: "../../dist/img/user8-128x128.jpg",
+      })
+    }
+  }, [user, authenticated, navbarList])
+
 
   return (
     <nav className="main-header navbar navbar-expand navbar-white navbar-light" style={{height:87}} >
@@ -53,7 +73,7 @@ function Header(props) {
             role="button"
           >
             <i className="fas fa-user" style={{ marginRight: 10 }} />
-            <b>Waldo Elio Ibarra Zambrano</b>
+              <b>{`${UserData.name} ${UserData.lastname}`}</b>
           </a>
         </li>
         <li>
