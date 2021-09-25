@@ -47,7 +47,7 @@ const UploadFiles = () => {
     }
   };
   useEffect(() => {
-    console.log(Data);
+    // console.log(Data);
   }, []);
 
   return (
