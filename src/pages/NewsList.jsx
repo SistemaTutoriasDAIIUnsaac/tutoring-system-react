@@ -79,7 +79,7 @@ function NewsList(props) {
               <div className="row">
                 <div className="col-12">                  
                   <div className="card">
-                    <button className="btn btn-primary col-3 mt-3 ml-4" onClick={() => {props.history.push("/agregar_novedad")}}><h5>Agregar Novedad +</h5></button>
+                    <button className="btn btn-primary col-3 mt-3 ml-4" style={{backgroundColor: "#060c2d"}} onClick={() => {props.history.push("/agregar_novedad")}}><h5>Agregar Novedad +</h5></button>
                     <div className="card-body">
                       <div className="card card-primary">
                         <div

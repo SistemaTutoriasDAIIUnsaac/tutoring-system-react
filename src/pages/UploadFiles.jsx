@@ -1,10 +1,8 @@
 import React, { Fragment, useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import data1 from "../d";  
+import { Link } from "react-router-dom"; 
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import data2 from "../s";
 import Papa from "papaparse";
 import AdminContext from "../context/AdminFunctions/adminContext";
 
@@ -18,17 +16,7 @@ const UploadFiles = () => {
   const [JsonData1, setJsonData1] = useState();
   const [JsonData2, setJsonData2] = useState();
   
-  // console.log(data);
-  const SendData1 = () => {
-    setJsonData1(data1);
-    console.log(JsonData1);
-    uploadTeachers(JsonData1);
-  }
-  const SendData2 = () => {
-    setJsonData2(data2);
-    console.log(JsonData2);
-    uploadStudents(JsonData2)
-  }
+  // console.log(data);  
   const [File1, setFile1] = useState([]);
   const [File2, setFile2] = useState([]);  
 
@@ -49,17 +37,17 @@ const UploadFiles = () => {
     const files = e.target.files;
     console.log(files);
     if (files) {
-      // console.log(files[0]);
+      console.log(files[0]);
       setFile2(files[0]);
       Papa.parse(files[0], {
         complete: function (results) {
-          // console.log("Finished:", results.data);
+          console.log("Finished:", results.data);
         },
       });
     }
   };
   useEffect(() => {
-    // console.log(Data);
+    console.log(Data);
   }, []);
 
   return (
@@ -136,7 +124,9 @@ const UploadFiles = () => {
                                 color: "#ffffff",
                                 backgroundColor: "#060c2d",
                               }}
-                              onClick={() => SendData1()}
+                              // onClick={() => SendData1()}
+                              //
+                              onClick= { () => alert("Por el momento esta funcionalidad esta en mantenimiento, pronto estara lista")}
                             >                              
                               <i className="fas fa-upload"/> Enviar datos Docente
                             </button>
@@ -187,7 +177,8 @@ const UploadFiles = () => {
                                 color: "#ffffff",
                                 backgroundColor: "#060c2d",
                               }}
-                              onClick={() => SendData2()}
+                              // onClick={() => SendData2()}
+                              onClick= { () => alert("Por el momento esta funcionalidad esta en mantenimiento, pronto estara lista")}
                             >
                               <i className="fas fa-upload"/> Enviar datos Estudiante
                             </button>
@@ -238,6 +229,7 @@ const UploadFiles = () => {
                                 color: "#ffffff",
                                 backgroundColor: "#060c2d",
                               }}
+                              onClick= { () => alert("Por el momento esta funcionalidad esta en mantenimiento, pronto estara lista")}
                             >
                               <i className="fas fa-lg " /> Enviar datos
                             </button>
